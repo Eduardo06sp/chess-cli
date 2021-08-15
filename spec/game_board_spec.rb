@@ -4,4 +4,7 @@ require_relative '../lib/game_board'
 
 describe GameBoard do
   subject(:new_board) { GameBoard.new }
+
+  describe '#create_board' do
+  end
 end
