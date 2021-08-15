@@ -15,5 +15,10 @@ describe GameBoard do
   end
 
   describe '@board' do
+    it 'contains key a1' do
+      valid_key = 'a1'
+      board = new_board.instance_variable_get(:@board)
+      expect(board.key?(valid_key)).to eq(true)
+    end
   end
 end
