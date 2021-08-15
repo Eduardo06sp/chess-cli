@@ -13,4 +13,7 @@ describe GameBoard do
       expect(board_keys.count).to eq(64)
     end
   end
+
+  describe '@board' do
+  end
 end
