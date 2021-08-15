@@ -20,5 +20,11 @@ describe GameBoard do
       board = new_board.instance_variable_get(:@board)
       expect(board.key?(valid_key)).to eq(true)
     end
+
+    it 'contains key h8' do
+      valid_key = 'h8'
+      board = new_board.instance_variable_get(:@board)
+      expect(board.key?(valid_key)).to eq(true)
+    end
   end
 end
