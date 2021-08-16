@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Knight
-  def initialize
+  def initialize(color)
+    @color = color
   end
 end
