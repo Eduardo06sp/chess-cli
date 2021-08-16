@@ -2,5 +2,6 @@
 
 class Cell
   def initialize
+    @value = ' '
   end
 end
