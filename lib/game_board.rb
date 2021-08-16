@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'cell'
+
 class GameBoard
   def initialize
     @board = create_board
