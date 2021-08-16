@@ -4,5 +4,15 @@ class Knight
   def initialize(color)
     @color = color
     @legal_moves = nil
+    @movement_directions = [
+      [1, 2],
+      [2, 1],
+      [2, -1],
+      [1, -2],
+      [-1, -2],
+      [-2, -1],
+      [-2, 1],
+      [-1, 2]
+    ]
   end
 end
