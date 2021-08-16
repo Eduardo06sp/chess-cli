@@ -5,5 +5,6 @@ class Rook
     @color = color
     @moved = false
     @legal_moves = nil
+    @movement_directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]
   end
 end
