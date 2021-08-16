@@ -13,7 +13,7 @@ class GameBoard
     board = {}
 
     x_axis.each do |letter|
-      y_axis.each { |num| board["#{letter}#{num}"] = ' ' }
+      y_axis.each { |num| board["#{letter}#{num}"] = Cell.new }
     end
 
     board
