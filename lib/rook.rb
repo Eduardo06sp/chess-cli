@@ -3,5 +3,6 @@
 class Rook
   def initialize(color)
     @color = color
+    @moved = false
   end
 end
