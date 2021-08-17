@@ -15,5 +15,6 @@ class King
       [-1, 1]
     ]
     @moved = false
+    @in_check = false
   end
 end
