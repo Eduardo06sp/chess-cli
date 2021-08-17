@@ -2,6 +2,7 @@
 
 class Rook
   def initialize(color)
+    @type = 'Rook'
     @color = color
     @moved = false
     @legal_moves = nil
