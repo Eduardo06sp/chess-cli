@@ -2,6 +2,7 @@
 
 class Bishop
   def initialize(color)
+    @type = 'Bishop'
     @color = color
     @legal_moves = nil
     @movement_directions = [
