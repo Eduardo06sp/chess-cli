@@ -18,4 +18,8 @@ class GameBoard
 
     board
   end
+
+  def add_piece(piece, destination)
+    board[destination] = piece
+  end
 end
