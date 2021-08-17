@@ -2,6 +2,7 @@
 
 class Knight
   def initialize(color)
+    @type = 'Knight'
     @color = color
     @legal_moves = nil
     @movement_directions = [
