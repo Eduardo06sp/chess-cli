@@ -16,5 +16,6 @@ class King
     ]
     @moved = false
     @in_check = false
+    @mated = false
   end
 end
