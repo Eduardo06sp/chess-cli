@@ -4,5 +4,6 @@ class Pawn
   def initialize(color)
     @color = color
     @legal_moves = nil
+    @movement_directions = [[0, 1]]
   end
 end
