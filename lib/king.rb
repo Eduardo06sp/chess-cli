@@ -2,6 +2,7 @@
 
 class King
   def initialize(color)
+    @type = 'King'
     @color = color
     @legal_moves = nil
     @movement_directions = [
