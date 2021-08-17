@@ -2,6 +2,7 @@
 
 class Queen
   def initialize(color)
+    @type = 'Queen'
     @color = color
     @legal_moves = nil
     @movement_directions = [
