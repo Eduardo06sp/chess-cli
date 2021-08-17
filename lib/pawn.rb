@@ -5,5 +5,6 @@ class Pawn
     @color = color
     @legal_moves = nil
     @movement_directions = [[0, 1]]
+    @moved = false
   end
 end
