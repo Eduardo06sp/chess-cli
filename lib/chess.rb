@@ -8,4 +8,7 @@ class Chess
     @player_two = player_two
     @game_board = GameBoard.new
   end
+
+  def first_turn
+  end
 end
