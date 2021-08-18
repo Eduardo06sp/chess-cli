@@ -25,23 +25,23 @@ class Chess
   end
 
   def fill_king_rank(color, rank)
-    game_board.board.add_piece(Rook.new(color), "a#{rank}")
-    game_board.board.add_piece(Knight.new(color), "b#{rank}")
-    game_board.board.add_piece(Bishop.new(color), "c#{rank}")
-    game_board.board.add_piece(Queen.new(color), "d#{rank}")
+    game_board.add_piece(Rook.new(color), "a#{rank}")
+    game_board.add_piece(Knight.new(color), "b#{rank}")
+    game_board.add_piece(Bishop.new(color), "c#{rank}")
+    game_board.add_piece(Queen.new(color), "d#{rank}")
 
-    game_board.board.add_piece(King.new(color), "e#{rank}")
+    game_board.add_piece(King.new(color), "e#{rank}")
 
-    game_board.board.add_piece(Bishop.new(color), "f#{rank}")
-    game_board.board.add_piece(Knight.new(color), "g#{rank}")
-    game_board.board.add_piece(Rook.new(color), "h#{rank}")
+    game_board.add_piece(Bishop.new(color), "f#{rank}")
+    game_board.add_piece(Knight.new(color), "g#{rank}")
+    game_board.add_piece(Rook.new(color), "h#{rank}")
   end
 
   def fill_pawn_rank(color, rank)
     files = ('a'..'h').to_a
 
     files.each do |file|
-      game_board.board.add_piece(Pawn.new(color), "#{file}#{rank}")
+      game_board.add_piece(Pawn.new(color), "#{file}#{rank}")
     end
   end
 
