@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 require_relative 'game_board'
+require_relative 'rook'
+require_relative 'knight'
+require_relative 'bishop'
+require_relative 'queen'
+require_relative 'king'
+require_relative 'pawn'
 
 class Chess
   attr_reader :player_one, :player_two, :game_board
