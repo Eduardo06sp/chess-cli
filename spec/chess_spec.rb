@@ -13,5 +13,11 @@ describe Chess do
       allow(player_one).to receive(:color)
       allow(player_two).to receive(:color)
     end
+
+    it 'adds white Queen to d1 with given arguments' do
+      new_game.fill_king_rank('white', '1')
+      game_board = new_game.instance_variable_get(:@game_board)
+      expect(game_board.board['d1'].value.type).to eq('Queen')
+    end
   end
 end
