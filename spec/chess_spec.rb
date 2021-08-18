@@ -38,5 +38,11 @@ describe Chess do
       game_board = new_game.instance_variable_get(:@game_board)
       expect(game_board.board['g2'].value.type).to eq('Pawn')
     end
+
+    it 'adds white Pawn to h2 with given arguments' do
+      new_game.fill_pawn_rank('white', '2')
+      game_board = new_game.instance_variable_get(:@game_board)
+      expect(game_board.board['h2'].value.type).to eq('Pawn')
+    end
   end
 end
