@@ -43,5 +43,11 @@ describe GameBoard do
   end
 
   describe '#clear_space' do
+    it 'empties space h8 when previously occupied by Rook' do
+      new_board.add_piece('Rook', 'h8')
+      new_board.clear_space('h8')
+      board = new_board.instance_variable_get(:@board)
+      expect(board['h8'].value).to eq(' ')
+    end
   end
 end
