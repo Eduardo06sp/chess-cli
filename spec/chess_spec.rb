@@ -19,5 +19,11 @@ describe Chess do
       game_board = new_game.instance_variable_get(:@game_board)
       expect(game_board.board['d1'].value.type).to eq('Queen')
     end
+
+    it 'adds white Knight to b1 with given arguments' do
+      new_game.fill_king_rank('white', '1')
+      game_board = new_game.instance_variable_get(:@game_board)
+      expect(game_board.board['b1'].value.type).to eq('Knight')
+    end
   end
 end
