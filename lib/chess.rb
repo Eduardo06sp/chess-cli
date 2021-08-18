@@ -15,4 +15,7 @@ class Chess
 
     player_two
   end
+
+  def fill_king_rank(color, rank)
+  end
 end
