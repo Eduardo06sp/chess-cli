@@ -20,7 +20,7 @@ class GameBoard
   end
 
   def add_piece(piece, destination)
-    board[destination] = piece
+    board[destination].value = piece
   end
 
   def clear_space(location)
