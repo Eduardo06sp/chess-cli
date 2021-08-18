@@ -22,4 +22,8 @@ class GameBoard
   def add_piece(piece, destination)
     board[destination] = piece
   end
+
+  def clear_space(location)
+    board[location].value = ' '
+  end
 end
