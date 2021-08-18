@@ -9,5 +9,9 @@ describe Chess do
   subject(:new_game) { Chess.new(player_one, player_two) }
 
   describe '#fill_king_rank' do
+    before do
+      allow(player_one).to receive(:color)
+      allow(player_two).to receive(:color)
+    end
   end
 end
