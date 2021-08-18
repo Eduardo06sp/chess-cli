@@ -26,4 +26,9 @@ class GameBoard
   def clear_space(location)
     board[location].value = ' '
   end
+
+  def move_piece(piece, origin, destination)
+    clear_space(origin)
+    add_piece(piece, destination)
+  end
 end
