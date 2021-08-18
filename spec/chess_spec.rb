@@ -3,4 +3,5 @@
 require_relative '../lib/chess'
 
 describe Chess do
+  subject(:new_game) { Chess.new }
 end
