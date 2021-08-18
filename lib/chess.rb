@@ -30,5 +30,10 @@ class Chess
   end
 
   def fill_pawn_rank(color, rank)
+    files = ('a'..'h').to_a
+
+    files.each do |file|
+      game_board.board.add_piece(Pawn.new(color), "#{file}#{rank}")
+    end
   end
 end
