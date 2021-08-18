@@ -28,5 +28,9 @@ describe Chess do
   end
 
   describe '#fill_pawn_rank' do
+    before do
+      allow(player_one).to receive(:color)
+      allow(player_two).to receive(:color)
+    end
   end
 end
