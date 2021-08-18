@@ -41,4 +41,7 @@ describe GameBoard do
       expect(board['a5'].value).to eq('Rook')
     end
   end
+
+  describe '#clear_space' do
+  end
 end
