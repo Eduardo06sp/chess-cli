@@ -19,8 +19,8 @@ class GameBoard
     board
   end
 
-  def add_piece(piece, destination)
-    board[destination].value = piece
+  def add_piece(piece, location)
+    board[location].value = piece
   end
 
   def clear_space(location)
