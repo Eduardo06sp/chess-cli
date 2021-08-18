@@ -3,6 +3,8 @@
 require_relative 'cell'
 
 class GameBoard
+  attr_accessor :board
+
   def initialize
     @board = create_board
   end
