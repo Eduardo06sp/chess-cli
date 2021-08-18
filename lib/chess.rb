@@ -10,5 +10,8 @@ class Chess
   end
 
   def first_turn
+    return player_one if player_one.color == 'white'
+
+    player_two
   end
 end
