@@ -9,3 +9,6 @@ until %w[load new].include?(input)
   puts 'Invalid input!'
   input = gets.chomp
 end
+
+if input == 'new'
+end
