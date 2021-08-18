@@ -33,4 +33,7 @@ describe GameBoard do
       expect(board.key?(invalid_key)).to eq(false)
     end
   end
+
+  describe '#add_piece' do
+  end
 end
