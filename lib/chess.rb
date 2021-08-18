@@ -28,4 +28,7 @@ class Chess
     game_board.board.add_piece(Knight.new(color), "g#{rank}")
     game_board.board.add_piece(Rook.new(color), "h#{rank}")
   end
+
+  def fill_pawn_rank(color, rank)
+  end
 end
