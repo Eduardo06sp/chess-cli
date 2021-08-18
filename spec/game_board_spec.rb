@@ -35,5 +35,10 @@ describe GameBoard do
   end
 
   describe '#add_piece' do
+    it 'adds Rook to a5 when passed as arguments' do
+      new_board.add_piece('Rook', 'a5')
+      board = new_board.instance_variable_get(:@board)
+      expect(board['a5'].value).to eq('Rook')
+    end
   end
 end
