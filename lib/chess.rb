@@ -3,7 +3,7 @@
 require_relative 'game_board'
 
 class Chess
-  attr_reader :player_one, :player_two
+  attr_reader :player_one, :player_two, :game_board
 
   def initialize(player_one, player_two)
     @player_one = player_one
