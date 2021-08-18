@@ -38,5 +38,10 @@ class Chess
   end
 
   def add_initial_pieces
+    fill_king_rank('white', '1')
+    fill_pawn_rank('white', '2')
+
+    fill_pawn_rank('black', '7')
+    fill_king_rank('black' '8')
   end
 end
