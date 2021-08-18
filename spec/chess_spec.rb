@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../lib/chess'
+require_relative '../lib/player'
 
 describe Chess do
   let(:player_one) { instance_double(Player) }
