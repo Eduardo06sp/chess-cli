@@ -26,4 +26,7 @@ describe Chess do
       expect(game_board.board['b1'].value.type).to eq('Knight')
     end
   end
+
+  describe '#fill_pawn_rank' do
+  end
 end
