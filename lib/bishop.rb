@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Bishop
+  attr_reader :type
+
   def initialize(color)
     @type = 'Bishop'
     @color = color

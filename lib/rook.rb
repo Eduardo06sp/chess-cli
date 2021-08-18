@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Rook
+  attr_reader :type
+
   def initialize(color)
     @type = 'Rook'
     @color = color
