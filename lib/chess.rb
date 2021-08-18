@@ -36,4 +36,7 @@ class Chess
       game_board.board.add_piece(Pawn.new(color), "#{file}#{rank}")
     end
   end
+
+  def add_initial_pieces
+  end
 end
