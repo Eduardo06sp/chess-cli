@@ -4,6 +4,7 @@ class Pawn
   attr_reader :type
 
   def initialize(color)
+    @type = 'Pawn'
     @color = color
     @legal_moves = nil
     @movement_directions = [[0, 1]]
