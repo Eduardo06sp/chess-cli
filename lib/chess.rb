@@ -54,5 +54,6 @@ class Chess
   end
 
   def play
+    play_rounds until game_over?
   end
 end
