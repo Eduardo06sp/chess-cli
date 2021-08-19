@@ -18,4 +18,14 @@ if input == 'new'
   puts 'Please enter a name for player two, or press enter to use the default.'
   input = gets.chomp
   p2_name = input == '' ? 'Player 2' : input
+
+  puts 'Please enter a color for player one, or press enter to use the default (white).'
+  input = gets.chomp
+
+  until ['', 'white', 'black'].include?(input)
+    puts 'Please enter a color or press enter without typing.'
+    input = gets.chomp
+  end
+
+  p1_color = input == '' ? 'white' : input
 end
