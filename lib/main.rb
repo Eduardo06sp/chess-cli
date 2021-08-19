@@ -28,4 +28,5 @@ if input == 'new'
   end
 
   p1_color = input == '' ? 'white' : input
+  p2_color = p1_color == 'white' ? 'black' : 'white'
 end
