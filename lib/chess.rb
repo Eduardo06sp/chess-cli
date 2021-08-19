@@ -59,6 +59,7 @@ class Chess
           space.value.type == type
 
         return space
+      end
     end
   end
 
