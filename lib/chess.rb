@@ -59,4 +59,7 @@ class Chess
 
   def play_round
   end
+
+  def game_over?
+  end
 end
