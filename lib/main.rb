@@ -29,4 +29,7 @@ if input == 'new'
 
   p1_color = input == '' ? 'white' : input
   p2_color = p1_color == 'white' ? 'black' : 'white'
+
+  p1 = Player.new(p1_name, p1_color)
+  p2 = Player.new(p2_name, p2_color)
 end
