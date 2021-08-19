@@ -32,4 +32,5 @@ if input == 'new'
 
   p1 = Player.new(p1_name, p1_color)
   p2 = Player.new(p2_name, p2_color)
+  new_game = Chess.new(p1, p2)
 end
