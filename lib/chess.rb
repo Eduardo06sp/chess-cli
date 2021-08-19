@@ -53,6 +53,9 @@ class Chess
     fill_king_rank('black' '8')
   end
 
+  def locate_piece(color, type)
+  end
+
   def play
     play_round until game_over?
   end
