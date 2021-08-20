@@ -67,6 +67,15 @@ class Chess
   end
 
   def locate_available_pieces(color)
+    available_pieces = []
+
+    game_board.board.each do |space, cell|
+      next if cell.value == ' '
+
+      available_pieces << space if cell.value.color == color
+    end
+
+    available_pieces
   end
 
   def play
