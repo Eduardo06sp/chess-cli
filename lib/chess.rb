@@ -73,6 +73,8 @@ class Chess
   end
 
   def request_piece_selection
+    puts "#{turn.name}, please select a gamepiece."
+    input = gets.chomp
   end
 
   def game_over?
