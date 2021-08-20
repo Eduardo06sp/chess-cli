@@ -70,6 +70,7 @@ class Chess
   end
 
   def play_round
+    selected_piece = request_piece_selection
   end
 
   def request_piece_selection
