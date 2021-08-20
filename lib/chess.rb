@@ -78,6 +78,10 @@ class Chess
   end
 
   def validate_input(input, valid_entries)
+    until valid_entries.include?(input)
+      puts 'Invalid input!'
+      input = gets.chomp
+    end
   end
 
   def game_over?
