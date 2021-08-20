@@ -9,6 +9,7 @@ require_relative 'king'
 require_relative 'pawn'
 
 class Chess
+  attr_accessor :turn
   attr_reader :player_one, :player_two, :game_board
 
   def initialize(player_one, player_two)
