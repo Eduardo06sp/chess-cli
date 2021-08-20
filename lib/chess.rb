@@ -72,6 +72,9 @@ class Chess
   def play_round
   end
 
+  def request_piece_selection
+  end
+
   def game_over?
     white_king_location = locate_piece('white', 'King')
     black_king_location = locate_piece('black', 'King')
