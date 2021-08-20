@@ -66,6 +66,9 @@ class Chess
     end
   end
 
+  def locate_available_pieces(color)
+  end
+
   def play
     play_round until game_over?
   end
