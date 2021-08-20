@@ -54,9 +54,11 @@ class Chess
   end
 
   def locate_piece(color, type)
-    game_board.board.each do |space|
-      if space.value.color == color &&
-         space.value.type == type
+    game_board.board.each do |space, cell|
+      next if cell.value == ' '
+
+      if cell.value.color == color &&
+         cell.value.type == type
 
         return space
       end
