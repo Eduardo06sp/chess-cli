@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Knight
-  attr_reader :type
+  attr_reader :type, :color
 
   def initialize(color)
     @type = 'Knight'
