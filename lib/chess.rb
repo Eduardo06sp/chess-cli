@@ -50,7 +50,7 @@ class Chess
     fill_pawn_rank('white', '2')
 
     fill_pawn_rank('black', '7')
-    fill_king_rank('black' '8')
+    fill_king_rank('black', '8')
   end
 
   def locate_piece(color, type)
