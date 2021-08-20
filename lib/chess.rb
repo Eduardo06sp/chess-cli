@@ -77,6 +77,9 @@ class Chess
     input = gets.chomp
   end
 
+  def validate_input(input, valid_entries)
+  end
+
   def game_over?
     white_king_location = locate_piece('white', 'King')
     black_king_location = locate_piece('black', 'King')
