@@ -75,6 +75,7 @@ class Chess
   def request_piece_selection
     puts "#{turn.name}, please select a gamepiece."
     input = gets.chomp
+    validate_input(input, available_pieces)
   end
 
   def validate_input(input, valid_entries)
