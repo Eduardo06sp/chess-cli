@@ -91,7 +91,7 @@ class Chess
     input = gets.chomp
     available_pieces = locate_available_pieces(turn.color)
 
-    validate_input(input, available_pieces)
+    validated_input = validate_input(input, available_pieces)
   end
 
   def validate_input(input, valid_entries)
