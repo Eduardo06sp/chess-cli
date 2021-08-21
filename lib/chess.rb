@@ -94,6 +94,9 @@ class Chess
     validated_input = validate_input(input, available_pieces)
   end
 
+  def request_destination
+  end
+
   def validate_input(input, valid_entries)
     until valid_entries.include?(input)
       puts 'Invalid input!'
