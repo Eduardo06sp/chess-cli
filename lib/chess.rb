@@ -95,6 +95,8 @@ class Chess
   end
 
   def request_destination
+    puts "#{turn.name}, please make a move."
+    input = gets.chomp
   end
 
   def validate_input(input, valid_entries)
