@@ -100,6 +100,12 @@ class Chess
   end
 
   def legal_moves(piece_location)
+    piece = game_board.board[piece_location].value
+
+    legal_moves = []
+    x_values = ('a'..'h').to_a
+    current_x_index = x_values.index(piece_location[0])
+    current_y = piece_location[1].to_i
   end
 
   def validate_input(input, valid_entries)
