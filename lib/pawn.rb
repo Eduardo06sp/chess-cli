@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Pawn
-  attr_reader :type, :color
+  attr_reader :type, :color, :movement_directions
 
   def initialize(color)
     @type = 'Pawn'

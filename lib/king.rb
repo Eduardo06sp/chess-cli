@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class King
-  attr_reader :type, :color, :mated
+  attr_reader :type, :color, :movement_directions, :mated
 
   def initialize(color)
     @type = 'King'
