@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class King
+  attr_accessor :legal_moves
   attr_reader :type, :color, :movement_directions, :mated
 
   def initialize(color)
