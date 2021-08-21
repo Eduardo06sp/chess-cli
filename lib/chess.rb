@@ -99,7 +99,7 @@ class Chess
     input = gets.chomp
   end
 
-  def legal_moves(piece)
+  def legal_moves(piece_location)
   end
 
   def validate_input(input, valid_entries)
