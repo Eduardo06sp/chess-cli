@@ -99,6 +99,9 @@ class Chess
     input = gets.chomp
   end
 
+  def legal_moves(piece)
+  end
+
   def validate_input(input, valid_entries)
     until valid_entries.include?(input)
       puts 'Invalid input!'
