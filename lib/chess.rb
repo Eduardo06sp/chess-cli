@@ -107,6 +107,8 @@ class Chess
       puts 'Invalid input!'
       input = gets.chomp
     end
+
+    input
   end
 
   def game_over?
