@@ -118,10 +118,7 @@ class Chess
     legal_moves = []
 
     piece.movement_directions.each do |x, y|
-      new_x_index = old_x + x
-      new_x_value = x_values[new_x_index]
-      new_y_value = old_y + y
-      new_coordinates = "#{new_x_value}#{new_y_value}"
+      new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
 
       new_location = game_board.board[new_coordinates]
       next if new_location.nil?
