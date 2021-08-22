@@ -119,13 +119,12 @@ class Chess
 
     piece.movement_directions.each do |x, y|
       new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
-
       new_location = game_board.board[new_coordinates]
+
       next if new_location.nil?
 
-      if new_location.value == ' '
-        legal_moves << new_coordinates
-      elsif new_location.value.color != turn.color
+      if new_location.value == ' ' ||
+         new_location.value.color != turn.color
         legal_moves << new_coordinates
       end
     end
