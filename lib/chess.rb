@@ -102,7 +102,6 @@ class Chess
   def legal_moves(piece_location)
     piece = game_board.board[piece_location].value
 
-    legal_moves = []
     x_values = ('a'..'h').to_a
     current_x_index = x_values.index(piece_location[0])
     current_y = piece_location[1].to_i
@@ -110,24 +109,31 @@ class Chess
     if piece.type == 'Knight' ||
        piece.type == 'King' ||
        piece.type == 'Pawn'
-
-      piece.movement_directions.each do |x, y|
-        new_x_index = current_x_index + x
-        new_x_value = x_values[new_x_index]
-        new_y_value = current_y + y
-        new_coordinates = "#{new_x_value}#{new_y_value}"
-
-        new_location = game_board.board[new_coordinates]
-        next if new_location.nil?
-
-        if new_location.value == ' '
-          legal_moves << new_coordinates
-        elsif new_location.value.color != turn.color
-          legal_moves << new_coordinates
-        end
-      end
+      generate_legal_moves(piece, x_values, current_x_index, current_y)
     else
     end
+  end
+
+  def generate_legal_moves(piece, x_values, old_x, old_y)
+    legal_moves = []
+
+    piece.movement_directions.each do |x, y|
+      new_x_index = old_x + x
+      new_x_value = x_values[new_x_index]
+      new_y_value = old_y + y
+      new_coordinates = "#{new_x_value}#{new_y_value}"
+
+      new_location = game_board.board[new_coordinates]
+      next if new_location.nil?
+
+      if new_location.value == ' '
+        legal_moves << new_coordinates
+      elsif new_location.value.color != turn.color
+        legal_moves << new_coordinates
+      end
+    end
+
+    legal_moves
   end
 
   def validate_input(input, valid_entries)
