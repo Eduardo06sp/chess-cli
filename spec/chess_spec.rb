@@ -74,5 +74,8 @@ describe Chess do
         expect(pawn_moves).to eq(%w[c3])
       end
     end
+
+    context 'when initial board is set up and specified piece is moved anywhere' do
+    end
   end
 end
