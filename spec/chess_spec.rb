@@ -53,6 +53,16 @@ describe Chess do
         allow(player_two).to receive(:color)
         new_game.add_initial_pieces
       end
+
+      it 'updates legal moves for Queen-side white Knight properly ' do
+        knight_location = 'b1'
+        knight = new_game.game_board.board[knight_location].value
+
+        new_game.generate_legal_moves(knight_location)
+
+        knight_moves = knight.legal_moves
+        expect(knight_moves).to eq(%w[a3 c3])
+      end
     end
   end
 end
