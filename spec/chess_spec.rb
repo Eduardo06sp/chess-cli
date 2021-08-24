@@ -45,4 +45,7 @@ describe Chess do
       expect(game_board.board['h2'].value.type).to eq('Pawn')
     end
   end
+
+  describe '#generate_legal_moves' do
+  end
 end
