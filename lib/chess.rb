@@ -109,12 +109,12 @@ class Chess
     if piece.type == 'Knight' ||
        piece.type == 'King' ||
        piece.type == 'Pawn'
-      generate_legal_moves(piece, x_values, current_x_index, current_y)
+      generate_single_moves(piece, x_values, current_x_index, current_y)
     else
     end
   end
 
-  def generate_legal_moves(piece, x_values, old_x, old_y)
+  def generate_single_moves(piece, x_values, old_x, old_y)
     legal_moves = []
 
     piece.movement_directions.each do |x, y|
