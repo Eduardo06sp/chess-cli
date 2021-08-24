@@ -54,7 +54,7 @@ describe Chess do
         new_game.add_initial_pieces
       end
 
-      it 'updates legal moves for Queen-side white Knight properly ' do
+      it 'updates legal moves for Queen-side white Knight properly' do
         knight_location = 'b1'
         knight = new_game.game_board.board[knight_location].value
 
