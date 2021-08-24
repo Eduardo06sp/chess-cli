@@ -61,7 +61,7 @@ describe Chess do
         new_game.generate_legal_moves(knight_location)
 
         knight_moves = knight.legal_moves
-        expect(knight_moves).to eq(%w[a3 c3])
+        expect(knight_moves).to eq(%w[c3 a3])
       end
     end
   end
