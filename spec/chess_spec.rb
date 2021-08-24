@@ -63,6 +63,16 @@ describe Chess do
         knight_moves = knight.legal_moves
         expect(knight_moves).to eq(%w[c3 a3])
       end
+
+      it 'updates legal moves for c2 Pawn properly' do
+        pawn_location = 'c2'
+        pawn = new_game.game_board.board[pawn_location].value
+
+        new_game.generate_legal_moves(pawn_location)
+
+        pawn_moves = pawn.legal_moves
+        expect(pawn_moves).to eq(%w[c3])
+      end
     end
   end
 end
