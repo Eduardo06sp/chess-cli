@@ -99,7 +99,7 @@ class Chess
     input = gets.chomp
   end
 
-  def legal_moves(piece_location)
+  def generate_legal_moves(piece_location)
     piece = game_board.board[piece_location].value
 
     x_values = ('a'..'h').to_a
