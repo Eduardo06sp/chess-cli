@@ -47,5 +47,7 @@ describe Chess do
   end
 
   describe '#generate_legal_moves' do
+    context 'when initial board is set up' do
+    end
   end
 end
