@@ -111,6 +111,7 @@ class Chess
        piece.type == 'Pawn'
       generate_single_moves(piece, x_values, current_x_index, current_y)
     else
+      generate_repeated_moves(piece, x_values, current_x_index, current_y)
     end
   end
 
