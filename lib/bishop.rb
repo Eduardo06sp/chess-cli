@@ -7,7 +7,7 @@ class Bishop
   def initialize(color)
     @type = 'Bishop'
     @color = color
-    @legal_moves = nil
+    @legal_moves = []
     @movement_directions = [
       [1, 1],
       [1, -1],

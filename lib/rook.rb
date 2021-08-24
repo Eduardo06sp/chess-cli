@@ -8,7 +8,7 @@ class Rook
     @type = 'Rook'
     @color = color
     @moved = false
-    @legal_moves = nil
+    @legal_moves = []
     @movement_directions = [
       [0, 1],
       [1, 0],

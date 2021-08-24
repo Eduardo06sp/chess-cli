@@ -7,7 +7,7 @@ class Queen
   def initialize(color)
     @type = 'Queen'
     @color = color
-    @legal_moves = nil
+    @legal_moves = []
     @movement_directions = [
       [0, 1],
       [1, 1],

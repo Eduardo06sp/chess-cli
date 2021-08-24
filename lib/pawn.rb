@@ -7,7 +7,7 @@ class Pawn
   def initialize(color)
     @type = 'Pawn'
     @color = color
-    @legal_moves = nil
+    @legal_moves = []
     @movement_directions = [[0, 1]]
     @moved = false
   end
