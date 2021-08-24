@@ -122,7 +122,9 @@ class Chess
       new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
       new_location = game_board.board[new_coordinates]
 
-      next if new_location.nil?
+      next if new_location.nil? ||
+              (old_x + x).negative? ||
+              (old_y + y).negative?
 
       if new_location.value == ' ' ||
          new_location.value.color != turn.color
