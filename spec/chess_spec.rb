@@ -76,6 +76,11 @@ describe Chess do
     end
 
     context 'when initial board is set up and specified piece is moved anywhere' do
+      before do
+        allow(player_one).to receive(:color).and_return('white')
+        allow(player_two).to receive(:color).and_return('black')
+        new_game.add_initial_pieces
+      end
     end
   end
 end
