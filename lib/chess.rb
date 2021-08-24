@@ -132,6 +132,35 @@ class Chess
     legal_moves
   end
 
+  def generate_repeated_moves(piece, x_values, old_x, old_y)
+    legal_moves = []
+
+    piece.movement_directions.each do |x, y|
+      new_x = old_x + x
+      new_y = old_y + y
+      new_coordinates = "#{x_values[new_x]}#{new_y}"
+      new_location = game_board.board[new_coordinates]
+
+      until new_x.negative? || new_y.negative?
+        break if new_location.nil?
+
+        if new_location.value.instance_of?(String)
+          legal_moves << new_coordinates
+        else
+          break if new_location.value.color == turn.color
+
+          legal_moves << new_coordinates
+          break
+        end
+
+        new_x += x
+        new_y += y
+        new_coordinates = "#{x_values[new_x]}#{new_y}"
+        new_location = game_board.board[new_coordinates]
+      end
+    end
+  end
+
   def validate_input(input, valid_entries)
     until valid_entries.include?(input)
       puts 'Invalid input!'
