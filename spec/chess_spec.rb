@@ -48,6 +48,11 @@ describe Chess do
 
   describe '#generate_legal_moves' do
     context 'when initial board is set up' do
+      before do
+        allow(player_one).to receive(:color)
+        allow(player_two).to receive(:color)
+        new_game.add_initial_pieces
+      end
     end
   end
 end
