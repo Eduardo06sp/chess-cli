@@ -116,8 +116,6 @@ class Chess
   end
 
   def generate_single_moves(piece, x_values, old_x, old_y)
-    legal_moves = []
-
     piece.movement_directions.each do |x, y|
       new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
       new_location = game_board.board[new_coordinates]
@@ -128,16 +126,12 @@ class Chess
 
       if new_location.value == ' ' ||
          new_location.value.color != turn.color
-        legal_moves << new_coordinates
+        piece.legal_moves << new_coordinates
       end
     end
-
-    legal_moves
   end
 
   def generate_repeated_moves(piece, x_values, old_x, old_y)
-    legal_moves = []
-
     piece.movement_directions.each do |x, y|
       new_x = old_x + x
       new_y = old_y + y
@@ -148,11 +142,11 @@ class Chess
         break if new_location.nil?
 
         if new_location.value.instance_of?(String)
-          legal_moves << new_coordinates
+          piece.legal_moves << new_coordinates
         else
           break if new_location.value.color == turn.color
 
-          legal_moves << new_coordinates
+          piece.legal_moves << new_coordinates
           break
         end
 
