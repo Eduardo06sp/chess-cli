@@ -118,6 +118,18 @@ describe Chess do
                                      e3 d3 c3
                                      c4 b4 a4])
       end
+
+      it 'properly updates e1 King legal_moves if moved to d4' do
+        king = new_game.game_board.board['e1'].value
+        king_moves = king.legal_moves
+        new_king_location = 'd4'
+
+        new_game.game_board.move_piece(king, 'e1', new_king_location)
+        new_game.generate_legal_moves(new_king_location)
+
+        expect(king_moves).to eq(%w[d5 e5 e4 e3
+                                    d3 c3 c4 c5])
+      end
     end
   end
 end
