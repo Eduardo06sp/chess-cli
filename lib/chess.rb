@@ -144,7 +144,7 @@ class Chess
         if space_empty?(new_location)
           piece.legal_moves << new_coordinates
         else
-          break if new_location.value.color == turn.color
+          break if same_color_piece?(new_location)
 
           piece.legal_moves << new_coordinates
           break
@@ -160,6 +160,10 @@ class Chess
 
   def space_empty?(location)
     location.value.instance_of?(String)
+  end
+
+  def same_color_piece?(location)
+    location.value.color == turn.color
   end
 
   def validate_input(input, valid_entries)
