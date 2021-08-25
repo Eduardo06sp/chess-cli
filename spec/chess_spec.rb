@@ -103,6 +103,21 @@ describe Chess do
 
         expect(bishop_moves).to eq(%w[e5 f6 g7 e3 c3 c5 b6 a7])
       end
+
+      it 'properly updates d1 Queen legal_moves if moved to d4' do
+        queen = new_game.game_board.board['d1'].value
+        queen_moves = queen.legal_moves
+        new_queen_location = 'd4'
+
+        new_game.game_board.move_piece(queen, 'd1', new_queen_location)
+        new_game.generate_legal_moves(new_queen_location)
+
+        expect(queen_moves).to eq(%w[d5 d6 d7
+                                     e5 f6 g7
+                                     e4 f4 g4 h4
+                                     e3 d3 c3
+                                     c4 b4 a4])
+      end
     end
   end
 end
