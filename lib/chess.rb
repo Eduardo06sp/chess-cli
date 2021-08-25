@@ -141,7 +141,7 @@ class Chess
       until new_x.negative? || new_y.negative?
         break if new_location.nil?
 
-        if new_location.value.instance_of?(String)
+        if space_empty?(new_location)
           piece.legal_moves << new_coordinates
         else
           break if new_location.value.color == turn.color
@@ -156,6 +156,10 @@ class Chess
         new_location = game_board.board[new_coordinates]
       end
     end
+  end
+
+  def space_empty?(location)
+    location.value.instance_of?(String)
   end
 
   def validate_input(input, valid_entries)
