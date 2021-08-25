@@ -125,7 +125,7 @@ class Chess
               (old_y + y).negative?
 
       if space_empty?(new_location) ||
-         new_location.value.color != turn.color
+         !same_color_piece?(new_location)
         piece.legal_moves << new_coordinates
       end
     end
