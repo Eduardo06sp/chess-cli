@@ -67,10 +67,10 @@ describe Chess do
       it 'updates legal moves for c2 Pawn properly' do
         pawn_location = 'c2'
         pawn = new_game.game_board.board[pawn_location].value
+        pawn_moves = pawn.legal_moves
 
         new_game.generate_legal_moves(pawn_location)
 
-        pawn_moves = pawn.legal_moves
         expect(pawn_moves).to eq(%w[c3])
       end
     end
