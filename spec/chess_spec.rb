@@ -81,6 +81,17 @@ describe Chess do
         allow(player_two).to receive(:color).and_return('black')
         new_game.add_initial_pieces
       end
+
+      it 'properly updates a1 Rook legal_moves if moved to d4' do
+        rook = new_game.game_board.board['a1'].value
+        rook_moves = rook.legal_moves
+        new_rook_location = 'd4'
+
+        new_game.game_board.move_piece(rook, 'a1', new_rook_location)
+        new_game.generate_legal_moves(new_rook_location)
+
+        expect(rook_moves).to eq(%w[d5 d6 d7 e4 f4 g4 h4 d3 c4 b4 a4])
+      end
     end
   end
 end
