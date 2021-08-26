@@ -166,6 +166,9 @@ class Chess
     location.value.color == turn.color
   end
 
+  def king_checked?
+  end
+
   def validate_input(input, valid_entries)
     until valid_entries.include?(input)
       puts 'Invalid input!'
