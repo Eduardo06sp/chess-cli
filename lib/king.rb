@@ -2,7 +2,7 @@
 
 class King
   attr_accessor :legal_moves
-  attr_reader :type, :color, :movement_directions, :mated
+  attr_reader :type, :color, :movement_directions, :checkmated
 
   def initialize(color)
     @type = 'King'
@@ -20,6 +20,6 @@ class King
     ]
     @moved = false
     @in_check = false
-    @mated = false
+    @checkmated = false
   end
 end
