@@ -178,6 +178,8 @@ class Chess
   end
 
   def under_attack?(location)
+    opponent_color = turn.color == 'white' ? 'black' : 'white'
+    update_legal_moves(opponent_color)
   end
 
   def king_checked?
