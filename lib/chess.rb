@@ -177,7 +177,7 @@ class Chess
     location.value.color == turn.color
   end
 
-  def under_attack?(location)
+  def under_attack?(coordinate)
     opponent_color = turn.color == 'white' ? 'black' : 'white'
     update_legal_moves(opponent_color)
 
@@ -185,7 +185,7 @@ class Chess
       next if cell.value == ' '
 
       if cell.value.color == opponent_color &&
-         cell.value.legal_moves.include?(location)
+         cell.value.legal_moves.include?(coordinate)
         return true
       end
     end
