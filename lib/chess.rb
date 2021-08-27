@@ -158,6 +158,9 @@ class Chess
     end
   end
 
+  def update_legal_moves(color)
+  end
+
   def space_empty?(location)
     location.value.instance_of?(String)
   end
