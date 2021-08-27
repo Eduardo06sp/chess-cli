@@ -159,8 +159,8 @@ class Chess
   end
 
   def update_legal_moves(color)
-    game_board.board.each do |space, _cell|
-      next if space_empty?(space)
+    game_board.board.each do |space, cell|
+      next if cell.value == ' '
 
       piece_location = game_board.board[space]
       piece = piece_location.value
