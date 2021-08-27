@@ -165,7 +165,7 @@ class Chess
       piece_location = game_board.board[space]
       piece = piece_location.value
 
-      generate_legal_moves(piece_location) if piece.color == color
+      generate_legal_moves(space) if piece.color == color
     end
   end
 
