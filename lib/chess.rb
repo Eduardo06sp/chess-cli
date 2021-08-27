@@ -166,6 +166,9 @@ class Chess
     location.value.color == turn.color
   end
 
+  def under_attack?(location)
+  end
+
   def king_checked?
   end
 
