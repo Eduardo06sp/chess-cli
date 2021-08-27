@@ -194,6 +194,9 @@ class Chess
   end
 
   def king_checked?
+    king_location = locate_piece(turn.color, 'King')
+
+    under_attack?(king_location)
   end
 
   def validate_input(input, valid_entries)
