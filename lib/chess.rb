@@ -193,7 +193,7 @@ class Chess
     false
   end
 
-  def king_checked?
+  def king_in_check?
     king_location = locate_piece(turn.color, 'King')
 
     under_attack?(king_location)
