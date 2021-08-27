@@ -180,6 +180,17 @@ class Chess
   def under_attack?(location)
     opponent_color = turn.color == 'white' ? 'black' : 'white'
     update_legal_moves(opponent_color)
+
+    game_board.board.each do |_space, cell|
+      next if cell.value == ' '
+
+      if cell.value.color == opponent_color &&
+         cell.value.legal_moves.include?(location)
+        return true
+      end
+    end
+
+    false
   end
 
   def king_checked?
