@@ -91,7 +91,7 @@ class Chess
     input = gets.chomp
     available_pieces = locate_available_pieces(turn.color)
 
-    selected_piece_location = validate_input(input, available_pieces)
+    validate_input(input, available_pieces)
   end
 
   def request_destination(piece)
