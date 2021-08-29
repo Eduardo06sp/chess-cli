@@ -90,6 +90,7 @@ class Chess
     puts "#{turn.name}, please select a gamepiece."
     input = gets.chomp
     player_pieces = locate_player_pieces(turn.color)
+    update_legal_moves(turn.color)
 
     if king_in_check?
     else
