@@ -91,7 +91,15 @@ class Chess
     input = gets.chomp
     player_pieces = locate_player_pieces(turn.color)
 
-    validate_input(input, player_pieces)
+    if king_in_check?
+    else
+      available_pieces = player_pieces.select do |space|
+        piece = game_board.board[space].value
+        piece.legal_moves.any?
+      end
+    end
+
+    validate_input(input, available_pieces)
   end
 
   def request_destination(piece)
