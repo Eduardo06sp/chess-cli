@@ -108,6 +108,9 @@ class Chess
     input = gets.chomp
   end
 
+  def directions_under_attack(piece_location)
+  end
+
   def generate_legal_moves(piece_location)
     piece = game_board.board[piece_location].value
 
