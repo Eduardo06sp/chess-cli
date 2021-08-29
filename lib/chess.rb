@@ -117,6 +117,19 @@ class Chess
   end
 
   def attacking_pieces(piece_location)
+    opponent_color = turn.color == 'white' ? 'black' : 'white'
+    attacking_piece_locations = []
+
+    game_board.board.each do |space, cell|
+      next if cell.value == ' '
+
+      if cell.value.color == opponent_color &&
+         cell.value.legal_moves.include?(piece_location)
+        attacking_piece_locations << space
+      end
+    end
+
+    attacking_piece_locations
   end
 
   def generate_legal_moves(piece_location)
