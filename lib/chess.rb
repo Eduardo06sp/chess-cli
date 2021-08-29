@@ -66,16 +66,16 @@ class Chess
     end
   end
 
-  def locate_available_pieces(color)
-    available_pieces = []
+  def locate_player_pieces(color)
+    player_pieces = []
 
     game_board.board.each do |space, cell|
       next if cell.value == ' '
 
-      available_pieces << space if cell.value.color == color
+      player_pieces << space if cell.value.color == color
     end
 
-    available_pieces
+    player_pieces
   end
 
   def play
@@ -89,9 +89,9 @@ class Chess
   def request_piece_selection
     puts "#{turn.name}, please select a gamepiece."
     input = gets.chomp
-    available_pieces = locate_available_pieces(turn.color)
+    player_pieces = locate_player_pieces(turn.color)
 
-    validate_input(input, available_pieces)
+    validate_input(input, player_pieces)
   end
 
   def request_destination(piece)
