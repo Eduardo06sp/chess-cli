@@ -109,6 +109,11 @@ class Chess
   end
 
   def directions_under_attack(piece_location)
+    piece = game_board.board[piece_location].value
+
+    piece.legal_moves.select do |move|
+      under_attack?(move)
+    end
   end
 
   def generate_legal_moves(piece_location)
