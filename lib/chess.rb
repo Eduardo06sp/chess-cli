@@ -247,10 +247,6 @@ class Chess
     location.value.instance_of?(String)
   end
 
-  def same_color_piece?(location)
-    location.value.color == turn.color
-  end
-
   def under_attack?(coordinate)
     opponent_color = turn.color == 'white' ? 'black' : 'white'
     update_legal_moves(opponent_color)
