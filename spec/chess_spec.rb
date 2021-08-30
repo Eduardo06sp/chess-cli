@@ -134,5 +134,7 @@ describe Chess do
   end
 
   describe '#attacking_pieces_locations' do
+    context 'when d1 King is moved to f4 and enemy pieces are moved to attacking positions' do
+    end
   end
 end
