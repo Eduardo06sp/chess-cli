@@ -199,7 +199,7 @@ class Chess
               (old_y + y).negative?
 
       if space_empty?(new_location) ||
-         !same_color_piece?(new_location)
+         piece.color != new_location.value.color
         piece.legal_moves << new_coordinates
       end
     end
@@ -218,7 +218,7 @@ class Chess
         if space_empty?(new_location)
           piece.legal_moves << new_coordinates
         else
-          break if same_color_piece?(new_location)
+          break if piece.color == new_location.value.color
 
           piece.legal_moves << new_coordinates
           break
