@@ -71,7 +71,7 @@ describe Chess do
 
         new_game.generate_legal_moves(pawn_location)
 
-        expect(pawn_moves).to eq(%w[c3])
+        expect(pawn_moves).to eq(%w[c3 c4])
       end
     end
 
