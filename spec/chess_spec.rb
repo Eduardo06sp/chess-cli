@@ -132,4 +132,7 @@ describe Chess do
       end
     end
   end
+
+  describe '#attacking_pieces_locations' do
+  end
 end
