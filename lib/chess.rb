@@ -190,6 +190,9 @@ class Chess
     end
   end
 
+  def generate_pawn_moves(piece, x_values, old_x, old_y)
+  end
+
   def generate_single_moves(piece, x_values, old_x, old_y)
     piece.movement_directions.each do |x, y|
       new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
