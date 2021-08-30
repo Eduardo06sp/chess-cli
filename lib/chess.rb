@@ -91,7 +91,12 @@ class Chess
     input = gets.chomp
     player_pieces = locate_player_pieces(turn.color)
     update_legal_moves(turn.color)
+    available_pieces = available_pieces(player_pieces)
 
+    validate_input(input, available_pieces)
+  end
+
+  def available_pieces(player_pieces)
     if king_in_check?
       king_location = locate_piece(turn.color, 'King')
       directions_under_attack = directions_under_attack(king_location)
@@ -121,7 +126,7 @@ class Chess
       end
     end
 
-    validate_input(input, available_pieces)
+    available_pieces
   end
 
   def request_destination(piece)
