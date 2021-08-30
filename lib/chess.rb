@@ -180,9 +180,10 @@ class Chess
     current_x_index = x_values.index(piece_location[0])
     current_y = piece_location[1].to_i
 
-    if piece.type == 'Knight' ||
-       piece.type == 'King' ||
-       piece.type == 'Pawn'
+    if piece.type == 'Pawn'
+      generate_pawn_moves(piece, x_values, current_x_index, current_y)
+    elsif piece.type == 'Knight' ||
+          piece.type == 'King'
       generate_single_moves(piece, x_values, current_x_index, current_y)
     else
       generate_repeated_moves(piece, x_values, current_x_index, current_y)
