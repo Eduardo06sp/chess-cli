@@ -135,6 +135,11 @@ describe Chess do
 
   describe '#attacking_pieces_locations' do
     context 'when d1 King is moved to f4 and enemy pieces are moved to attacking positions' do
+      before do
+        allow(player_one).to receive(:color).and_return('white')
+        allow(player_two).to receive(:color).and_return('black')
+        new_game.add_initial_pieces
+      end
     end
   end
 end
