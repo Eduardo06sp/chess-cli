@@ -143,6 +143,17 @@ describe Chess do
         king = new_game.game_board.board['e1'].value
         new_game.game_board.move_piece(king, 'e1', 'f4')
       end
+
+      it 'adds a4 if Queen present' do
+        queen = new_game.game_board.board['d8'].value
+        king_location = 'f4'
+
+        new_game.game_board.move_piece(queen, 'd8', 'a4')
+        new_game.generate_legal_moves('a4')
+
+        attacking_pieces = new_game.attacking_pieces_locations(king_location)
+        expect(attacking_pieces).to eq(['a4'])
+      end
     end
   end
 end
