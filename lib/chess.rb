@@ -191,6 +191,9 @@ class Chess
   end
 
   def generate_pawn_moves(piece, x_values, old_x, old_y)
+    piece.movement_directions << [0, 2] unless piece.moved
+
+    generate_single_moves(piece, x_values, old_x, old_y)
   end
 
   def generate_single_moves(piece, x_values, old_x, old_y)
