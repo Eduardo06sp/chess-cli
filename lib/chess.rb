@@ -93,6 +93,27 @@ class Chess
     update_legal_moves(turn.color)
 
     if king_in_check?
+      king_location = locate_piece(turn.color, 'King')
+      directions_under_attack = directions_under_attack(king_location)
+      attacking_pieces_locations = attacking_pieces_locations(king_location)
+
+      available_pieces = if attacking_pieces_locations.count == 1
+                           player_pieces.select do |space|
+                             piece = game_board.board[space].value
+
+                             piece.type == 'King' ||
+                               piece.legal_moves.include?(attacking_pieces_locations[0])
+                           end
+                         elsif directions_under_attack.count == 1
+                           player_pieces.select do |space|
+                             piece = game_board.board[space].value
+
+                             piece.type == 'King' ||
+                               piece.legal_moves.include?(directions_under_attack[0])
+                           end
+                         else
+                           [king_location]
+                         end
     else
       available_pieces = player_pieces.select do |space|
         piece = game_board.board[space].value
