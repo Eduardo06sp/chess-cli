@@ -110,10 +110,25 @@ class Chess
 
   def directions_under_attack(piece_location)
     piece = game_board.board[piece_location].value
+    attacking_pieces = attacking_pieces_locations(piece_location)
+    directions_under_attack = []
 
-    piece.legal_moves.select do |move|
-      under_attack?(move)
+    attacking_pieces.each do |opponent_location|
+      opponent_piece = game_board.board[opponent_location].value
+
+      next if opponent_piece.type == 'King' ||
+              opponent_piece.type == 'Knight' ||
+              opponent_piece.type == 'Pawn'
+
+      piece.legal_moves.each do |legal_move|
+        if opponent_piece.legal_moves.include?(piece_location) &&
+           opponent_piece.legal_moves.include?(legal_move)
+          directions_under_attack << legal_move
+        end
+      end
     end
+
+    directions_under_attack
   end
 
   def attacking_pieces_locations(piece_location)
