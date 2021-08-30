@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Pawn
-  attr_accessor :legal_moves
+  attr_accessor :legal_moves, :moved
   attr_reader :type, :color, :movement_directions
 
   def initialize(color)
