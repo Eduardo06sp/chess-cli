@@ -195,6 +195,10 @@ class Chess
 
     generate_single_moves(piece, x_values, old_x, old_y)
 
+    piece.legal_moves.each do |move|
+      piece.legal_moves.delete(move) if space_occupied?(move)
+    end
+
     capturing_moves = [[1, -1], [1, 1]]
     capturing_moves.each do |x, y|
       new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
