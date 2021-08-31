@@ -182,8 +182,9 @@ class Chess
 
     if piece.type == 'Pawn'
       generate_pawn_moves(piece, x_values, current_x_index, current_y)
-    elsif piece.type == 'Knight' ||
-          piece.type == 'King'
+    elsif piece.type == 'King'
+      generate_king_moves(piece, x_values, current_x_index, current_y)
+    elsif piece.type == 'Knight'
       generate_single_moves(piece, x_values, current_x_index, current_y)
     else
       generate_repeated_moves(piece, x_values, current_x_index, current_y)
