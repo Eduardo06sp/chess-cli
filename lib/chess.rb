@@ -134,6 +134,9 @@ class Chess
     input = gets.chomp
   end
 
+  def moves_under_attack(piece_location)
+  end
+
   def directions_under_attack(piece_location)
     piece = game_board.board[piece_location].value
     attacking_pieces = attacking_pieces_locations(piece_location)
