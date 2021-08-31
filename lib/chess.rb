@@ -194,10 +194,7 @@ class Chess
     piece.movement_directions << [0, 2] unless piece.moved
 
     generate_single_moves(piece, x_values, old_x, old_y)
-
-    piece.legal_moves.each do |move|
-      piece.legal_moves.delete(move) if space_occupied?(move)
-    end
+    remove_occupied_locations(piece)
 
     capturing_moves = [[1, -1], [1, 1]]
     capturing_moves.each do |x, y|
@@ -208,6 +205,12 @@ class Chess
               piece.color == new_location.value.color
 
       piece.legal_moves << new_coordinates
+    end
+  end
+
+  def remove_occupied_locations(piece)
+    piece.legal_moves.each do |move|
+      piece.legal_moves.delete(move) if space_occupied?(move)
     end
   end
 
