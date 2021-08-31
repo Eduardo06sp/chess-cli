@@ -194,6 +194,17 @@ class Chess
     piece.movement_directions << [0, 2] unless piece.moved
 
     generate_single_moves(piece, x_values, old_x, old_y)
+
+    capturing_moves = [[1, -1], [1, 1]]
+    capturing_moves.each do |x, y|
+      new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
+      new_location = game_board.board[new_coordinates]
+
+      next if space_empty?(new_location) ||
+              piece.color == new_location.value.color
+
+      piece.legal_moves << new_coordinates
+    end
   end
 
   def generate_single_moves(piece, x_values, old_x, old_y)
