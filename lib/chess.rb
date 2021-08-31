@@ -208,6 +208,14 @@ class Chess
   end
 
   def space_occupied?(coordinate, color = nil)
+    location = game_board.board[coordinate]
+
+    if color.nil?
+      location.value != ' '
+    else
+      location.value != ' ' &&
+        location.value.color == color
+    end
   end
 
   def generate_single_moves(piece, x_values, old_x, old_y)
