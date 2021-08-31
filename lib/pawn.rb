@@ -9,6 +9,7 @@ class Pawn
     @color = color
     @legal_moves = []
     @movement_directions = [[0, 1]]
+    @capturing_moves = [[1, 1], [-1, 1]]
     @moved = false
   end
 end

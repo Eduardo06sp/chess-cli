@@ -197,7 +197,6 @@ class Chess
     remove_occupied_locations(piece)
 
     generate_capturing_moves(piece, x_values, old_x, old_y)
-    capturing_moves = [[1, -1], [1, 1]]
   end
 
   def generate_capturing_moves(piece, x_values, old_x, old_y)
