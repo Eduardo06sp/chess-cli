@@ -208,6 +208,9 @@ class Chess
     end
   end
 
+  def generate_capturing_moves(piece, x_values, old_x, old_y)
+  end
+
   def remove_occupied_locations(piece)
     piece.legal_moves.each do |move|
       piece.legal_moves.delete(move) if space_occupied?(move)
