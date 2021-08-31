@@ -207,7 +207,7 @@ class Chess
     end
   end
 
-  def space_occupied?(location, color = nil)
+  def space_occupied?(coordinate, color = nil)
   end
 
   def generate_single_moves(piece, x_values, old_x, old_y)
