@@ -194,6 +194,14 @@ describe Chess do
   end
 
   describe '#directions_under_attack' do
+    before do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+      new_game.add_initial_pieces
+
+      king = new_game.game_board.board['e1'].value
+      new_game.game_board.move_piece(king, 'e1', 'c4')
+    end
   end
 
   describe '#available_pieces' do
