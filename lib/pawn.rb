@@ -8,8 +8,16 @@ class Pawn
     @type = 'Pawn'
     @color = color
     @legal_moves = []
-    @movement_directions = [[0, 1]]
+    @movement_directions = get_movement_direction
     @capturing_moves = [[1, 1], [-1, 1]]
     @moved = false
+  end
+
+  def get_movement_direction
+    if color == 'white'
+      [[0, 1]]
+    else
+      [[0, -1]]
+    end
   end
 end
