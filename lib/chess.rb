@@ -176,6 +176,9 @@ class Chess
   end
 
   def single_move_piece?(piece)
+    piece.type == 'King' ||
+      piece.type == 'Knight' ||
+      piece.type == 'Pawn'
   end
 
   def attacking_pieces_locations(piece_location)
