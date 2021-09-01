@@ -165,6 +165,17 @@ describe Chess do
         attacking_pieces = new_game.attacking_pieces_locations(king_location)
         expect(attacking_pieces).to eq(['e6'])
       end
+
+      it 'adds e5 if Pawn present' do
+        pawn = new_game.game_board.board['e7'].value
+        king_location = 'f4'
+
+        new_game.game_board.move_piece(pawn, 'e7', 'e5')
+        new_game.generate_legal_moves('e5')
+
+        attacking_pieces = new_game.attacking_pieces_locations(king_location)
+        expect(attacking_pieces).to eq(['e5'])
+      end
     end
   end
 end
