@@ -204,6 +204,17 @@ describe Chess do
         new_game.game_board.move_piece(king, 'e1', 'c4')
         new_game.generate_legal_moves('c4')
       end
+
+      it 'adds d5 if Bishop is on e6' do
+        bishop = new_game.game_board.board['f8'].value
+        king_location = 'c4'
+
+        new_game.game_board.move_piece(bishop, 'f8', 'e6')
+        new_game.generate_legal_moves('e6')
+
+        directions_under_attack = new_game.directions_under_attack(king_location)
+        expect(directions_under_attack).to eq(['d5'])
+      end
     end
   end
 
