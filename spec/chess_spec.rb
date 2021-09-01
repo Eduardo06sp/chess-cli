@@ -192,4 +192,7 @@ describe Chess do
       end
     end
   end
+
+  describe '#available_pieces' do
+  end
 end
