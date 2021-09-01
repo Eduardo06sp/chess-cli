@@ -135,6 +135,21 @@ class Chess
   end
 
   def moves_under_attack(piece_location)
+    piece = game_board.board[piece_location].value
+    opponent_color = piece.color == 'white' ? 'black' : 'white'
+    opponent_pieces = locate_player_pieces(opponent_color)
+    moves_under_attack = []
+
+    opponent_pieces.each do |opponent_location|
+      opponent_piece = game_board.board[opponent_location].value
+
+      piece.legal_moves.each do |legal_move|
+        moves_under_attack << legal_move if
+        opponent_piece.legal_moves.include?(legal_move)
+      end
+    end
+
+    moves_under_attack
   end
 
   def directions_under_attack(piece_location)
