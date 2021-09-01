@@ -160,9 +160,7 @@ class Chess
     attacking_pieces.each do |opponent_location|
       opponent_piece = game_board.board[opponent_location].value
 
-      next if opponent_piece.type == 'King' ||
-              opponent_piece.type == 'Knight' ||
-              opponent_piece.type == 'Pawn'
+      next if single_move_piece?(opponent_piece)
 
       piece.legal_moves.each do |legal_move|
         if opponent_piece.legal_moves.include?(piece_location) &&
