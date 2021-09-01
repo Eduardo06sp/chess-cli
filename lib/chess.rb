@@ -175,6 +175,9 @@ class Chess
     directions_under_attack
   end
 
+  def single_move_piece?(piece)
+  end
+
   def attacking_pieces_locations(piece_location)
     opponent_color = turn.color == 'white' ? 'black' : 'white'
     attacking_pieces_locations = []
