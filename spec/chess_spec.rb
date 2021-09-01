@@ -202,6 +202,7 @@ describe Chess do
 
         king = new_game.game_board.board['e1'].value
         new_game.game_board.move_piece(king, 'e1', 'c4')
+        new_game.generate_legal_moves('c4')
       end
     end
   end
