@@ -215,6 +215,20 @@ describe Chess do
         directions_under_attack = new_game.directions_under_attack(king_location)
         expect(directions_under_attack).to eq(['d5'])
       end
+
+      it 'adds c5 and d4 if c6 Rook and h4 Queen present' do
+        rook = new_game.game_board.board['a8'].value
+        queen = new_game.game_board.board['d8'].value
+        king_location = 'c4'
+
+        new_game.game_board.move_piece(rook, 'a8', 'c6')
+        new_game.game_board.move_piece(queen, 'd8', 'h4')
+        new_game.generate_legal_moves('c6')
+        new_game.generate_legal_moves('h4')
+
+        directions_under_attack = new_game.directions_under_attack(king_location)
+        expect(directions_under_attack).to eq(%w[c5 d4])
+      end
     end
   end
 
