@@ -233,6 +233,15 @@ describe Chess do
   end
 
   describe '#moves_under_attack' do
+    before do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+      new_game.add_initial_pieces
+
+      king = new_game.game_board.board['e1'].value
+      new_game.game_board.move_piece(king, 'e1', 'f5')
+      new_game.generate_legal_moves('f5')
+    end
   end
 
   describe '#available_pieces' do
