@@ -232,6 +232,9 @@ describe Chess do
     end
   end
 
+  describe '#moves_under_attack' do
+  end
+
   describe '#available_pieces' do
   end
 end
