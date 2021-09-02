@@ -155,6 +155,11 @@ class Chess
   def directions_under_attack(piece_location)
     piece = game_board.board[piece_location].value
     attacking_pieces = attacking_pieces_locations(piece_location)
+
+    find_attack_directions(piece, piece_location, attacking_pieces)
+  end
+
+  def find_attack_directions(piece, piece_location, attacking_pieces)
     directions_under_attack = []
 
     attacking_pieces.each do |opponent_location|
