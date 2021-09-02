@@ -254,6 +254,20 @@ describe Chess do
         moves_under_attack = new_game.moves_under_attack(king_location)
         expect(moves_under_attack).to eq(['e5'])
       end
+
+      it 'adds e4 and e5 if b5 Rook and d3 Bishop present' do
+        rook = new_game.game_board.board['a8'].value
+        bishop = new_game.game_board.board['c8'].value
+        king_location = 'f5'
+
+        new_game.game_board.move_piece(rook, 'a8', 'b5')
+        new_game.game_board.move_piece(bishop, 'c8', 'd3')
+        new_game.generate_legal_moves('b5')
+        new_game.generate_legal_moves('d3')
+
+        moves_under_attack = new_game.moves_under_attack(king_location)
+        expect(moves_under_attack).to eq(%w[e5 e4])
+      end
     end
   end
 
