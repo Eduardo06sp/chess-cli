@@ -243,6 +243,17 @@ describe Chess do
         new_game.game_board.move_piece(king, 'e1', 'f5')
         new_game.generate_legal_moves('f5')
       end
+
+      it 'adds e5 if Queen present in a5' do
+        queen = new_game.game_board.board['d8'].value
+        king_location = 'f5'
+
+        new_game.game_board.move_piece(queen, 'd8', 'a5')
+        new_game.generate_legal_moves('a5')
+
+        moves_under_attack = new_game.moves_under_attack(king_location)
+        expect(moves_under_attack).to eq(['e5'])
+      end
     end
   end
 
