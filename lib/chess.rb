@@ -134,6 +134,9 @@ class Chess
     input = gets.chomp
   end
 
+  def check_blocking_pieces(king_location, attacking_pieces)
+  end
+
   def moves_under_attack(piece_location)
     piece = game_board.board[piece_location].value
     opponent_color = piece.color == 'white' ? 'black' : 'white'
