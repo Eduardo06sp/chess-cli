@@ -318,6 +318,22 @@ describe Chess do
 
         expect(available_pieces).to eq(%w[d4])
       end
+
+      it 'returns d4 and e3 if e5 Pawn attacks d4 King with e3 Rook present' do
+        pawn = new_game.game_board.board['e7'].value
+        new_game.game_board.move_piece(pawn, 'e7', 'e5')
+        new_game.generate_legal_moves('e5')
+
+        rook = new_game.game_board.board['h1'].value
+        new_game.game_board.move_piece(rook, 'h1', 'e3')
+        new_game.generate_legal_moves('e3')
+
+        white_pieces = new_game.locate_player_pieces('white')
+        available_pieces = new_game.available_pieces(white_pieces)
+        new_game.update_legal_moves('white')
+
+        expect(available_pieces).to eq(%w[d4 e3])
+      end
     end
   end
 end
