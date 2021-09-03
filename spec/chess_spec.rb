@@ -293,6 +293,19 @@ describe Chess do
         new_game.game_board.move_piece(king, 'e1', 'd4')
         new_game.generate_legal_moves('d4')
       end
+
+      it 'returns pieces with available moves if King not in check' do
+        new_game.update_legal_moves('white')
+
+        white_pieces = new_game.locate_player_pieces('white')
+        available_pieces = new_game.available_pieces(white_pieces)
+
+
+        expect(available_pieces).to eq(%w[a2 b1 b2
+                                          c2 d1 d2
+                                          d4 e2 f2
+                                          g1 g2 h2])
+      end
     end
   end
 end
