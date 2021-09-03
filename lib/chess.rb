@@ -149,7 +149,7 @@ class Chess
       end
     end
 
-    moves_under_attack
+    moves_under_attack.uniq
   end
 
   def directions_under_attack(piece_location)
