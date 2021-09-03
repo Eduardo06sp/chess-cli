@@ -134,7 +134,7 @@ class Chess
     input = gets.chomp
   end
 
-  def check_blocking_pieces(king_location, attacking_pieces)
+  def check_blocking_pieces(king_location, player_pieces, attacking_pieces)
   end
 
   def moves_under_attack(piece_location)
