@@ -268,6 +268,17 @@ describe Chess do
         moves_under_attack = new_game.moves_under_attack(king_location)
         expect(moves_under_attack).to eq(%w[e5 e4])
       end
+
+      it 'adds e6, f6, g6 and e5 if c4 Knight and initialized Pawns present' do
+        knight = new_game.game_board.board['b8'].value
+        king_location = 'f5'
+
+        new_game.game_board.move_piece(knight, 'b8', 'c4')
+        new_game.update_legal_moves('black')
+
+        moves_under_attack = new_game.moves_under_attack(king_location)
+        expect(moves_under_attack).to eq(%w[e5 e6 f6 g6])
+      end
     end
   end
 
