@@ -306,6 +306,18 @@ describe Chess do
                                           d4 e2 f2
                                           g1 g2 h2])
       end
+
+      it 'returns King location (d4) if e5 Pawn attacks it' do
+        pawn = new_game.game_board.board['e7'].value
+        new_game.game_board.move_piece(pawn, 'e7', 'e5')
+        new_game.generate_legal_moves('e5')
+
+        white_pieces = new_game.locate_player_pieces('white')
+        available_pieces = new_game.available_pieces(white_pieces)
+        new_game.update_legal_moves('white')
+
+        expect(available_pieces).to eq(%w[d4])
+      end
     end
   end
 end
