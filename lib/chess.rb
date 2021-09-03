@@ -241,7 +241,8 @@ class Chess
       new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
       new_location = game_board.board[new_coordinates]
 
-      next if space_empty?(new_location) ||
+      next if new_location.nil? ||
+              space_empty?(new_location) ||
               piece.color == new_location.value.color
 
       piece.legal_moves << new_coordinates
