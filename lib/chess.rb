@@ -126,7 +126,7 @@ class Chess
       end
     end
 
-    available_pieces
+    available_pieces.uniq
   end
 
   def request_destination(piece)
