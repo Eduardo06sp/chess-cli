@@ -134,6 +134,9 @@ class Chess
     input = gets.chomp
   end
 
+  def calculate_attack_path(attack_direction, origin)
+  end
+
   def direction_of_travel(piece_location, adjacent_space)
   end
 
