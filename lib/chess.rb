@@ -141,6 +141,17 @@ class Chess
   end
 
   def direction_of_travel(piece_location, adjacent_space)
+    x_values = ('a'..'h').to_a
+    piece_x_index = x_values.index(piece_location[0])
+    piece_y = piece_location[1].to_i
+
+    adjacent_x_index = x_values.index(adjacent_space[0])
+    adjacent_y = adjacent_space[1].to_i
+
+    x_difference = adjacent_x_index - piece_x_index
+    y_difference = adjacent_y - piece_y
+
+    [x_difference, y_difference]
   end
 
   def check_blocking_pieces(king_location, player_pieces, attacking_pieces)
