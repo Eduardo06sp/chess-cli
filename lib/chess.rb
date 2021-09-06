@@ -134,6 +134,9 @@ class Chess
     input = gets.chomp
   end
 
+  def direction_of_travel(piece_location, adjacent_space)
+  end
+
   def check_blocking_pieces(king_location, player_pieces, attacking_pieces)
   end
 
