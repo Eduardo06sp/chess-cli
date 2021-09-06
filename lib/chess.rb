@@ -134,6 +134,15 @@ class Chess
     input = gets.chomp
   end
 
+  def space_to_coordinate(space)
+    x_values = ('a'..'h').to_a
+
+    x_coordinate = x_values.index(space[0])
+    y_coordinate = space[1].to_i
+
+    [x_coordinate, y_coordinate]
+  end
+
   def attack_paths(king_location)
   end
 
