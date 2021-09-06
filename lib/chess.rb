@@ -143,6 +143,15 @@ class Chess
     [x_coordinate, y_coordinate]
   end
 
+  def coordinate_to_space(coordinate)
+    x_values = ('a'..'h').to_a
+
+    x_value = x_values[coordinate[0]]
+    y_value = coordinate[1].to_s
+
+    "#{x_value}#{y_value}"
+  end
+
   def attack_paths(king_location)
   end
 
