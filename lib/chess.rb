@@ -156,6 +156,22 @@ class Chess
   end
 
   def calculate_attack_path(attack_direction, origin)
+    current_coordinates = space_to_coordinate(origin)
+    current_space_value = ' '
+    attack_path = []
+
+    loop do
+      current_x = current_coordinates[0] + attack_direction[0]
+      current_y = current_coordinates[1] + attack_direction[1]
+      current_coordinates = [current_x, current_y]
+      current_space = coordinate_to_space(current_coordinates)
+      current_space_value = game_board.board[current_space].value
+      break unless current_space_value == ' '
+
+      attack_path << current_space
+    end
+
+    attack_path
   end
 
   def direction_of_travel(piece_location, adjacent_space)
