@@ -340,7 +340,9 @@ describe Chess do
         new_game.game_board.move_piece(queen, 'd8', 'h4')
         new_game.generate_legal_moves('h4')
 
+        new_game.game_board.board['d4'].value.legal_moves = []
         new_game.update_legal_moves('white')
+
         white_pieces = new_game.locate_player_pieces('white')
         available_pieces = new_game.available_pieces(white_pieces)
 
