@@ -158,7 +158,7 @@ class Chess
   def calculate_attack_path(attack_direction, origin)
     current_coordinates = space_to_coordinate(origin)
     current_space_value = ' '
-    attack_path = []
+    attack_path = [origin]
 
     loop do
       current_x = current_coordinates[0] + attack_direction[0]
