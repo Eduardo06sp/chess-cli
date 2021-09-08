@@ -153,6 +153,16 @@ class Chess
   end
 
   def attack_paths(king_location)
+    directions_under_attack = directions_under_attack(king_location)
+    attack_paths = []
+
+    directions_under_attack.each do |space|
+      attack_direction = direction_of_travel(king_location, space)
+
+      attack_paths << calculate_attack_path(attack_direction, space)
+    end
+
+    attack_paths
   end
 
   def calculate_attack_path(attack_direction, origin)
