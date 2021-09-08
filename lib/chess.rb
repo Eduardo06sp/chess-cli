@@ -221,8 +221,8 @@ class Chess
       next if single_move_piece?(opponent_piece)
 
       piece.legal_moves.each do |legal_move|
-        if opponent_piece.legal_moves.include?(piece_location) &&
-           opponent_piece.legal_moves.include?(legal_move)
+        if opponent_piece.legal_moves.include?(legal_move)
+
           directions_under_attack << legal_move
         end
       end
