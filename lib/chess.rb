@@ -263,6 +263,17 @@ class Chess
     attacking_pieces_locations
   end
 
+  def reset_legal_moves(color)
+    game_board.board.each do |space, cell|
+      next if cell.value == ' '
+
+      piece_location = game_board.board[space]
+      piece = piece_location.value
+
+      piece.legal_moves = [] if piece.color == color
+    end
+  end
+
   def generate_legal_moves(piece_location)
     piece = game_board.board[piece_location].value
 
