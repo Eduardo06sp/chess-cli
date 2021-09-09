@@ -298,7 +298,7 @@ class Chess
     moves_under_attack = moves_under_attack(location)
 
     generate_single_moves(piece, x_values, old_x, old_y)
-    piece.legal_moves -= moves_under_attack
+    # piece.legal_moves -= moves_under_attack
   end
 
   def generate_pawn_moves(piece, x_values, old_x, old_y)
