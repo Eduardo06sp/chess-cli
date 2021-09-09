@@ -159,7 +159,7 @@ class Chess
     directions_under_attack.each do |space|
       attack_direction = direction_of_travel(king_location, space)
 
-      attack_paths << calculate_attack_path(attack_direction, space)
+      attack_paths += calculate_attack_path(attack_direction, space)
     end
 
     attack_paths
