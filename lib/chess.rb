@@ -315,14 +315,14 @@ class Chess
     location = "#{x_values[old_x]}#{old_y}"
     moves_under_attack = moves_under_attack(location)
 
-    generate_single_moves(piece, x_values, old_x, old_y)
+    piece.legal_moves = generate_single_moves(piece, x_values, old_x, old_y)
     # piece.legal_moves -= moves_under_attack
   end
 
   def generate_pawn_moves(piece, x_values, old_x, old_y)
     piece.movement_directions << [0, 2] unless piece.moved
 
-    generate_single_moves(piece, x_values, old_x, old_y)
+    piece.legal_moves = generate_single_moves(piece, x_values, old_x, old_y)
     remove_occupied_locations(piece)
 
     generate_capturing_moves(piece, x_values, old_x, old_y)
@@ -359,6 +359,8 @@ class Chess
   end
 
   def generate_single_moves(piece, x_values, old_x, old_y)
+    single_moves = []
+
     piece.movement_directions.each do |x, y|
       new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
       new_location = game_board.board[new_coordinates]
@@ -369,9 +371,11 @@ class Chess
 
       if space_empty?(new_location) ||
          piece.color != new_location.value.color
-        piece.legal_moves << new_coordinates
+        single_moves << new_coordinates
       end
     end
+
+    single_moves
   end
 
   def generate_repeated_moves(piece, x_values, old_x, old_y)
