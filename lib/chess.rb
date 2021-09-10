@@ -195,6 +195,21 @@ class Chess
   end
 
   def check_blocking_pieces(king_location, player_pieces, attacking_pieces)
+    check_blocking_pieces = []
+
+    attack_paths = attack_paths(king_location)
+    player_pieces.each do |space|
+      piece = game_board.board[space].value
+      next if piece.type == 'King'
+
+      attack_paths.each do |attack_space|
+        if piece.legal_moves.include?(attack_space)
+          check_blocking_pieces << space
+        end
+      end
+    end
+
+    check_blocking_pieces
   end
 
   def moves_under_attack(piece_location)
