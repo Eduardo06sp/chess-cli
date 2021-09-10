@@ -67,10 +67,10 @@ describe Chess do
       it 'updates legal moves for c2 Pawn properly' do
         pawn_location = 'c2'
         pawn = new_game.game_board.board[pawn_location].value
-        pawn_moves = pawn.legal_moves
 
         new_game.generate_legal_moves(pawn_location)
 
+        pawn_moves = pawn.legal_moves
         expect(pawn_moves).to eq(%w[c3 c4])
       end
     end
@@ -84,34 +84,34 @@ describe Chess do
 
       it 'properly updates a1 Rook legal_moves if moved to d4' do
         rook = new_game.game_board.board['a1'].value
-        rook_moves = rook.legal_moves
         new_rook_location = 'd4'
 
         new_game.game_board.move_piece(rook, 'a1', new_rook_location)
         new_game.generate_legal_moves(new_rook_location)
 
+        rook_moves = rook.legal_moves
         expect(rook_moves).to eq(%w[d5 d6 d7 e4 f4 g4 h4 d3 c4 b4 a4])
       end
 
       it 'properly updates c1 Bishop legal_moves if moved to d4' do
         bishop = new_game.game_board.board['c1'].value
-        bishop_moves = bishop.legal_moves
         new_bishop_location = 'd4'
 
         new_game.game_board.move_piece(bishop, 'c1', new_bishop_location)
         new_game.generate_legal_moves(new_bishop_location)
 
+        bishop_moves = bishop.legal_moves
         expect(bishop_moves).to eq(%w[e5 f6 g7 e3 c3 c5 b6 a7])
       end
 
       it 'properly updates d1 Queen legal_moves if moved to d4' do
         queen = new_game.game_board.board['d1'].value
-        queen_moves = queen.legal_moves
         new_queen_location = 'd4'
 
         new_game.game_board.move_piece(queen, 'd1', new_queen_location)
         new_game.generate_legal_moves(new_queen_location)
 
+        queen_moves = queen.legal_moves
         expect(queen_moves).to eq(%w[d5 d6 d7
                                      e5 f6 g7
                                      e4 f4 g4 h4
@@ -121,12 +121,12 @@ describe Chess do
 
       it 'properly updates e1 King legal_moves if moved to d4' do
         king = new_game.game_board.board['e1'].value
-        king_moves = king.legal_moves
         new_king_location = 'd4'
 
         new_game.game_board.move_piece(king, 'e1', new_king_location)
         new_game.generate_legal_moves(new_king_location)
 
+        king_moves = king.legal_moves
         expect(king_moves).to eq(%w[d5 e5 e4 e3
                                     d3 c3 c4 c5])
       end
