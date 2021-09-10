@@ -305,7 +305,7 @@ class Chess
     when 'King'
       generate_king_moves(piece, x_values, current_x_index, current_y)
     when 'Knight'
-      generate_single_moves(piece, x_values, current_x_index, current_y)
+      generate_knight_moves(piece, x_values, current_x_index, current_y)
     else
       generate_repeated_moves(piece, x_values, current_x_index, current_y)
     end
@@ -317,6 +317,12 @@ class Chess
 
     piece.legal_moves = generate_single_moves(piece, x_values, old_x, old_y)
     piece.legal_moves -= moves_under_attack
+  end
+
+  def generate_knight_moves(piece, x_values, old_x, old_y)
+    location = "#{x_values[old_x]}#{old_y}"
+
+    piece.legal_moves = generate_single_moves(piece, x_values, old_x, old_y)
   end
 
   def generate_pawn_moves(piece, x_values, old_x, old_y)
