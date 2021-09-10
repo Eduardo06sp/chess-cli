@@ -241,6 +241,10 @@ class Chess
   end
 
   def find_attack_directions(piece, piece_location, attacking_pieces)
+    x_values = ('a'..'h').to_a
+    coordinates = space_to_coordinate(piece_location)
+    single_moves = generate_single_moves(piece, x_values, coordinates[0], coordinates[1])
+
     directions_under_attack = []
 
     attacking_pieces.each do |opponent_location|
@@ -248,7 +252,7 @@ class Chess
 
       next if single_move_piece?(opponent_piece)
 
-      piece.legal_moves.each do |legal_move|
+      single_moves.each do |legal_move|
         if opponent_piece.legal_moves.include?(legal_move)
 
           directions_under_attack << legal_move
