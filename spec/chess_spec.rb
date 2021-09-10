@@ -335,7 +335,7 @@ describe Chess do
         expect(available_pieces).to eq(%w[d4 e3])
       end
 
-      it 'returns d4 and e2 if h4 Queen attacks d4 King' do
+      it 'returns d4, e2, f2 and g2 if h4 Queen attacks d4 King' do
         queen = new_game.game_board.board['d8'].value
         new_game.game_board.move_piece(queen, 'd8', 'h4')
         new_game.generate_legal_moves('h4')
@@ -346,7 +346,7 @@ describe Chess do
         white_pieces = new_game.locate_player_pieces('white')
         available_pieces = new_game.available_pieces(white_pieces)
 
-        expect(available_pieces).to eq(%w[d4 e2])
+        expect(available_pieces).to eq(%w[d4 e2 f2 g2])
       end
     end
   end
