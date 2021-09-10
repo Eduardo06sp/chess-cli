@@ -119,6 +119,9 @@ class Chess
                          else
                            [king_location]
                          end
+
+      check_blocking_pieces = check_blocking_pieces(king_location, player_pieces, attacking_pieces_locations)
+      available_pieces += check_blocking_pieces
     else
       available_pieces = player_pieces.select do |space|
         piece = game_board.board[space].value
