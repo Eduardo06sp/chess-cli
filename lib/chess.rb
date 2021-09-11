@@ -97,6 +97,12 @@ class Chess
     validate_input(input, available_pieces)
   end
 
+
+  def request_destination(piece)
+    puts "#{turn.name}, please make a move."
+    input = gets.chomp
+  end
+
   def available_pieces(player_pieces)
     if king_in_check?
       king_location = locate_piece(turn.color, 'King')
@@ -126,11 +132,6 @@ class Chess
     else
       [king_location]
     end
-  end
-
-  def request_destination(piece)
-    puts "#{turn.name}, please make a move."
-    input = gets.chomp
   end
 
   def space_to_coordinate(space)
