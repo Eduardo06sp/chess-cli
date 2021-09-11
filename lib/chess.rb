@@ -110,13 +110,6 @@ class Chess
                              piece.type == 'King' ||
                                piece.legal_moves.include?(attacking_pieces_locations[0])
                            end
-                         elsif directions_under_attack.count == 1
-                           player_pieces.select do |space|
-                             piece = game_board.board[space].value
-
-                             piece.type == 'King' ||
-                               piece.legal_moves.include?(directions_under_attack[0])
-                           end
                          else
                            [king_location]
                          end
