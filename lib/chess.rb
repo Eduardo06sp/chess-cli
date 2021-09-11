@@ -104,17 +104,16 @@ class Chess
       check_blocking_pieces = check_blocking_pieces(king_location, player_pieces, attacking_pieces_locations)
 
       available_pieces = if attacking_pieces_locations.count == 1
-                           player_pieces.select do |space|
+                           (player_pieces.select do |space|
                              piece = game_board.board[space].value
 
                              piece.type == 'King' ||
                                piece.legal_moves.include?(attacking_pieces_locations[0])
-                           end
+                           end) + check_blocking_pieces
                          else
                            [king_location]
                          end
 
-      available_pieces += check_blocking_pieces
     else
       available_pieces = player_pieces.select do |space|
         piece = game_board.board[space].value
