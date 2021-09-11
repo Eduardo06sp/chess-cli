@@ -102,7 +102,6 @@ class Chess
       attacking_pieces_locations = attacking_pieces_locations(king_location)
 
       available_pieces = unchecking_pieces(attacking_pieces_locations, king_location, player_pieces)
-
     else
       available_pieces = player_pieces.select do |space|
         piece = game_board.board[space].value
