@@ -101,6 +101,7 @@ class Chess
       king_location = locate_piece(turn.color, 'King')
       directions_under_attack = directions_under_attack(king_location)
       attacking_pieces_locations = attacking_pieces_locations(king_location)
+      check_blocking_pieces = check_blocking_pieces(king_location, player_pieces, attacking_pieces_locations)
 
       available_pieces = if attacking_pieces_locations.count == 1
                            player_pieces.select do |space|
@@ -120,7 +121,6 @@ class Chess
                            [king_location]
                          end
 
-      check_blocking_pieces = check_blocking_pieces(king_location, player_pieces, attacking_pieces_locations)
       available_pieces += check_blocking_pieces
     else
       available_pieces = player_pieces.select do |space|
