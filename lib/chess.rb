@@ -99,7 +99,6 @@ class Chess
   def available_pieces(player_pieces)
     if king_in_check?
       king_location = locate_piece(turn.color, 'King')
-      directions_under_attack = directions_under_attack(king_location)
       attacking_pieces_locations = attacking_pieces_locations(king_location)
       check_blocking_pieces = check_blocking_pieces(king_location, player_pieces, attacking_pieces_locations)
 
