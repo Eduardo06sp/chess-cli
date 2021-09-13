@@ -379,6 +379,12 @@ describe Chess do
     end
 
     context 'when e1 King is moved to d4 and not in check' do
+      it 'returns h3 and h4 if h2 Pawn is selected' do
+        new_game.update_legal_moves('white')
+        available_moves = new_game.available_moves('h2')
+
+        expect(available_moves).to eq(%w[h3 h4])
+      end
     end
 
     context 'when e1 King is moved to d4 and specified pieces rearranged' do
