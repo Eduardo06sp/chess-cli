@@ -367,4 +367,9 @@ describe Chess do
       end
     end
   end
+
+  describe '#available_moves' do
+    context 'when e1 King is moved to d4 and specified pieces rearranged' do
+    end
+  end
 end
