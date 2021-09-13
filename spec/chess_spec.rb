@@ -378,6 +378,9 @@ describe Chess do
       new_game.game_board.move_piece(king, 'e1', 'd4')
     end
 
+    context 'when e1 King is moved to d4 and not in check' do
+    end
+
     context 'when e1 King is moved to d4 and specified pieces rearranged' do
     end
   end
