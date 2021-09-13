@@ -103,6 +103,9 @@ class Chess
     input = gets.chomp
   end
 
+  def available_moves
+  end
+
   def available_pieces(player_pieces)
     if king_in_check?
       king_location = locate_piece(turn.color, 'King')
