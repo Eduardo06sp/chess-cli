@@ -104,6 +104,11 @@ class Chess
   end
 
   def available_moves(piece_location)
+    piece = game_board.board[piece_location].value
+
+    if king_in_check? && piece.type == 'King'
+      piece.legal_moves
+    end
   end
 
   def available_pieces(player_pieces)
