@@ -401,6 +401,20 @@ describe Chess do
 
         expect(available_moves).to eq(%w[c5])
       end
+
+      it 'returns e5 if g3 Bishop selected when f6 Queen attacks d4 King' do
+        queen = new_game.game_board.board['d8'].value
+        new_game.game_board.move_piece(queen, 'd8', 'f6')
+        new_game.generate_legal_moves('f6')
+
+        bishop = new_game.game_board.board['f1'].value
+        new_game.game_board.move_piece(bishop, 'f1', 'g3')
+
+        new_game.update_legal_moves('white')
+        available_moves = new_game.available_moves('g3')
+
+        expect(available_moves).to eq(%w[e5])
+      end
     end
   end
 end
