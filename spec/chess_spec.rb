@@ -369,6 +369,15 @@ describe Chess do
   end
 
   describe '#available_moves' do
+    before do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+      new_game.add_initial_pieces
+
+      king = new_game.game_board.board['e1'].value
+      new_game.game_board.move_piece(king, 'e1', 'd4')
+    end
+
     context 'when e1 King is moved to d4 and specified pieces rearranged' do
     end
   end
