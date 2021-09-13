@@ -388,6 +388,19 @@ describe Chess do
     end
 
     context 'when e1 King is moved to d4 and specified pieces rearranged' do
+      it 'returns c5 if h5 Rook selected when c5 Pawn attacks d4 King' do
+        pawn = new_game.game_board.board['c7'].value
+        new_game.game_board.move_piece(pawn, 'c7', 'c5')
+        new_game.generate_legal_moves('c5')
+
+        rook = new_game.game_board.board['h1'].value
+        new_game.game_board.move_piece(rook, 'h1', 'h5')
+
+        new_game.update_legal_moves('white')
+        available_moves = new_game.available_moves('h5')
+
+        expect(available_moves).to eq(%w[c5])
+      end
     end
   end
 end
