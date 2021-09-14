@@ -205,7 +205,7 @@ class Chess
   def check_blocking_pieces(king_location, player_pieces, attacking_pieces)
     check_blocking_pieces = []
 
-    attack_paths = attack_paths(king_location)
+    attack_paths = attack_paths(king_location).flatten
     player_pieces.each do |space|
       piece = game_board.board[space].value
       next if piece.type == 'King'
