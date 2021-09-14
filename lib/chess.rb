@@ -109,23 +109,27 @@ class Chess
     if king_in_check? && piece.type == 'King'
       piece.legal_moves
     elsif king_in_check?
-      king_location = locate_piece(turn.color, 'King')
-      attacking_piece = {}
-      attacking_piece['location'] = attacking_pieces_locations(king_location)[0]
-      attacking_piece['path'] = attack_paths(king_location)[0]
-
-      available_moves = if attacking_piece['path'].nil?
-                          []
-                        else
-                          piece.legal_moves.intersection(attacking_piece['path'])
-                        end
-
-      available_moves << attacking_piece['location'] if piece.legal_moves.include?(attacking_piece['location'])
-
-      available_moves
+      unchecking_moves(piece_location)
     else
       piece.legal_moves
     end
+  end
+
+  def unchecking_moves(piece_location)
+    piece = game_board.board[piece_location].value
+    king_location = locate_piece(turn.color, 'King')
+    attacking_piece = { location: attacking_pieces_locations(king_location)[0],
+                        path: attack_paths(king_location)[0] }
+
+    available_moves = if attacking_piece[:path].nil?
+                        []
+                      else
+                        piece.legal_moves.intersection(attacking_piece[:path])
+                      end
+
+    available_moves << attacking_piece[:location] if piece.legal_moves.include?(attacking_piece[:location])
+
+    available_moves
   end
 
   def available_pieces(player_pieces)
