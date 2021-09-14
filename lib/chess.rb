@@ -123,6 +123,8 @@ class Chess
       available_moves << attacking_piece['location'] if piece.legal_moves.include?(attacking_piece['location'])
 
       available_moves
+    else
+      piece.legal_moves
     end
   end
 
