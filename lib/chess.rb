@@ -85,6 +85,8 @@ class Chess
   def play_round
     selected_piece_location = request_piece_selection
     destination = request_destination(selected_piece_location)
+
+    change_turn
   end
 
   def change_turn
