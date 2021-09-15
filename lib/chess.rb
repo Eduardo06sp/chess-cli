@@ -86,6 +86,7 @@ class Chess
     selected_piece_location = request_piece_selection
     destination = request_destination(selected_piece_location)
 
+    clear_legal_moves
     change_turn
   end
 
