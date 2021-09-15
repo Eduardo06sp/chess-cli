@@ -101,6 +101,9 @@ class Chess
   def request_destination(piece)
     puts "#{turn.name}, please make a move."
     input = gets.chomp
+    available_moves = available_moves(piece)
+
+    validate_input(input, available_moves)
   end
 
   def available_moves(piece_location)
