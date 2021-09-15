@@ -84,7 +84,10 @@ class Chess
 
   def play_round
     selected_piece_location = request_piece_selection
+    piece = game_board.board[selected_piece_location].value
     destination = request_destination(selected_piece_location)
+
+    game_board.move_piece(piece, selected_piece_location, destination)
 
     clear_legal_moves
     change_turn
