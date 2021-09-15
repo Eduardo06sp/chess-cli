@@ -87,6 +87,14 @@ class Chess
     destination = request_destination(selected_piece_location)
   end
 
+  def change_turn
+    self.turn = if turn == player_one
+                  player_two
+                else
+                  player_one
+                end
+  end
+
   def request_piece_selection
     puts "#{turn.name}, please select a gamepiece."
     input = gets.chomp
