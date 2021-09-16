@@ -2,4 +2,12 @@
 
 module TerminalInterface
   private
+
+  def display_title
+    puts <<~HEREDOC
+      ---------------------------------------
+      ---------------- CHESS ----------------
+      ---------------------------------------
+    HEREDOC
+  end
 end
