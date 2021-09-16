@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'terminal_interface'
 require_relative 'game_board'
 require_relative 'pieces/rook'
 require_relative 'pieces/knight'
@@ -9,6 +10,8 @@ require_relative 'pieces/king'
 require_relative 'pieces/pawn'
 
 class Chess
+  include TerminalInterface
+
   attr_accessor :turn
   attr_reader :player_one, :player_two, :game_board
 
