@@ -105,7 +105,7 @@ class Chess
   end
 
   def request_piece_selection
-    puts "#{turn.name}, please select a gamepiece."
+    display_interface("#{turn.name}, please select a gamepiece.")
     input = gets.chomp
     player_pieces = locate_player_pieces(turn.color)
     update_legal_moves(turn.color)
@@ -116,7 +116,7 @@ class Chess
 
 
   def request_destination(piece)
-    puts "#{turn.name}, please make a move."
+    display_interface("#{turn.name}, please make a move.")
     input = gets.chomp
     available_moves = available_moves(piece)
 
