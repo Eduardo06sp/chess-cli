@@ -382,7 +382,8 @@ class Chess
   end
 
   def generate_pawn_moves(piece, x_values, old_x, old_y)
-    piece.movement_directions << [0, 2] unless piece.moved
+    pawn_hop = piece.color == 'white' ? [0, 2] : [0, -2]
+    piece.movement_directions << pawn_hop unless piece.moved
 
     piece.legal_moves = generate_single_moves(piece, x_values, old_x, old_y)
     remove_occupied_locations(piece)
