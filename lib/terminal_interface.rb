@@ -63,4 +63,11 @@ module TerminalInterface
   def display_king(color)
     color == 'white' ? '♔' : '♚'
   end
+
+  def display_game_message(message)
+    puts <<~HEREDOC
+              #{message}
+      ----------------------------------------
+    HEREDOC
+  end
 end
