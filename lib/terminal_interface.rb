@@ -30,25 +30,25 @@ module TerminalInterface
     space = game_board.board[coordinate].value
     return space if space == ' '
 
-    if space.color == 'white'
-      piece = {
-        'Rook' => '♖',
-        'Knight' => '♘',
-        'Bishop' => '♗',
-        'Queen' => '♕',
-        'King' => '♔',
-        'Pawn' => '♙'
-      }
-    else
-      piece = {
-        'Rook' => '♜',
-        'Knight' => '♞',
-        'Bishop' => '♝',
-        'Queen' => '♛',
-        'King' => '♚',
-        'Pawn' => '♟'
-      }
-    end
+    piece = if space.color == 'white'
+              {
+                'Rook' => '♖',
+                'Knight' => '♘',
+                'Bishop' => '♗',
+                'Queen' => '♕',
+                'King' => '♔',
+                'Pawn' => '♙'
+              }
+            else
+              {
+                'Rook' => '♜',
+                'Knight' => '♞',
+                'Bishop' => '♝',
+                'Queen' => '♛',
+                'King' => '♚',
+                'Pawn' => '♟'
+              }
+            end
 
     piece[space.type]
   end
