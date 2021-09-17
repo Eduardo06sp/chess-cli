@@ -70,4 +70,11 @@ module TerminalInterface
       ----------------------------------------
     HEREDOC
   end
+
+  def display_interface(message)
+    display_title
+    display_board
+    display_turn
+    display_game_message(message)
+  end
 end
