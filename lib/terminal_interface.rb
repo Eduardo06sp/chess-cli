@@ -52,4 +52,16 @@ module TerminalInterface
 
     piece[space.type]
   end
+
+  def display_turn
+    puts <<~HEREDOC
+      ----------------------------------------
+            #{turn.name}'s turn! (#{display_king(turn.color)} #{turn.color} pieces)
+      ----------------------------------------
+    HEREDOC
+  end
+
+  def display_king(color)
+    color == 'white' ? '♔' : '♚'
+  end
 end
