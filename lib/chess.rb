@@ -506,7 +506,7 @@ class Chess
 
   def validate_input(input, valid_entries)
     until valid_entries.include?(input)
-      puts 'Invalid input!'
+      display_interface('Invalid input!')
       input = gets.chomp
     end
 
