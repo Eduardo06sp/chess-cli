@@ -57,7 +57,6 @@ module TerminalInterface
     puts <<~HEREDOC
       ----------------------------------------
             #{turn.name}'s turn! (#{display_king(turn.color)} #{turn.color} pieces)
-      ----------------------------------------
     HEREDOC
   end
 
