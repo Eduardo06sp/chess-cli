@@ -25,4 +25,31 @@ module TerminalInterface
         A B C D E F G H
     HEREDOC
   end
+
+  def val(coordinate)
+    space = game_board.board[coordinate].value
+    return space if space == ' '
+
+    if space.color == 'white'
+      piece = {
+        'Rook' => '♖',
+        'Knight' => '♘',
+        'Bishop' => '♗',
+        'Queen' => '♕',
+        'King' => '♔',
+        'Pawn' => '♙'
+      }
+    else
+      piece = {
+        'Rook' => '♜',
+        'Knight' => '♞',
+        'Bishop' => '♝',
+        'Queen' => '♛',
+        'King' => '♚',
+        'Pawn' => '♟'
+      }
+    end
+
+    piece[space.type]
+  end
 end
