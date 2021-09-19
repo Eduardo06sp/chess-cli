@@ -296,7 +296,7 @@ class Chess
 
       next if new_location.nil?
 
-      capturable_spaces << new_coordinates if new_location.value == ' '
+      capturable_spaces << new_coordinates if space_empty?(new_location)
     end
 
     capturable_spaces
