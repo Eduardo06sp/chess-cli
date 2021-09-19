@@ -388,10 +388,12 @@ class Chess
     piece.legal_moves = generate_single_moves(piece, x_values, old_x, old_y)
     remove_occupied_locations(piece)
 
-    generate_capturing_moves(piece, x_values, old_x, old_y)
+    piece.legal_moves += generate_capturing_moves(piece, x_values, old_x, old_y)
   end
 
   def generate_capturing_moves(piece, x_values, old_x, old_y)
+    capturing_moves = []
+
     piece.capturing_moves.each do |x, y|
       new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
       new_location = game_board.board[new_coordinates]
@@ -400,8 +402,10 @@ class Chess
               space_empty?(new_location) ||
               piece.color == new_location.value.color
 
-      piece.legal_moves << new_coordinates
+      capturing_moves << new_coordinates
     end
+
+    capturing_moves
   end
 
   def remove_occupied_locations(piece)
