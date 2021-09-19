@@ -271,8 +271,13 @@ class Chess
       opponent_piece = game_board.board[opponent_location].value
 
       piece.legal_moves.each do |legal_move|
+        opponent_moves = if opponent_piece.type == 'Pawn'
+                           pawn_capturable_spaces(opponent_location)
+                         else
+                           opponent_piece.legal_moves
+                         end
         moves_under_attack << legal_move if
-        opponent_piece.legal_moves.include?(legal_move)
+        opponent_moves.include?(legal_move)
       end
     end
 
