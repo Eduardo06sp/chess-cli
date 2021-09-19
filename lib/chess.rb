@@ -279,6 +279,24 @@ class Chess
     moves_under_attack.uniq
   end
 
+  def pawn_capturable_spaces(origin)
+    piece = game_board.board[origin].value
+    capturable_spaces = []
+    x_values = ('a'..'h').to_a
+    old_x, old_y = space_to_coordinate(origin)
+
+    piece.capturing_moves.each do |x, y|
+      new_coordinates = "#{x_values[old_x + x]}#{old_y + y}"
+      new_location = game_board.board[new_coordinates]
+
+      next if new_location.nil?
+
+      capturable_spaces << new_coordinates if new_location.value == ' '
+    end
+
+    capturable_spaces
+  end
+
   def directions_under_attack(piece_location)
     piece = game_board.board[piece_location].value
     attacking_pieces = attacking_pieces_locations(piece_location)
