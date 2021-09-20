@@ -414,6 +414,26 @@ class Chess
     piece.legal_moves += generate_capturing_moves(piece, x_values, old_x, old_y)
   end
 
+  def pawn_hop_possible?(piece, x, y)
+    move = piece.movement_directions[0]
+    hop = piece.color == 'white' ? [0, 2] : [0, -2]
+    potential_moves = [
+      [x + move[0], y + move[1]],
+      [x + hop[0], y + hop[1]]
+    ]
+
+    potential_moves = potential_moves.map do |potential_move|
+      coordinate_to_space(potential_move)
+    end
+
+    if space_occupied?(potential_moves[0]) ||
+       space_occupied?(potential_moves[1])
+      false
+    else
+      true
+    end
+  end
+
   def generate_capturing_moves(piece, x_values, old_x, old_y)
     capturing_moves = []
 
