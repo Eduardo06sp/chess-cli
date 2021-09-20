@@ -91,6 +91,7 @@ class Chess
     destination = request_destination(selected_piece_location)
 
     game_board.move_piece(piece, selected_piece_location, destination)
+    piece.moved = true if piece.type == 'Pawn'
 
     clear_legal_moves
     change_turn
