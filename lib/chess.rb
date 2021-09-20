@@ -409,7 +409,7 @@ class Chess
     pawn_hop = piece.color == 'white' ? [0, 2] : [0, -2]
 
     if pawn_hop_possible?(piece, old_x, old_y) && !piece.moved
-      piece.movement_directions << pawn_hop
+      piece.movement_directions << pawn_hop unless piece.movement_directions.include?(pawn_hop)
     else
       piece.movement_directions.delete(pawn_hop)
     end
