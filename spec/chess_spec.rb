@@ -114,9 +114,11 @@ describe Chess do
         queen_moves = queen.legal_moves
         expect(queen_moves).to eq(%w[d5 d6 d7
                                      e5 f6 g7
-                                     e4 f4 g4 h4
-                                     e3 d3 c3
-                                     c4 b4 a4])
+                                     e4 f4 g4
+                                     h4 e3 d3
+                                     c3 c4 b4
+                                     a4 c5 b6
+                                     a7])
       end
 
       it 'properly updates e1 King legal_moves if moved to d4' do
