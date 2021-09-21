@@ -149,6 +149,11 @@ describe Chess do
 
   describe '#protecting_pieces' do
     context 'when re-arranged enemy pieces attack e1 King' do
+      before do
+        allow(player_one).to receive(:color).and_return('white')
+        allow(player_two).to receive(:color).and_return('black')
+        new_game.add_initial_pieces
+      end
     end
   end
 
