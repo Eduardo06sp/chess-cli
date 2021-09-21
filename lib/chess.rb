@@ -371,6 +371,12 @@ class Chess
     reset_legal_moves('black')
   end
 
+  def refresh_legal_moves
+    clear_legal_moves
+    update_legal_moves('white')
+    update_legal_moves('black')
+  end
+
   def generate_legal_moves(piece_location)
     piece = game_board.board[piece_location].value
 
