@@ -147,6 +147,11 @@ describe Chess do
     end
   end
 
+  describe '#protecting_pieces' do
+    context 'when re-arranged enemy pieces attack e1 King' do
+    end
+  end
+
   describe '#attacking_pieces_locations' do
     context 'when e1 King is moved to f4 and enemy pieces are moved to attacking positions' do
       before do
