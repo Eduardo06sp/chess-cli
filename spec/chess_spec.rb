@@ -154,6 +154,17 @@ describe Chess do
         allow(player_two).to receive(:color).and_return('black')
         new_game.add_initial_pieces
       end
+
+      it 'returns d2 if a5 enemy Queen present' do
+        queen = new_game.game_board.board['d8'].value
+        king_location = 'e1'
+
+        new_game.game_board.move_piece(queen, 'd8', 'a5')
+        new_game.generate_legal_moves('a5')
+
+        protecting_pieces = new_game.protecting_pieces_locations(king_location)
+        expect(protecting_pieces).to eq(['d2'])
+      end
     end
   end
 
