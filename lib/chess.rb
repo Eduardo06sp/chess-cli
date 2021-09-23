@@ -180,42 +180,41 @@ class Chess
     opponent_pieces.each do |opponent_location|
       opponent_piece = game_board.board[opponent_location].value
       next if single_move_piece?(opponent_piece)
+      next unless piece_can_capture?(opponent_location)
 
-      if piece_can_capture?(opponent_location)
-        opponent_piece.movement_directions.each do |direction|
-          tmp = opponent_location
+      opponent_piece.movement_directions.each do |direction|
+        tmp = opponent_location
 
-          current_coordinates = space_to_coordinate(tmp)
-          pieces_encountered = 0
+        current_coordinates = space_to_coordinate(tmp)
+        pieces_encountered = 0
 
-          loop do
+        loop do
 
-            # travel in direction of movement
-            prev = tmp
-            current_x = current_coordinates[0] + direction[0]
-            current_y = current_coordinates[1] + direction[1]
-            current_coordinates = [current_x, current_y]
-            current_coordinates = [current_x, current_y]
-            current_space = coordinate_to_space(current_coordinates)
-            tmp = current_space
+          # travel in direction of movement
+          prev = tmp
+          current_x = current_coordinates[0] + direction[0]
+          current_y = current_coordinates[1] + direction[1]
+          current_coordinates = [current_x, current_y]
+          current_coordinates = [current_x, current_y]
+          current_space = coordinate_to_space(current_coordinates)
+          tmp = current_space
 
-            # break if you hit board boundaries
-            break if  current_coordinates[0] > 7 ||
-                      current_coordinates[1] > 8 ||
-                      current_coordinates[0] < 0 ||
-                      current_coordinates[1] < 1
+          # break if you hit board boundaries
+          break if  current_coordinates[0] > 7 ||
+            current_coordinates[1] > 8 ||
+            current_coordinates[0] < 0 ||
+            current_coordinates[1] < 1
 
-            current_piece = game_board.board[tmp].value
+          current_piece = game_board.board[tmp].value
 
-            next if current_piece == ' '
-            break if current_piece.color == opponent_piece.color
-            break if pieces_encountered > 1
+          next if current_piece == ' '
+          break if current_piece.color == opponent_piece.color
+          break if pieces_encountered > 1
 
-            pieces_encountered += 1
+          pieces_encountered += 1
 
-            if pieces_encountered == 2 && current_piece.type == 'King'
-              protecting_pieces << prev
-            end
+          if pieces_encountered == 2 && current_piece.type == 'King'
+            protecting_pieces << prev
           end
         end
       end
