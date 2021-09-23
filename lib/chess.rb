@@ -181,9 +181,7 @@ class Chess
       opponent_piece = game_board.board[opponent_location].value
       next if single_move_piece?(opponent_piece)
 
-      if (opponent_piece.legal_moves.any? do |legal_move|
-        space_occupied?(legal_move)
-      end)
+      if piece_can_capture?(opponent_location)
         opponent_piece.movement_directions.each do |direction|
           tmp = opponent_location
 
@@ -224,6 +222,13 @@ class Chess
     end
 
     protecting_pieces
+  end
+
+  def piece_can_capture?(piece_location)
+    piece = game_board.board[piece_location].value
+    piece.legal_moves.any? do |legal_move|
+      space_occupied?(legal_move)
+    end
   end
 
   def unchecking_pieces(attacking_pieces_locations, king_location, player_pieces)
