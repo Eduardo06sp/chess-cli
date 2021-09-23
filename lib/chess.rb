@@ -194,11 +194,9 @@ class Chess
 
     piece.movement_directions.each do |direction|
       tmp = location
-
       pieces_encountered = 0
 
       loop do
-
         prev = tmp
         tmp = traverse(tmp, direction)
 
