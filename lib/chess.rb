@@ -209,9 +209,7 @@ class Chess
 
         pieces_encountered += 1
 
-        if pieces_encountered == 2 && current_piece.type == 'King'
-          protecting_pieces << prev
-        end
+        protecting_pieces << prev if pieces_encountered == 2 && current_piece.type == 'King'
       end
     end
 
