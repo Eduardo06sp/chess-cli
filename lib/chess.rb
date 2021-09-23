@@ -182,40 +182,49 @@ class Chess
       next if single_move_piece?(opponent_piece)
       next unless piece_can_capture?(opponent_location)
 
-      opponent_piece.movement_directions.each do |direction|
-        tmp = opponent_location
+      protecting_pieces << find_protecting_pieces(opponent_location)
+    end
 
-        current_coordinates = space_to_coordinate(tmp)
-        pieces_encountered = 0
+    protecting_pieces.flatten
+  end
 
-        loop do
+  def find_protecting_pieces(location)
+    piece = game_board.board[location].value
+    protecting_pieces = []
 
-          # travel in direction of movement
-          prev = tmp
-          current_x = current_coordinates[0] + direction[0]
-          current_y = current_coordinates[1] + direction[1]
-          current_coordinates = [current_x, current_y]
-          current_coordinates = [current_x, current_y]
-          current_space = coordinate_to_space(current_coordinates)
-          tmp = current_space
+    piece.movement_directions.each do |direction|
+      tmp = location
 
-          # break if you hit board boundaries
-          break if  current_coordinates[0] > 7 ||
-            current_coordinates[1] > 8 ||
-            current_coordinates[0] < 0 ||
-            current_coordinates[1] < 1
+      current_coordinates = space_to_coordinate(tmp)
+      pieces_encountered = 0
 
-          current_piece = game_board.board[tmp].value
+      loop do
 
-          next if current_piece == ' '
-          break if current_piece.color == opponent_piece.color
-          break if pieces_encountered > 1
+        # travel in direction of movement
+        prev = tmp
+        current_x = current_coordinates[0] + direction[0]
+        current_y = current_coordinates[1] + direction[1]
+        current_coordinates = [current_x, current_y]
+        current_coordinates = [current_x, current_y]
+        current_space = coordinate_to_space(current_coordinates)
+        tmp = current_space
 
-          pieces_encountered += 1
+        # break if you hit board boundaries
+        break if  current_coordinates[0] > 7 ||
+          current_coordinates[1] > 8 ||
+          current_coordinates[0] < 0 ||
+          current_coordinates[1] < 1
 
-          if pieces_encountered == 2 && current_piece.type == 'King'
-            protecting_pieces << prev
-          end
+        current_piece = game_board.board[tmp].value
+
+        next if current_piece == ' '
+        break if current_piece.color == piece.color
+        break if pieces_encountered > 1
+
+        pieces_encountered += 1
+
+        if pieces_encountered == 2 && current_piece.type == 'King'
+          protecting_pieces << prev
         end
       end
     end
