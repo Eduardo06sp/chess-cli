@@ -199,11 +199,9 @@ class Chess
 
       loop do
 
-        # travel in direction of movement
         prev = tmp
         tmp = traverse(tmp, direction)
 
-        # break if you hit board boundaries
         break if tmp.nil?
 
         current_piece = game_board.board[tmp].value
