@@ -196,6 +196,19 @@ describe Chess do
         protecting_pieces = new_game.protecting_pieces_locations(king_location)
         expect(protecting_pieces).to eq(%w[d2 e2 f2])
       end
+
+      it 'returns nothing when c3 and d2 Pawns simultaneously shield e1 King from a5 Queen' do
+        queen = new_game.game_board.board['d8'].value
+        pawn = new_game.game_board.board['c2'].value
+        king_location = 'e1'
+
+        new_game.game_board.move_piece(queen, 'd8', 'a5')
+        new_game.game_board.move_piece(pawn, 'c2', 'c3')
+        new_game.generate_legal_moves('a5')
+
+        protecting_pieces = new_game.protecting_pieces_locations(king_location)
+        expect(protecting_pieces).to eq(%w[])
+      end
     end
   end
 
