@@ -230,12 +230,16 @@ class Chess
     new_y = coordinates[1] + direction[1]
     new_coordinates = [new_x, new_y]
 
-    return nil if new_coordinates[0] > 7 ||
-             new_coordinates[1] > 8 ||
-             new_coordinates[0] < 0 ||
-             new_coordinates[1] < 1
+    return nil if out_of_boundaries?(new_coordinates)
 
     coordinate_to_space(new_coordinates)
+  end
+
+  def out_of_boundaries?(coordinates)
+    coordinates[0] > 7 ||
+      coordinates[1] > 8 ||
+      coordinates[0] < 0 ||
+      coordinates[1] < 1
   end
 
   def piece_can_capture?(piece_location)
