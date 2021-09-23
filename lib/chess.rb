@@ -155,8 +155,9 @@ class Chess
   end
 
   def available_pieces(player_pieces)
+    king_location = locate_piece(turn.color, 'King')
+
     if king_in_check?
-      king_location = locate_piece(turn.color, 'King')
       attacking_pieces_locations = attacking_pieces_locations(king_location)
 
       available_pieces = unchecking_pieces(attacking_pieces_locations, king_location, player_pieces)
@@ -165,6 +166,7 @@ class Chess
         piece = game_board.board[space].value
         piece.legal_moves.any?
       end
+      available_pieces -= protecting_pieces_locations(king_location)
     end
 
     available_pieces.uniq
