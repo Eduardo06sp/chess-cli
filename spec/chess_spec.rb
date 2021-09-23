@@ -179,6 +179,23 @@ describe Chess do
         protecting_pieces = new_game.protecting_pieces_locations(king_location)
         expect(protecting_pieces).to eq(%w[d2 f2])
       end
+
+      it 'returns d2, e2 and f2 if a5 Queen, e6 Rook and h4 Bishop present' do
+        queen = new_game.game_board.board['d8'].value
+        rook = new_game.game_board.board['h8'].value
+        bishop = new_game.game_board.board['f8'].value
+        king_location = 'e1'
+
+        new_game.game_board.move_piece(queen, 'd8', 'a5')
+        new_game.game_board.move_piece(rook, 'h8', 'e6')
+        new_game.game_board.move_piece(bishop, 'f8', 'h4')
+        new_game.generate_legal_moves('a5')
+        new_game.generate_legal_moves('e6')
+        new_game.generate_legal_moves('h4')
+
+        protecting_pieces = new_game.protecting_pieces_locations(king_location)
+        expect(protecting_pieces).to eq(%w[d2 e2 f2])
+      end
     end
   end
 
