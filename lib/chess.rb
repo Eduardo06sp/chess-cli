@@ -202,18 +202,10 @@ class Chess
 
         # travel in direction of movement
         prev = tmp
-        current_x = current_coordinates[0] + direction[0]
-        current_y = current_coordinates[1] + direction[1]
-        current_coordinates = [current_x, current_y]
-        current_coordinates = [current_x, current_y]
-        current_space = coordinate_to_space(current_coordinates)
-        tmp = current_space
+        tmp = traverse(tmp, direction)
 
         # break if you hit board boundaries
-        break if  current_coordinates[0] > 7 ||
-          current_coordinates[1] > 8 ||
-          current_coordinates[0] < 0 ||
-          current_coordinates[1] < 1
+        break if tmp.nil?
 
         current_piece = game_board.board[tmp].value
 
@@ -230,6 +222,20 @@ class Chess
     end
 
     protecting_pieces
+  end
+
+  def traverse(origin, direction)
+    coordinates = space_to_coordinate(origin)
+    new_x = coordinates[0] + direction[0]
+    new_y = coordinates[1] + direction[1]
+    new_coordinates = [new_x, new_y]
+
+    return nil if new_coordinates[0] > 7 ||
+             new_coordinates[1] > 8 ||
+             new_coordinates[0] < 0 ||
+             new_coordinates[1] < 1
+
+    coordinate_to_space(new_coordinates)
   end
 
   def piece_can_capture?(piece_location)
