@@ -195,7 +195,6 @@ class Chess
     piece.movement_directions.each do |direction|
       tmp = location
 
-      current_coordinates = space_to_coordinate(tmp)
       pieces_encountered = 0
 
       loop do
