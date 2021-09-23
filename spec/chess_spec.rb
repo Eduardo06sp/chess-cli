@@ -132,6 +132,18 @@ describe Chess do
         expect(king_moves).to eq(%w[d5 e5 e4 e3
                                     d3 c3 c4 c5])
       end
+
+      it 'prevents b2 Pawn double hop if b3 Pawn present' do
+        pawn = new_game.game_board.board['b2'].value
+        enemy_pawn = new_game.game_board.board['b7'].value
+
+        new_game.game_board.move_piece(enemy_pawn, 'b7', 'b3')
+        new_game.generate_legal_moves('b2')
+        new_game.generate_legal_moves('b3')
+
+        pawn_moves = pawn.legal_moves
+        expect(pawn_moves).to eq(%w[])
+      end
     end
   end
 
