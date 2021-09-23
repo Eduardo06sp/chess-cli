@@ -200,13 +200,12 @@ class Chess
         prev = tmp
         tmp = traverse(tmp, direction)
 
-        break if tmp.nil?
+        break if tmp.nil? || pieces_encountered > 1
 
         current_piece = game_board.board[tmp].value
 
         next if current_piece == ' '
         break if current_piece.color == piece.color
-        break if pieces_encountered > 1
 
         pieces_encountered += 1
 
