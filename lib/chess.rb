@@ -107,22 +107,24 @@ class Chess
   end
 
   def request_piece_selection
-    display_interface("#{turn.name}, please select a gamepiece.")
+    hint = 'Please select a gamepiece.'
+    display_interface(hint)
     input = gets.chomp
     player_pieces = locate_player_pieces(turn.color)
     update_legal_moves(turn.color)
     available_pieces = available_pieces(player_pieces)
 
-    validate_input(input, available_pieces)
+    validate_input(input, available_pieces, hint)
   end
 
 
   def request_destination(piece)
-    display_interface("#{turn.name}, please make a move.")
+    hint = 'Please make a move.'
+    display_interface(hint)
     input = gets.chomp
     available_moves = available_moves(piece)
 
-    validate_input(input, available_moves)
+    validate_input(input, available_moves, hint)
   end
 
   def available_moves(piece_location)
@@ -638,9 +640,9 @@ class Chess
     under_attack?(king_location)
   end
 
-  def validate_input(input, valid_entries)
+  def validate_input(input, valid_entries, hint)
     until valid_entries.include?(input)
-      display_interface('Invalid input!')
+      display_interface("Invalid input! #{hint}")
       input = gets.chomp
     end
 
