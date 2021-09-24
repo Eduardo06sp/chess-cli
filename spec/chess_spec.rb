@@ -498,5 +498,23 @@ describe Chess do
 
       expect(available_moves).to eq(%w[d2])
     end
+
+    it 'returns f1 if g2 Queen selected when f1 Rook attacks g1 King and f2 space clear' do
+      new_game.game_board.clear_space('f2')
+
+      rook = new_game.game_board.board['a8'].value
+      new_game.game_board.move_piece(rook, 'a8', 'f1')
+
+      queen = new_game.game_board.board['d1'].value
+      new_game.game_board.move_piece(queen, 'd1', 'g2')
+
+      king = new_game.game_board.board['d4'].value
+      new_game.game_board.move_piece(king, 'd4', 'g1')
+
+      new_game.refresh_legal_moves
+      available_moves = new_game.available_moves('g2')
+
+      expect(available_moves).to eq(%w[f1])
+    end
   end
 end
