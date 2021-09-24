@@ -117,7 +117,6 @@ class Chess
     validate_input(input, available_pieces, hint)
   end
 
-
   def request_destination(piece)
     hint = 'Please make a move.'
     display_interface(hint)
