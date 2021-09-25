@@ -484,5 +484,19 @@ describe Chess do
         expect(available_moves).to eq(%w[e5])
       end
     end
+
+    it 'returns d2 if b1 Knight selected when d2 Queen attacks e2 King' do
+      king = new_game.game_board.board['d4'].value
+      new_game.game_board.move_piece(king, 'd4', 'e2')
+
+      queen = new_game.game_board.board['d8'].value
+      new_game.game_board.move_piece(queen, 'd8', 'd2')
+      new_game.generate_legal_moves('d2')
+
+      new_game.update_legal_moves('white')
+      available_moves = new_game.available_moves('b1')
+
+      expect(available_moves).to eq(%w[d2])
+    end
   end
 end
