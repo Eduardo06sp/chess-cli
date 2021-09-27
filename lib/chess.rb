@@ -397,10 +397,24 @@ class Chess
 
       next if single_move_piece?(opponent_piece)
 
-      single_moves.each do |legal_move|
-        if opponent_piece.legal_moves.include?(legal_move)
+      opponent_piece.movement_directions.each do |direction|
+        tmp = opponent_location
 
-          directions_under_attack << legal_move
+        loop do
+          prev = tmp
+          tmp = traverse(tmp, direction)
+
+          break if tmp.nil?
+
+          current_piece = game_board.board[tmp].value
+
+          next if current_piece == ' '
+          break if current_piece.color == piece.color && piece.type != 'King'
+
+          if current_piece.type == 'King'
+            directions_under_attack << prev
+            break
+          end
         end
       end
     end
