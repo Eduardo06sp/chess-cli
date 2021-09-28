@@ -368,7 +368,6 @@ describe Chess do
         white_pieces = new_game.locate_player_pieces('white')
         available_pieces = new_game.available_pieces(white_pieces)
 
-
         expect(available_pieces).to eq(%w[a2 b1 b2
                                           c2 d1 d2
                                           d4 e2 f2
