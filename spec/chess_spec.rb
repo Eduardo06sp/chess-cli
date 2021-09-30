@@ -433,6 +433,21 @@ describe Chess do
         expect(available_pieces).to eq(%w[d4])
       end
     end
+
+    it 'includes d2 if d2 Pawn (protecting e1 King) can capture c3 Queen' do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+      new_game.add_initial_pieces
+
+      queen = new_game.game_board.board['d8'].value
+      new_game.game_board.move_piece(queen, 'd8', 'c3')
+      new_game.refresh_legal_moves
+
+      white_pieces = new_game.locate_player_pieces('white')
+      available_pieces = new_game.available_pieces(white_pieces)
+
+      expect(available_pieces.include?('d2')).to eq(true)
+    end
   end
 
   describe '#available_moves' do
