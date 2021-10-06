@@ -167,7 +167,7 @@ class Chess
         piece = game_board.board[space].value
         piece.legal_moves.any?
       end
-      available_pieces -= protecting_pieces_locations(king_location)
+      available_pieces -= protecting_pieces_locations(king_location).keys
     end
 
     available_pieces.uniq
@@ -178,17 +178,19 @@ class Chess
     opponent_color = king.color == 'white' ? 'black' : 'white'
     opponent_pieces = locate_player_pieces(opponent_color)
     player_pieces = locate_player_pieces(king.color)
-    protecting_pieces = []
+    protecting_pieces = {}
 
     opponent_pieces.each do |opponent_location|
       opponent_piece = game_board.board[opponent_location].value
       next if single_move_piece?(opponent_piece)
       next unless piece_can_capture?(opponent_location)
 
-      protecting_pieces << find_protecting_pieces(opponent_location)
+      protecting_pieces[find_protecting_pieces(opponent_location)] = {
+        attacker: opponent_location
+      }
     end
 
-    protecting_pieces.flatten
+    protecting_pieces.delete_if { |k, _v| k == nil }
   end
 
   def find_protecting_pieces(location)
@@ -216,7 +218,7 @@ class Chess
       end
     end
 
-    protecting_pieces
+    protecting_pieces[0]
   end
 
   def traverse(origin, direction)
