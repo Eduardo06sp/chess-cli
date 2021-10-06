@@ -163,7 +163,7 @@ describe Chess do
         new_game.generate_legal_moves('a5')
 
         protecting_pieces = new_game.protecting_pieces_locations(king_location)
-        expect(protecting_pieces).to eq(['d2'])
+        expect(protecting_pieces.keys).to eq(['d2'])
       end
 
       it 'returns d2 and f2 if a5 Queen and h4 Bishop present' do
@@ -177,7 +177,7 @@ describe Chess do
         new_game.generate_legal_moves('h4')
 
         protecting_pieces = new_game.protecting_pieces_locations(king_location)
-        expect(protecting_pieces).to eq(%w[d2 f2])
+        expect(protecting_pieces.keys).to eq(%w[d2 f2])
       end
 
       it 'returns d2, e2 and f2 if a5 Queen, e6 Rook and h4 Bishop present' do
@@ -194,7 +194,7 @@ describe Chess do
         new_game.generate_legal_moves('h4')
 
         protecting_pieces = new_game.protecting_pieces_locations(king_location)
-        expect(protecting_pieces).to eq(%w[d2 e2 f2])
+        expect(protecting_pieces.keys).to eq(%w[d2 e2 f2])
       end
 
       it 'returns nothing when c3 and d2 Pawns simultaneously shield e1 King from a5 Queen' do
@@ -207,7 +207,7 @@ describe Chess do
         new_game.generate_legal_moves('a5')
 
         protecting_pieces = new_game.protecting_pieces_locations(king_location)
-        expect(protecting_pieces).to eq(%w[])
+        expect(protecting_pieces.keys).to eq(%w[])
       end
     end
   end
