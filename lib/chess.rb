@@ -163,22 +163,26 @@ class Chess
 
       available_pieces = unchecking_pieces(attacking_pieces_locations, king_location, player_pieces)
     else
-      protecting_pieces = protecting_pieces_locations(king_location)
-
-      protecting_pieces.delete_if do |protecting_piece, v|
-        piece = game_board.board[protecting_piece].value
-
-        piece.legal_moves.include?(v[:attacker])
-      end
-
       available_pieces = player_pieces.select do |space|
         piece = game_board.board[space].value
         piece.legal_moves.any?
       end
-      available_pieces -= protecting_pieces.keys
+      available_pieces -= unmovable_protecting_pieces(king_location)
     end
 
     available_pieces.uniq
+  end
+
+  def unmovable_protecting_pieces(king_location)
+    protecting_pieces = protecting_pieces_locations(king_location)
+
+    protecting_pieces.delete_if do |protecting_piece, v|
+      piece = game_board.board[protecting_piece].value
+
+      piece.legal_moves.include?(v[:attacker])
+    end
+
+    protecting_pieces.keys
   end
 
   def protecting_pieces_locations(king_location)
