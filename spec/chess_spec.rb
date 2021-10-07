@@ -530,5 +530,18 @@ describe Chess do
 
       expect(available_moves).to eq(%w[f1])
     end
+
+    it 'returns c3 if d2 Pawn (protecting e1 King) can capture c3 Queen' do
+      king = new_game.game_board.board['d4'].value
+      new_game.game_board.move_piece(king, 'd4', 'e1')
+
+      queen = new_game.game_board.board['d8'].value
+      new_game.game_board.move_piece(queen, 'd8', 'c3')
+
+      new_game.refresh_legal_moves
+      available_moves = new_game.available_moves('d2')
+
+      expect(available_moves).to eq(['c3'])
+    end
   end
 end
