@@ -497,6 +497,20 @@ class Chess
     else
       generate_repeated_moves(piece, x_values, current_x_index, current_y)
     end
+
+    generate_protecting_moves
+  end
+
+  def generate_protecting_moves
+    king_location = locate_piece(turn.color, 'King')
+    protecting_pieces = protecting_pieces_locations(king_location)
+
+    protecting_pieces.each do |protecting_piece, v|
+      piece = game_board.board[protecting_piece].value
+      attacker = v[:attacker]
+
+      piece.legal_moves = [attacker] if piece.legal_moves.include?(attacker)
+    end
   end
 
   def generate_king_moves(piece, x_values, old_x, old_y)
