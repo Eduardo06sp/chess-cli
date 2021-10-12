@@ -448,6 +448,24 @@ describe Chess do
 
       expect(available_pieces.include?('d2')).to eq(true)
     end
+
+    it 'excludes e1 King when under attack by a5 Queen and d2 Pawn moved out of way (to d4)' do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+      new_game.add_initial_pieces
+
+      queen = new_game.game_board.board['d8'].value
+      new_game.game_board.move_piece(queen, 'd8', 'a5')
+
+      pawn = new_game.game_board.board['d2'].value
+      new_game.game_board.move_piece(pawn, 'd2', 'd4')
+
+      new_game.refresh_legal_moves
+      white_pieces = new_game.locate_player_pieces('white')
+      available_pieces = new_game.available_pieces(white_pieces)
+
+      expect(available_pieces.include?('e1')).to eq(false)
+    end
   end
 
   describe '#available_moves' do
