@@ -265,7 +265,7 @@ class Chess
       (player_pieces.select do |space|
         piece = game_board.board[space].value
 
-        piece.type == 'King' ||
+        (piece.type == 'King' && piece.legal_moves.any?) ||
           piece.legal_moves.include?(attacking_pieces_locations[0])
       end) + check_blocking_pieces
     else
