@@ -475,9 +475,11 @@ class Chess
   end
 
   def refresh_legal_moves
+    opponent_color = turn.color == 'white' ? 'black' : 'white'
+
     clear_legal_moves
-    update_legal_moves('white')
-    update_legal_moves('black')
+    update_legal_moves(opponent_color)
+    update_legal_moves(turn.color)
   end
 
   def generate_legal_moves(piece_location)
