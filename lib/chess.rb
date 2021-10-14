@@ -693,6 +693,10 @@ class Chess
   end
 
   def game_over?
+    game_won?
+  end
+
+  def game_won?
     white_king_location = locate_piece('white', 'King')
     black_king_location = locate_piece('black', 'King')
     white_king = game_board.board[white_king_location].value
