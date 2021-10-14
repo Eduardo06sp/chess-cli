@@ -702,8 +702,6 @@ class Chess
     white_king = game_board.board[white_king_location].value
     black_king = game_board.board[black_king_location].value
 
-    return true if white_king.checkmated || black_king.checkmated
-
-    false
+    white_king.checkmated || black_king.checkmated
   end
 end
