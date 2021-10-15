@@ -568,5 +568,15 @@ describe Chess do
       allow(player_one).to receive(:color).and_return('white')
       allow(player_two).to receive(:color).and_return('black')
     end
+
+    it 'returns true when h8 Rook and f4 Queen checkmate h4 King' do
+      new_game.game_board.add_piece(Rook.new('black'), 'h8')
+      new_game.game_board.add_piece(Queen.new('black'), 'f4')
+      new_game.game_board.add_piece(King.new('white'), 'h4')
+
+      new_game.refresh_legal_moves
+
+      expect(new_game.checkmated?).to eq(true)
+    end
   end
 end
