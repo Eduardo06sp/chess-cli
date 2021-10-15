@@ -693,7 +693,7 @@ class Chess
   end
 
   def game_over?
-    game_won?
+    checkmated?
   end
 
   def checkmated?
