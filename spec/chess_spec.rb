@@ -562,4 +562,11 @@ describe Chess do
       expect(available_moves).to eq(['c3'])
     end
   end
+
+  describe '#checkmated?' do
+    before do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+    end
+  end
 end
