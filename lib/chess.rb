@@ -696,12 +696,12 @@ class Chess
     game_won?
   end
 
-  def game_won?
-    white_king_location = locate_piece('white', 'King')
-    black_king_location = locate_piece('black', 'King')
-    white_king = game_board.board[white_king_location].value
-    black_king = game_board.board[black_king_location].value
+  def checkmated?
+    player_pieces = locate_player_pieces(turn.color)
+    update_legal_moves(turn.color)
 
-    white_king.checkmated || black_king.checkmated
+    available_pieces = available_pieces(player_pieces)
+
+    king_in_check? && available_pieces.empty?
   end
 end
