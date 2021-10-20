@@ -259,6 +259,7 @@ class Chess
   end
 
   def unchecking_pieces(attacking_pieces_locations, king_location, player_pieces)
+    king = game_board.board[king_location].value
     check_blocking_pieces = check_blocking_pieces(king_location, player_pieces, attacking_pieces_locations)
 
     if attacking_pieces_locations.count == 1
@@ -268,8 +269,10 @@ class Chess
         (piece.type == 'King' && piece.legal_moves.any?) ||
           piece.legal_moves.include?(attacking_pieces_locations[0])
       end) + check_blocking_pieces
-    else
+    elsif king.legal_moves.any?
       [king_location]
+    else
+      []
     end
   end
 
