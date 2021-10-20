@@ -351,6 +351,23 @@ class Chess
     check_blocking_pieces
   end
 
+  def potentially_under_attack(piece_location)
+    piece = game_board.board[piece_location].value
+    attack_directions = directions_under_attack(piece_location)
+    moves_under_attack = []
+
+    attack_directions.each do |space|
+      attack_direction = direction_of_travel(piece_location, space)
+      opposite_direction = [-attack_direction[0], -attack_direction[1]]
+
+      opposite_space = traverse(piece_location, opposite_direction)
+
+      moves_under_attack << opposite_space if piece.legal_moves.include?(opposite_space)
+    end
+
+    moves_under_attack
+  end
+
   def moves_under_attack(piece_location)
     piece = game_board.board[piece_location].value
     opponent_color = piece.color == 'white' ? 'black' : 'white'
