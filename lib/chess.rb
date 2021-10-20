@@ -536,9 +536,9 @@ class Chess
     piece.legal_moves = generate_single_moves(piece, x_values, old_x, old_y)
 
     location = "#{x_values[old_x]}#{old_y}"
-    moves_under_attack = moves_under_attack(location)
+    moves_under_attack = moves_under_attack(location) + potentially_under_attack(location)
 
-    piece.legal_moves -= moves_under_attack
+    piece.legal_moves -= moves_under_attack.uniq
   end
 
   def generate_knight_moves(piece, x_values, old_x, old_y)
