@@ -151,6 +151,19 @@ describe Chess do
         allow(player_one).to receive(:color).and_return('white')
         allow(player_two).to receive(:color).and_return('black')
       end
+
+      it 'does not allow h4 King to capture h5 Pawn into check (by h6 Queen)' do
+        new_game.game_board.add_piece(Queen.new('black'), 'h6')
+        new_game.game_board.add_piece(Pawn.new('black'), 'h5')
+        new_game.game_board.add_piece(King.new('white'), 'h4')
+
+        new_game.refresh_legal_moves
+        king = new_game.game_board.board['h4'].value
+        king_moves = king.legal_moves
+
+        expect(king_moves.include?('h5')).to eq(false)
+      end
+    end
   end
 
   describe '#protecting_pieces' do
