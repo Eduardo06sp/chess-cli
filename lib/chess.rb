@@ -354,6 +354,40 @@ class Chess
     check_blocking_pieces
   end
 
+  def captures_under_attack(piece_location)
+    piece = game_board.board[piece_location].value
+    opponent_color = turn.color == 'white' ? 'black' : 'white'
+    opponent_pieces = locate_player_pieces(opponent_color)
+    checking_captures = []
+
+    captures = piece.legal_moves.select do |legal_move|
+      space_occupied?(legal_move, opponent_color)
+    end
+
+    opponent_pieces.each do |opponent_location|
+      opponent_piece = game_board.board[opponent_location].value
+      opponent_piece.movement_directions.each do |direction|
+        tmp = opponent_location
+
+        loop do
+          tmp = traverse(tmp, direction)
+
+          break if tmp.nil? || space_occupied?(tmp)
+        end
+
+        next if tmp.nil?
+
+        current_piece = game_board.board[tmp].value
+        if current_piece.color == opponent_color &&
+           captures.include?(tmp)
+          checking_captures << tmp
+        end
+      end
+    end
+
+    checking_captures
+  end
+
   def potentially_under_attack(piece_location)
     piece = game_board.board[piece_location].value
     attack_directions = directions_under_attack(piece_location)
