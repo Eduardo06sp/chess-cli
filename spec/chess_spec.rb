@@ -145,6 +145,12 @@ describe Chess do
         expect(pawn_moves).to eq(%w[])
       end
     end
+
+    context 'when only specified pieces are added and arranged' do
+      before do
+        allow(player_one).to receive(:color).and_return('white')
+        allow(player_two).to receive(:color).and_return('black')
+      end
   end
 
   describe '#protecting_pieces' do
