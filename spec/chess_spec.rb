@@ -597,5 +597,15 @@ describe Chess do
 
       expect(new_game.checkmated?).to eq(true)
     end
+
+    it 'returns true when g8 Rook and h6 Queen checkmate h4 King' do
+      new_game.game_board.add_piece(Rook.new('black'), 'g8')
+      new_game.game_board.add_piece(Queen.new('black'), 'h6')
+      new_game.game_board.add_piece(King.new('white'), 'h4')
+
+      new_game.refresh_legal_moves
+
+      expect(new_game.checkmated?).to eq(true)
+    end
   end
 end
