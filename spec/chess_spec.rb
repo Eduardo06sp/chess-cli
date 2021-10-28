@@ -607,5 +607,17 @@ describe Chess do
 
       expect(new_game.checkmated?).to eq(true)
     end
+
+    it 'returns true when c8 and d8 Bishops, g6 Pawn and e4 Knight checkmate h4 King' do
+      new_game.game_board.add_piece(Bishop.new('black'), 'c8')
+      new_game.game_board.add_piece(Bishop.new('black'), 'd8')
+      new_game.game_board.add_piece(Pawn.new('black'), 'g6')
+      new_game.game_board.add_piece(Knight.new('black'), 'e4')
+      new_game.game_board.add_piece(King.new('white'), 'h4')
+
+      new_game.refresh_legal_moves
+
+      expect(new_game.checkmated?).to eq(true)
+    end
   end
 end
