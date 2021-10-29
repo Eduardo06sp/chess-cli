@@ -87,7 +87,9 @@ class Chess
 
   def play_round
     refresh_legal_moves
-    selected_piece_location = request_piece_selection
+    user_input = initial_round_prompt
+
+    selected_piece_location = request_piece_selection(user_input)
     piece = game_board.board[selected_piece_location].value
     destination = request_destination(selected_piece_location)
 
@@ -106,10 +108,19 @@ class Chess
                 end
   end
 
-  def request_piece_selection
-    hint = 'Please select a gamepiece.'
+  def initial_round_prompt
+    resignation_words = %w[resign quit exit]
+    hint = 'Please select a gamepiece. You may resign by typing: resign, exit or quit.'
     display_interface(hint)
-    input = gets.chomp
+    user_input = gets.chomp
+
+    resign_game if resignation_words.include?(user_input)
+
+    user_input
+  end
+
+  def request_piece_selection(input)
+    hint = 'Please select a gamepiece.'
     player_pieces = locate_player_pieces(turn.color)
     update_legal_moves(turn.color)
     available_pieces = available_pieces(player_pieces)
@@ -746,6 +757,12 @@ class Chess
     end
 
     input
+  end
+
+  def resign_game
+    opponent = turn.name == player_one.name ? player_two.name : player_one.name
+
+    puts "#{turn.name} has resigned! #{opponent} wins!"
   end
 
   def game_over?
