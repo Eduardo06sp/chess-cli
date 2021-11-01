@@ -664,5 +664,13 @@ describe Chess do
       allow(player_one).to receive(:color).and_return('white')
       allow(player_two).to receive(:color).and_return('black')
     end
+
+    it 'returns true when e7 Pawn and e6 King attack e8 King' do
+      new_game.game_board.add_piece(King.new('white'), 'e6')
+      new_game.game_board.add_piece(Pawn.new('white'), 'e7')
+      new_game.game_board.add_piece(King.new('black'), 'e8')
+
+      expect(new_game.stalemate?).to eq(true)
+    end
   end
 end
