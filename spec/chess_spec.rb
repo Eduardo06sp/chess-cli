@@ -642,6 +642,14 @@ describe Chess do
       expect(new_game.insufficient_material?).to eq(true)
     end
 
+    it 'returns true when white only has King & Knight and black has only King' do
+      new_game.game_board.add_piece(King.new('white'), 'g4')
+      new_game.game_board.add_piece(Knight.new('white'), 'b2')
+      new_game.game_board.add_piece(King.new('black'), 'c5')
+
+      expect(new_game.insufficient_material?).to eq(true)
+    end
+
     it 'returns false when players have various pieces' do
       new_game.game_board.add_piece(King.new('white'), 'g4')
       new_game.game_board.add_piece(Queen.new('white'), 'g5')
