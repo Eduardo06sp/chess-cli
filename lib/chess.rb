@@ -764,6 +764,11 @@ class Chess
       black_pieces.count { |piece| piece.type == 'King' } == black_pieces.count
   end
 
+  def end_in_draw
+    puts 'Game ends in draw!'
+    exit
+  end
+
   def resign_game
     opponent = turn.name == player_one.name ? player_two.name : player_one.name
 
