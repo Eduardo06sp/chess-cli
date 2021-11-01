@@ -769,6 +769,12 @@ class Chess
     black_pieces = black_piece_locations.map do |space|
       game_board.board[space].value
     end
+
+    king_vs_king?(white_pieces, black_pieces) ||
+      king_bishop_vs_king?(white_pieces, black_pieces) ||
+      king_bishop_vs_king?(black_pieces, white_pieces) ||
+      king_knight_vs_king?(white_pieces, black_pieces) ||
+      king_knight_vs_king?(black_pieces, white_pieces)
   end
 
   def king_vs_king?(white_pieces, black_pieces)
