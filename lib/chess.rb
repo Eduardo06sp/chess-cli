@@ -794,6 +794,13 @@ class Chess
       (opposite_player_pieces.count { |piece| piece.type == 'King' } == opposite_player_pieces.count)
   end
 
+  def stalemate?
+    player_pieces = locate_player_pieces(turn.color)
+    available_pieces = available_pieces(player_pieces)
+
+    !king_in_check? && available_pieces.empty?
+  end
+
   def end_in_draw
     puts 'Game ends in draw!'
     exit
