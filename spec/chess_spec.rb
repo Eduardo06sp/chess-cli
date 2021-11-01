@@ -621,7 +621,7 @@ describe Chess do
     end
   end
 
-  describe '#king_vs_king?' do
+  describe '#insufficient_material?' do
     before do
       allow(player_one).to receive(:color).and_return('white')
       allow(player_two).to receive(:color).and_return('black')
