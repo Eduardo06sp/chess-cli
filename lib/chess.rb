@@ -763,6 +763,7 @@ class Chess
     opponent = turn.name == player_one.name ? player_two.name : player_one.name
 
     puts "#{turn.name} has resigned! #{opponent} wins!"
+    exit
   end
 
   def game_over?
