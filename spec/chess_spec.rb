@@ -658,4 +658,11 @@ describe Chess do
       expect(new_game.insufficient_material?).to eq(false)
     end
   end
+
+  describe '#stalemate?' do
+    before do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+    end
+  end
 end
