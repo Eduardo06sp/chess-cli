@@ -759,6 +759,18 @@ class Chess
     input
   end
 
+  def insufficient_material?
+    white_piece_locations = locate_player_pieces('white')
+    black_piece_locations = locate_player_pieces('black')
+
+    white_pieces = white_piece_locations.map do |space|
+      game_board.board[space].value
+    end
+    black_pieces = black_piece_locations.map do |space|
+      game_board.board[space].value
+    end
+  end
+
   def king_vs_king?(white_pieces, black_pieces)
     white_pieces.count { |piece| piece.type == 'King' } == white_pieces.count &&
       black_pieces.count { |piece| piece.type == 'King' } == black_pieces.count
