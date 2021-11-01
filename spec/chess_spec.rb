@@ -626,5 +626,12 @@ describe Chess do
       allow(player_one).to receive(:color).and_return('white')
       allow(player_two).to receive(:color).and_return('black')
     end
+
+    it 'returns true when both players only have one King each' do
+      new_game.game_board.add_piece(King.new('white'), 'g4')
+      new_game.game_board.add_piece(King.new('black'), 'c5')
+
+      expect(new_game.insufficient_material?).to eq(true)
+    end
   end
 end
