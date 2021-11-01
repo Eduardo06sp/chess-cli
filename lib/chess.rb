@@ -114,6 +114,7 @@ class Chess
     display_interface(hint)
     user_input = gets.chomp
 
+    end_in_draw if draw?
     resign_game if resignation_words.include?(user_input)
 
     user_input
@@ -757,6 +758,11 @@ class Chess
     end
 
     input
+  end
+
+  def draw?
+    insufficient_material?
+    stalemate?
   end
 
   def insufficient_material?
