@@ -764,6 +764,12 @@ class Chess
       black_pieces.count { |piece| piece.type == 'King' } == black_pieces.count
   end
 
+  def king_bishop_vs_king?(player_pieces, opposite_player_pieces)
+    (player_pieces.count { |piece| piece.type == 'King' } +
+      player_pieces.count { |piece| piece.type == 'Bishop' } == player_pieces.count) &&
+      (opposite_player_pieces.count { |piece| piece.type == 'King' } == opposite_player_pieces.count)
+  end
+
   def end_in_draw
     puts 'Game ends in draw!'
     exit
