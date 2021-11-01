@@ -83,6 +83,7 @@ class Chess
 
   def play
     play_round until game_over?
+    display_interface(end_message('checkmate'))
   end
 
   def play_round
@@ -808,7 +809,7 @@ class Chess
   end
 
   def end_in_draw
-    puts 'Game ends in draw!'
+    display_interface(end_message('draw'))
     exit
   end
 
