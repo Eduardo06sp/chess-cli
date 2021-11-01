@@ -759,6 +759,11 @@ class Chess
     input
   end
 
+  def king_vs_king?(white_pieces, black_pieces)
+    white_pieces.count { |piece| piece.type == 'King' } == white_pieces.count &&
+      black_pieces.count { |piece| piece.type == 'King' } == black_pieces.count
+  end
+
   def resign_game
     opponent = turn.name == player_one.name ? player_two.name : player_one.name
 
