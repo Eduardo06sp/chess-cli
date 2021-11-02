@@ -31,12 +31,12 @@ class Chess
   def fill_king_rank(color, rank)
     game_board.add_piece(Rook.new(color, 1), "a#{rank}")
     game_board.add_piece(Knight.new(color, 1), "b#{rank}")
-    game_board.add_piece(Bishop.new(color), "c#{rank}")
+    game_board.add_piece(Bishop.new(color, 1), "c#{rank}")
     game_board.add_piece(Queen.new(color), "d#{rank}")
 
     game_board.add_piece(King.new(color), "e#{rank}")
 
-    game_board.add_piece(Bishop.new(color), "f#{rank}")
+    game_board.add_piece(Bishop.new(color, 2), "f#{rank}")
     game_board.add_piece(Knight.new(color, 2), "g#{rank}")
     game_board.add_piece(Rook.new(color, 2), "h#{rank}")
   end

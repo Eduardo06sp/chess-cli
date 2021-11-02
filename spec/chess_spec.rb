@@ -609,8 +609,8 @@ describe Chess do
     end
 
     it 'returns true when c8 and d8 Bishops, g6 Pawn and e4 Knight checkmate h4 King' do
-      new_game.game_board.add_piece(Bishop.new('black'), 'c8')
-      new_game.game_board.add_piece(Bishop.new('black'), 'd8')
+      new_game.game_board.add_piece(Bishop.new('black', 1), 'c8')
+      new_game.game_board.add_piece(Bishop.new('black', 2), 'd8')
       new_game.game_board.add_piece(Pawn.new('black'), 'g6')
       new_game.game_board.add_piece(Knight.new('black', 2), 'e4')
       new_game.game_board.add_piece(King.new('white'), 'h4')
@@ -636,7 +636,7 @@ describe Chess do
 
     it 'returns true when white only has King & Bishop and black has only King' do
       new_game.game_board.add_piece(King.new('white'), 'g4')
-      new_game.game_board.add_piece(Bishop.new('white'), 'b2')
+      new_game.game_board.add_piece(Bishop.new('white', 1), 'b2')
       new_game.game_board.add_piece(King.new('black'), 'c5')
 
       expect(new_game.insufficient_material?).to eq(true)

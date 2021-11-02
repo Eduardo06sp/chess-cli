@@ -4,8 +4,9 @@ class Bishop
   attr_accessor :legal_moves
   attr_reader :type, :color, :movement_directions
 
-  def initialize(color)
+  def initialize(color, id)
     @type = 'Bishop'
+    @id = id
     @color = color
     @legal_moves = []
     @movement_directions = [
