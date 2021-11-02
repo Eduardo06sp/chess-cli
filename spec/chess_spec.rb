@@ -705,5 +705,14 @@ describe Chess do
       allow(player_one).to receive(:color).and_return('white')
       allow(player_two).to receive(:color).and_return('black')
     end
+
+    it 'returns true when King-side castling is possible' do
+      new_game.game_board.add_piece(King.new('white'), 'e1')
+      new_game.game_board.add_piece(Rook.new('white', 2), 'h1')
+
+      new_game.refresh_legal_moves
+
+      expect(new_game.kingside_castling_possible?).to eq(true)
+    end
   end
 end
