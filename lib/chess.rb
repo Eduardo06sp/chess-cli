@@ -638,8 +638,8 @@ class Chess
   end
 
   def queenside_castling_possible?
-    king = locate_piece(turn.color, 'King')
-    rook = locate_piece(turn.color, 'Rook', 1)
+    king = game_board.board[locate_piece(turn.color, 'King')].value
+    rook = game_board.board[locate_piece(turn.color, 'Rook', 1)].value
     empty_spaces_required = %w[b1 c1 d1]
 
     return if rook.moved || king.moved
@@ -651,8 +651,8 @@ class Chess
   end
 
   def kingside_castling_possible?
-    king = locate_piece(turn.color, 'King')
-    rook = locate_piece(turn.color, 'Rook', 2)
+    king = game_board.board[locate_piece(turn.color, 'King')].value
+    rook = game_board.board[locate_piece(turn.color, 'Rook', 2)].value
     empty_spaces_required = %w[f1 g1]
 
     return if rook.moved || king.moved
