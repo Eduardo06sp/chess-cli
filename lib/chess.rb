@@ -57,12 +57,13 @@ class Chess
     fill_king_rank('black', '8')
   end
 
-  def locate_piece(color, type)
+  def locate_piece(color, type, id = 0)
     game_board.board.each do |space, cell|
       next if cell.value == ' '
 
       if cell.value.color == color &&
-         cell.value.type == type
+         cell.value.type == type &&
+         cell.value.id == id
 
         return space
       end
