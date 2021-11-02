@@ -650,6 +650,19 @@ class Chess
     true
   end
 
+  def kingside_castling_possible?
+    king = locate_piece(turn.color, 'King')
+    rook = locate_piece(turn.color, 'Rook', 2)
+    empty_spaces_required = %w[f1 g1]
+
+    return if rook.moved || king.moved
+    return if empty_spaces_required.any? { |space| space_occupied?(space) }
+    return if empty_spaces_required.any? { |space| under_attack?(space) }
+    return if king_in_check?
+
+    true
+  end
+
   def generate_capturing_moves(piece, x_values, old_x, old_y)
     capturing_moves = []
 
