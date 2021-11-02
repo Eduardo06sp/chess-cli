@@ -645,6 +645,7 @@ class Chess
     return if rook.moved || king.moved
     return if empty_spaces_required.any? { |space| space_occupied?(space) }
     return if empty_spaces_required.any? { |space| under_attack?(space) }
+    return if king_in_check?
   end
 
   def generate_capturing_moves(piece, x_values, old_x, old_y)
