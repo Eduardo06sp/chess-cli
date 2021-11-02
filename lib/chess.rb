@@ -637,6 +637,13 @@ class Chess
     end
   end
 
+  def queenside_castling_possible?
+    king = locate_piece(turn.color, 'King')
+    rook = locate_piece(turn.color, 'Rook', 1)
+
+    return if rook.moved || king.moved
+  end
+
   def generate_capturing_moves(piece, x_values, old_x, old_y)
     capturing_moves = []
 
