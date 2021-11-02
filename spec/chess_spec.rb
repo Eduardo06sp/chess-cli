@@ -612,7 +612,7 @@ describe Chess do
       new_game.game_board.add_piece(Bishop.new('black'), 'c8')
       new_game.game_board.add_piece(Bishop.new('black'), 'd8')
       new_game.game_board.add_piece(Pawn.new('black'), 'g6')
-      new_game.game_board.add_piece(Knight.new('black'), 'e4')
+      new_game.game_board.add_piece(Knight.new('black', 2), 'e4')
       new_game.game_board.add_piece(King.new('white'), 'h4')
 
       new_game.refresh_legal_moves
@@ -644,7 +644,7 @@ describe Chess do
 
     it 'returns true when white only has King & Knight and black has only King' do
       new_game.game_board.add_piece(King.new('white'), 'g4')
-      new_game.game_board.add_piece(Knight.new('white'), 'b2')
+      new_game.game_board.add_piece(Knight.new('white', 1), 'b2')
       new_game.game_board.add_piece(King.new('black'), 'c5')
 
       expect(new_game.insufficient_material?).to eq(true)
