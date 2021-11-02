@@ -640,8 +640,11 @@ class Chess
   def queenside_castling_possible?
     king = locate_piece(turn.color, 'King')
     rook = locate_piece(turn.color, 'Rook', 1)
+    empty_spaces_required = %w[b1 c1 d1]
 
     return if rook.moved || king.moved
+    return if empty_spaces_required.any? { |space| space_occupied?(space) }
+    return if empty_spaces_required.any? { |space| under_attack?(space) }
   end
 
   def generate_capturing_moves(piece, x_values, old_x, old_y)
