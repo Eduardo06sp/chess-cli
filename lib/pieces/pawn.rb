@@ -6,6 +6,7 @@ class Pawn
 
   def initialize(color)
     @type = 'Pawn'
+    @id = 0
     @color = color
     @legal_moves = []
     @movement_directions = generate_movement_direction

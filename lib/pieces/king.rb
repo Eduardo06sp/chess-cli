@@ -6,6 +6,7 @@ class King
 
   def initialize(color)
     @type = 'King'
+    @id = 0
     @color = color
     @legal_moves = []
     @movement_directions = [
