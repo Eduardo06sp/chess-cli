@@ -688,5 +688,15 @@ describe Chess do
 
       expect(new_game.queenside_castling_possible?).to eq(true)
     end
+
+    it 'returns nil if King is under attack' do
+      new_game.game_board.add_piece(King.new('white'), 'e1')
+      new_game.game_board.add_piece(Rook.new('white', 1), 'a1')
+      new_game.game_board.add_piece(Rook.new('black', 2), 'e8')
+
+      new_game.refresh_legal_moves
+
+      expect(new_game.queenside_castling_possible?).to eq(nil)
+    end
   end
 end
