@@ -2,7 +2,7 @@
 
 class Pawn
   attr_accessor :legal_moves, :moved
-  attr_reader :type, :color, :movement_directions, :capturing_moves
+  attr_reader :type, :color, :movement_directions, :capturing_moves, :id
 
   def initialize(color)
     @type = 'Pawn'

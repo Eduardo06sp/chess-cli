@@ -2,7 +2,7 @@
 
 class King
   attr_accessor :legal_moves
-  attr_reader :type, :color, :movement_directions, :checkmated
+  attr_reader :type, :color, :movement_directions, :checkmated, :id
 
   def initialize(color)
     @type = 'King'

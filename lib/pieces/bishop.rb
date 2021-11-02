@@ -2,7 +2,7 @@
 
 class Bishop
   attr_accessor :legal_moves
-  attr_reader :type, :color, :movement_directions
+  attr_reader :type, :color, :movement_directions, :id
 
   def initialize(color, id)
     @type = 'Bishop'
