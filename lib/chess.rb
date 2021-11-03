@@ -664,10 +664,15 @@ class Chess
                             else
                               %w[b8 c8 d8]
                             end
+    king_spaces_required = if turn.color == 'white'
+                             %w[c1 d1]
+                           else
+                             %w[c8 d8]
+                           end
 
     return if rook.moved || king.moved
     return if empty_spaces_required.any? { |space| space_occupied?(space) }
-    return if empty_spaces_required.any? { |space| under_attack?(space) }
+    return if king_spaces_required.any? { |space| under_attack?(space) }
     return if king_in_check?
 
     true
