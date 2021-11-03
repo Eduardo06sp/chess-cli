@@ -68,6 +68,8 @@ class Chess
         return space
       end
     end
+
+    nil
   end
 
   def locate_player_pieces(color)
