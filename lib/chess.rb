@@ -588,6 +588,7 @@ class Chess
   end
 
   def generate_king_moves(piece, x_values, old_x, old_y)
+    modify_king_castling(piece)
     piece.legal_moves = generate_single_moves(piece, x_values, old_x, old_y)
 
     location = "#{x_values[old_x]}#{old_y}"
@@ -596,6 +597,20 @@ class Chess
                          captures_under_attack(location)
 
     piece.legal_moves -= moves_under_attack.uniq
+  end
+
+  def modify_king_castling(piece)
+    if queenside_castling_possible?
+      piece.movement_directions << [-2, 0]
+    else
+      piece.movement_directions.delete([-2, 0])
+    end
+
+    if kingside_castling_possible?
+      piece.movement_directions << [2, 0]
+    else
+      piece.movement_directions.delete([2, 0])
+    end
   end
 
   def generate_knight_moves(piece, x_values, old_x, old_y)
