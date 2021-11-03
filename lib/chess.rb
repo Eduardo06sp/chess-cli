@@ -640,7 +640,11 @@ class Chess
   def queenside_castling_possible?
     king = game_board.board[locate_piece(turn.color, 'King')].value
     rook = game_board.board[locate_piece(turn.color, 'Rook', 1)].value
-    empty_spaces_required = %w[b1 c1 d1]
+    empty_spaces_required = if turn.color == 'white'
+                              %w[b1 c1 d1]
+                            else
+                              %w[b8 c8 d8]
+                            end
 
     return if rook.moved || king.moved
     return if empty_spaces_required.any? { |space| space_occupied?(space) }
@@ -653,7 +657,11 @@ class Chess
   def kingside_castling_possible?
     king = game_board.board[locate_piece(turn.color, 'King')].value
     rook = game_board.board[locate_piece(turn.color, 'Rook', 2)].value
-    empty_spaces_required = %w[f1 g1]
+    empty_spaces_required = if turn.color == 'white'
+                              %w[f1 g1]
+                            else
+                              %w[f8 g8]
+                            end
 
     return if rook.moved || king.moved
     return if empty_spaces_required.any? { |space| space_occupied?(space) }
