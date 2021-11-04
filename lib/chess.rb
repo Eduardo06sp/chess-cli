@@ -885,6 +885,20 @@ class Chess
     end
   end
 
+  def kingside_castle
+    if turn.color == 'white'
+      king = game_board.board['e1'].value
+      rook = game_board.board['h1'].value
+      game_board.move_piece(king, 'e1', 'g1')
+      game_board.move_piece(rook, 'h1', 'f1')
+    else
+      king = game_board.board['e8'].value
+      rook = game_board.board['h8'].value
+      game_board.move_piece(king, 'e8', 'g8')
+      game_board.move_piece(rook, 'h8', 'f8')
+    end
+  end
+
   def end_in_draw
     display_interface(end_message('draw'))
     exit
