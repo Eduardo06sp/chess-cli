@@ -715,4 +715,11 @@ describe Chess do
       expect(new_game.kingside_castling_possible?).to eq(true)
     end
   end
+
+  describe '#queenside_castle' do
+    before do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+    end
+  end
 end
