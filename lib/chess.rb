@@ -97,13 +97,38 @@ class Chess
     piece = game_board.board[selected_piece_location].value
     destination = request_destination(selected_piece_location)
 
-    game_board.move_piece(piece, selected_piece_location, destination)
+    complete_move(piece, selected_piece_location, destination)
+
     piece.moved = true if piece.type == 'Pawn' ||
                           piece.type == 'Rook' ||
                           piece.type == 'King'
 
     clear_legal_moves
     change_turn
+  end
+
+  def complete_move
+    if piece.type == 'King' &&
+       queenside_castling_possible? &&
+       %w[b1 b8].include?(destination)
+      queenside_castle
+    elsif piece.type == 'Rook' &&
+          piece.id == 1 &&
+          queenside_castling_possible? &&
+          %w[c1 c8].include?(destination)
+      queenside_castle
+    elsif piece.type == 'King' &&
+          kingside_castling_possible? &&
+          %w[g1 g8].include?(destination)
+      kingside_castle
+    elsif piece.type == 'Rook' &&
+          piece.id == 2 &&
+          kingside_castling_possible? &&
+          %w[f1 f8].include?(destination)
+      kingside_castle
+    else
+      game_board.move_piece(piece, selected_piece_location, destination)
+    end
   end
 
   def change_turn
