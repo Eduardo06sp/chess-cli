@@ -871,6 +871,20 @@ class Chess
     !king_in_check? && available_pieces.empty?
   end
 
+  def queenside_castle
+    if turn.color == 'white'
+      king = game_board.board['e1'].value
+      rook = game_board.board['a1'].value
+      game_board.move_piece(king, 'e1', 'c1')
+      game_board.move_piece(rook, 'a1', 'd1')
+    else
+      king = game_board.board['e8'].value
+      rook = game_board.board['a8'].value
+      game_board.move_piece(king, 'e8', 'c8')
+      game_board.move_piece(rook, 'a8', 'd8')
+    end
+  end
+
   def end_in_draw
     display_interface(end_message('draw'))
     exit
