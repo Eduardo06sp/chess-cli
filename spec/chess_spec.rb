@@ -721,5 +721,25 @@ describe Chess do
       allow(player_one).to receive(:color).and_return('white')
       allow(player_two).to receive(:color).and_return('black')
     end
+
+    it 'moves white King to c1' do
+      new_game.game_board.add_piece(King.new('white'), 'e1')
+      new_game.game_board.add_piece(Rook.new('white', 1), 'a1')
+
+      new_game.queenside_castle
+
+      b1_type = new_game.game_board.board['c1'].value.type
+      expect(b1_type).to eq('King')
+    end
+
+    it 'moves white Rook to d1' do
+      new_game.game_board.add_piece(King.new('white'), 'e1')
+      new_game.game_board.add_piece(Rook.new('white', 1), 'a1')
+
+      new_game.queenside_castle
+
+      b1_type = new_game.game_board.board['d1'].value.type
+      expect(b1_type).to eq('Rook')
+    end
   end
 end
