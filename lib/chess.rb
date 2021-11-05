@@ -99,6 +99,7 @@ class Chess
 
     complete_move(piece, selected_piece_location, destination)
 
+    piece.moves += 1 if piece.type == 'Pawn'
     piece.moved = true if piece.type == 'Pawn' ||
                           piece.type == 'Rook' ||
                           piece.type == 'King'
