@@ -738,8 +738,8 @@ describe Chess do
 
       new_game.queenside_castle
 
-      b1_type = new_game.game_board.board['d1'].value.type
-      expect(b1_type).to eq('Rook')
+      d1_type = new_game.game_board.board['d1'].value.type
+      expect(d1_type).to eq('Rook')
     end
   end
 
