@@ -742,4 +742,31 @@ describe Chess do
       expect(b1_type).to eq('Rook')
     end
   end
+
+  describe '#kingside_castle' do
+    before do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+    end
+
+    it 'moves white King to g1' do
+      new_game.game_board.add_piece(King.new('white'), 'e1')
+      new_game.game_board.add_piece(Rook.new('white', 2), 'h1')
+
+      new_game.kingside_castle
+
+      g1_type = new_game.game_board.board['g1'].value.type
+      expect(g1_type).to eq('King')
+    end
+
+    it 'moves white Rook to f1' do
+      new_game.game_board.add_piece(King.new('white'), 'e1')
+      new_game.game_board.add_piece(Rook.new('white', 2), 'h1')
+
+      new_game.kingside_castle
+
+      f1_type = new_game.game_board.board['f1'].value.type
+      expect(f1_type).to eq('Rook')
+    end
+  end
 end
