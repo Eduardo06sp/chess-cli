@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Pawn
-  attr_accessor :legal_moves, :moves, :moved
+  attr_accessor :legal_moves, :double_hop_used, :moves, :moved
   attr_reader :type, :color, :movement_directions, :capturing_moves, :id
 
   def initialize(color)
@@ -11,6 +11,7 @@ class Pawn
     @legal_moves = []
     @movement_directions = generate_movement_direction
     @capturing_moves = generate_capturing_moves
+    @double_hop_used = false
     @moves = 0
     @moved = false
   end
