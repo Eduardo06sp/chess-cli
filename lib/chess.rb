@@ -680,6 +680,15 @@ class Chess
     end
   end
 
+  def pawn_hop_used?(piece, origin, destination)
+    return unless piece.type == 'Pawn'
+
+    pawn_hop = [[0, 2], [0, -2]]
+    difference = direction_of_travel(origin, destination)
+
+    pawn_hop.include?(difference)
+  end
+
   def queenside_castling_possible?
     king = game_board.board[locate_piece(turn.color, 'King')].value
     return if locate_piece(turn.color, 'Rook', 1).nil?
