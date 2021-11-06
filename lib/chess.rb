@@ -108,7 +108,7 @@ class Chess
     change_turn
   end
 
-  def complete_move
+  def complete_move(piece, origin, destination)
     if piece.type == 'King' &&
        queenside_castling_possible? &&
        %w[b1 b8].include?(destination)
@@ -128,7 +128,7 @@ class Chess
           %w[f1 f8].include?(destination)
       kingside_castle
     else
-      game_board.move_piece(piece, selected_piece_location, destination)
+      game_board.move_piece(piece, origin, destination)
     end
   end
 
