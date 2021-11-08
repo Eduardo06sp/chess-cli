@@ -951,6 +951,8 @@ class Chess
     enemy_color = turn.color == 'white' ? 'black' : 'white'
 
     left_piece_location = traverse(capture_location, [-1, 0])
+    return if left_piece_location.nil?
+
     left_piece = game_board.board[left_piece_location].value
     return if left_piece == ' '
 
@@ -961,6 +963,8 @@ class Chess
     end
 
     right_piece_location = traverse(capture_location, [1, 0])
+    return if right_piece_location.nil?
+
     right_piece = game_board.board[right_piece_location].value
     return if right_piece == ' '
 
