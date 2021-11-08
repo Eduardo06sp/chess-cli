@@ -944,6 +944,7 @@ class Chess
     return if left_piece == ' '
 
     if left_piece.type == 'Pawn' &&
+       left_piece.moves == 3 &&
        left_piece.color == enemy_color
       left_piece.en_passant_move << en_passant_move
     end
@@ -953,6 +954,7 @@ class Chess
     return if right_piece == ' '
 
     if right_piece.type == 'Pawn' &&
+       right_piece.moves == 3 &&
        right_piece.color == enemy_color
       right_piece.en_passant_move << en_passant_move
     end
