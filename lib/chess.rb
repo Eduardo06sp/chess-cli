@@ -128,6 +128,13 @@ class Chess
           %w[f1 f8].include?(destination)
       kingside_castle
     elsif piece.type == 'Pawn' &&
+          piece.en_passant_move.any?
+      if destination == piece.en_passant_move
+        en_passant(piece, origin, destination)
+      else
+        piece.en_passant_move = []
+      end
+    elsif piece.type == 'Pawn' &&
           pawn_hop_used?(piece, origin, destination)
       add_en_passant(destination)
       game_board.move_piece(piece, origin, destination)
