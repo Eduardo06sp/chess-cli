@@ -947,7 +947,7 @@ class Chess
   end
 
   def add_en_passant(capture_location)
-    direction = turn.color == 'white' ? [0, -2] : [0, 2]
+    direction = turn.color == 'white' ? [0, -1] : [0, 1]
     en_passant_move = traverse(capture_location, direction)
     enemy_color = turn.color == 'white' ? 'black' : 'white'
 
