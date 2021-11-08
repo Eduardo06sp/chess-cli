@@ -960,6 +960,14 @@ class Chess
     end
   end
 
+  def en_passant(piece, origin, destination)
+    direction = turn.color == 'white' ? [0, -1] : [0, 1]
+    capturable_enemy = traverse(destination, direction)
+
+    game_board.move_piece(piece, origin, destination)
+    game_board.clear_space(capturable_enemy)
+  end
+
   def end_in_draw
     display_interface(end_message('draw'))
     exit
