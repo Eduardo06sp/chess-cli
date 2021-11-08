@@ -769,4 +769,11 @@ describe Chess do
       expect(f1_type).to eq('Rook')
     end
   end
+
+  describe '#add_en_passant' do
+    before do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+    end
+  end
 end
