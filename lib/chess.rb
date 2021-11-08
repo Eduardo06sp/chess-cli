@@ -669,6 +669,7 @@ class Chess
     remove_occupied_locations(piece)
 
     piece.legal_moves += generate_capturing_moves(piece, x_values, old_x, old_y)
+    piece.legal_moves += piece.en_passant_move
   end
 
   def pawn_hop_possible?(piece, x, y)
