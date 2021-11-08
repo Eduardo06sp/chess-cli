@@ -934,6 +934,30 @@ class Chess
     end
   end
 
+  def add_en_passant(capture_location)
+    direction = turn.color == 'white' ? [0, -2] : [0, 2]
+    en_passant_move = traverse(capture_location, direction)
+    enemy_color = turn.color == 'white' ? 'black' : 'white'
+
+    left_piece_location = traverse(capture_location, [-1, 0])
+    left_piece = game_board.board[left_piece_location].value
+    return if left_piece == ' '
+
+    if left_piece.type == 'Pawn' &&
+       left_piece.color == enemy_color
+      left_piece.en_passant_move << en_passant_move
+    end
+
+    right_piece_location = traverse(capture_location, [1, 0])
+    right_piece = game_board.board[right_piece_location].value
+    return if right_piece == ' '
+
+    if right_piece.type == 'Pawn' &&
+       right_piece.color == enemy_color
+      right_piece.en_passant_move << en_passant_move
+    end
+  end
+
   def end_in_draw
     display_interface(end_message('draw'))
     exit
