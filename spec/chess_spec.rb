@@ -821,5 +821,18 @@ describe Chess do
 
       expect(b3_space).to eq(black_pawn)
     end
+
+    it 'deletes white b4 Pawn (captured piece)' do
+      white_pawn = Pawn.new('white')
+      black_pawn = Pawn.new('black')
+      new_game.game_board.add_piece(white_pawn, 'b4')
+      new_game.game_board.add_piece(black_pawn, 'c4')
+      allow(new_game.turn).to receive(:color).and_return('black')
+
+      new_game.en_passant(black_pawn, 'c4', 'b3')
+      b4_space = new_game.game_board.board['b4'].value
+
+      expect(b4_space).to eq(' ')
+    end
   end
 end
