@@ -781,7 +781,7 @@ describe Chess do
     it 'adds b3 as en_passant_move to black a4 Pawn when en passant possible' do
       white_pawn = Pawn.new('white')
       black_pawn = Pawn.new('black')
-      new_game.game_board.add_piece(white_pawn, 'b4')
+      new_game.game_board.add_piece(white_pawn, 'b2')
       new_game.game_board.add_piece(black_pawn, 'a4')
 
       black_pawn.moves = 3
