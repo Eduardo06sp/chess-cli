@@ -952,27 +952,22 @@ class Chess
     enemy_color = turn.color == 'white' ? 'black' : 'white'
 
     left_piece_location = traverse(capture_location, [-1, 0])
-    return if left_piece_location.nil?
-
-    left_piece = game_board.board[left_piece_location].value
-    return if left_piece == ' '
-
-    if left_piece.type == 'Pawn' &&
-       left_piece.moves == 3 &&
-       left_piece.color == enemy_color
-      left_piece.en_passant_move << en_passant_move
-    end
+    check_en_passant(left_piece_location, en_passant_move, enemy_color)
 
     right_piece_location = traverse(capture_location, [1, 0])
-    return if right_piece_location.nil?
+    check_en_passant(right_piece_location, en_passant_move, enemy_color)
+  end
 
-    right_piece = game_board.board[right_piece_location].value
-    return if right_piece == ' '
+  def check_en_passant(location, en_passant_move, enemy_color)
+    return if location.nil?
 
-    if right_piece.type == 'Pawn' &&
-       right_piece.moves == 3 &&
-       right_piece.color == enemy_color
-      right_piece.en_passant_move << en_passant_move
+    piece = game_board.board[location].value
+    return if piece == ' '
+
+    if piece.type == 'Pawn' &&
+       piece.moves == 3 &&
+       piece.color == enemy_color
+      piece.en_passant_move << en_passant_move
     end
   end
 
