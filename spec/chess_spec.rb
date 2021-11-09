@@ -770,7 +770,7 @@ describe Chess do
     end
   end
 
-  describe '#add_en_passant' do
+  describe '#complete_move' do
     before do
       allow(player_one).to receive(:color).and_return('white')
       allow(player_two).to receive(:color).and_return('black')
