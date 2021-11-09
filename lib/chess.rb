@@ -979,6 +979,13 @@ class Chess
     game_board.clear_space(capturable_enemy)
   end
 
+  def final_rank?(space)
+    current_rank = space[1]
+    last_rank = turn.color == 'white' ? 8 : 1
+
+    current_rank == last_rank
+  end
+
   def end_in_draw
     display_interface(end_message('draw'))
     exit
