@@ -129,7 +129,7 @@ class Chess
       kingside_castle
     elsif piece.type == 'Pawn' &&
           piece.en_passant_move.any?
-      if destination == piece.en_passant_move
+      if destination == piece.en_passant_move[0]
         en_passant(piece, origin, destination)
       else
         piece.en_passant_move = []
