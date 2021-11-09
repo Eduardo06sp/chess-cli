@@ -774,6 +774,8 @@ describe Chess do
     before do
       allow(player_one).to receive(:color).and_return('white')
       allow(player_two).to receive(:color).and_return('black')
+      new_game.game_board.add_piece(King.new('white'), 'e1')
+      new_game.game_board.add_piece(King.new('black'), 'e8')
     end
   end
 end
