@@ -817,9 +817,9 @@ describe Chess do
       allow(new_game.turn).to receive(:color).and_return('black')
 
       new_game.en_passant(black_pawn, 'c4', 'b3')
-      b3_space = new_game.game_board.board['b3']
+      b3_space = new_game.game_board.board['b3'].value
 
-      expect(b3_space.value).to eq(black_pawn)
+      expect(b3_space).to eq(black_pawn)
     end
   end
 end
