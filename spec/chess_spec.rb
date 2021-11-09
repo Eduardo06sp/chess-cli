@@ -808,5 +808,18 @@ describe Chess do
       allow(player_one).to receive(:color).and_return('white')
       allow(player_two).to receive(:color).and_return('black')
     end
+
+    it 'moves black c4 Pawn to b3 space (to capture white b4 Pawn)' do
+      white_pawn = Pawn.new('white')
+      black_pawn = Pawn.new('black')
+      new_game.game_board.add_piece(white_pawn, 'b4')
+      new_game.game_board.add_piece(black_pawn, 'c4')
+      allow(new_game.turn).to receive(:color).and_return('black')
+
+      new_game.en_passant(black_pawn, 'c4', 'b3')
+      b3_space = new_game.game_board.board['b3']
+
+      expect(b3_space.value).to eq(black_pawn)
+    end
   end
 end
