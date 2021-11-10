@@ -155,7 +155,8 @@ class Chess
 
   def initial_round_prompt
     resignation_words = %w[resign quit exit]
-    hint = 'Please select a gamepiece. You may resign by typing: resign, exit or quit.'
+    hint = 'Please select a gamepiece.
+          You may resign by typing: resign, exit or quit.'
     display_interface(hint)
     user_input = gets.chomp
 
