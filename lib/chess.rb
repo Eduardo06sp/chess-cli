@@ -142,7 +142,7 @@ class Chess
       game_board.move_piece(piece, origin, destination)
     elsif piece.type == 'Pawn' &&
           final_rank?(destination)
-      promotion_prompt
+      promotion_prompt(origin, destination)
     else
       game_board.move_piece(piece, origin, destination)
     end
@@ -992,7 +992,7 @@ class Chess
     current_rank == last_rank
   end
 
-  def promotion_prompt
+  def promotion_prompt(origin, destination)
     promotion_pieces = %w[rook knight bishop queen]
     promotion_message = 'You may promote your Pawn to one of the following:
       - Rook
