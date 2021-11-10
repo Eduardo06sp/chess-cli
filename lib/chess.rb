@@ -994,7 +994,7 @@ class Chess
 
   def promotion_prompt(origin, destination)
     promotion_pieces = %w[rook knight bishop queen]
-    promotion_message = 'You may promote your Pawn to one of the following:
+    promotion_message = 'You may promote your Pawn to one of the following (in lower-case):
       - Rook
       - Knight
       - Bishop
