@@ -1000,6 +1000,7 @@ class Chess
       - Bishop
       - Queen'
     display_interface(promotion_message)
+    user_input = gets.chomp
     input = validate_input(user_input, promotion_pieces, promotion_message)
 
     promote_pawn(input, origin, destination)
