@@ -140,6 +140,9 @@ class Chess
           pawn_hop_used?(piece, origin, destination)
       add_en_passant(destination)
       game_board.move_piece(piece, origin, destination)
+    elsif piece.type == 'Pawn' &&
+          final_rank?(destination)
+      promotion_prompt
     else
       game_board.move_piece(piece, origin, destination)
     end
