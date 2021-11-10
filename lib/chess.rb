@@ -989,6 +989,17 @@ class Chess
     current_rank == last_rank
   end
 
+  def promotion_prompt
+    promotion_pieces = %w[rook knight bishop queen]
+    promotion_message = 'You may promote your Pawn to one of the following:
+      - Rook
+      - Knight
+      - Bishop
+      - Queen'
+    display_interface(promotion_message)
+    input = validate_input(user_input, promotion_pieces, promotion_message)
+  end
+
   def end_in_draw
     display_interface(end_message('draw'))
     exit
