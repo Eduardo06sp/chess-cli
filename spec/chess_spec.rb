@@ -841,5 +841,14 @@ describe Chess do
       allow(player_one).to receive(:color).and_return('white')
       allow(player_two).to receive(:color).and_return('black')
     end
+
+    it 'promotes white b7 Pawn to Queen' do
+      new_game.game_board.add_piece(Pawn.new('white'), 'b7')
+
+      new_game.promote_pawn('queen', 'b7', 'b8')
+      b8_space = new_game.game_board.board['b8'].value
+
+      expect(b8_space.type).to eq('Queen')
+    end
   end
 end
