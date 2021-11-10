@@ -993,7 +993,7 @@ class Chess
   end
 
   def promotion_prompt(origin, destination)
-    promotion_pieces = %w[Rook Knight Bishop Queen]
+    promotion_pieces = %w[rook knight bishop queen]
     promotion_message = 'You may promote your Pawn to one of the following:
       - Rook
       - Knight
@@ -1006,7 +1006,7 @@ class Chess
   end
 
   def promote_pawn(input, origin, destination)
-    new_piece = Object.const_get(input)
+    new_piece = Object.const_get(input.capitalize)
 
     new_piece = if new_piece == Queen
                   new_piece.new(turn.color)
