@@ -835,4 +835,11 @@ describe Chess do
       expect(b4_space).to eq(' ')
     end
   end
+
+  describe '#promote_pawn' do
+    before do
+      allow(player_one).to receive(:color).and_return('white')
+      allow(player_two).to receive(:color).and_return('black')
+    end
+  end
 end
