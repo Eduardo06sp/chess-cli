@@ -1003,6 +1003,16 @@ class Chess
     input = validate_input(user_input, promotion_pieces, promotion_message)
   end
 
+  def promote_pawn(input)
+    new_piece = Object.const_get(input)
+
+    new_piece = if new_piece == Queen
+                  new_piece.new(turn.color)
+                else
+                  new_piece.new(turn.color, 0)
+                end
+  end
+
   def end_in_draw
     display_interface(end_message('draw'))
     exit
