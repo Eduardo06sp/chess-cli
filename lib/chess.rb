@@ -1001,9 +1001,11 @@ class Chess
       - Queen'
     display_interface(promotion_message)
     input = validate_input(user_input, promotion_pieces, promotion_message)
+
+    promote_pawn(input, origin, destination)
   end
 
-  def promote_pawn(input)
+  def promote_pawn(input, origin, destination)
     new_piece = Object.const_get(input)
 
     new_piece = if new_piece == Queen
@@ -1011,6 +1013,9 @@ class Chess
                 else
                   new_piece.new(turn.color, 0)
                 end
+
+    game_board.clear_space(origin)
+    game_board.add_piece(new_piece, destination)
   end
 
   def end_in_draw
