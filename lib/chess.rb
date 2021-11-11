@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'yaml'
+
 require_relative 'terminal_interface'
 require_relative 'game_board'
 require_relative 'pieces/rook'
