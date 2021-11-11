@@ -161,12 +161,14 @@ class Chess
   def initial_round_prompt
     resignation_words = %w[resign quit exit]
     hint = 'Please select a gamepiece.
+          You may save at any moment by typing: save.
           You may resign by typing: resign, exit or quit.'
     display_interface(hint)
     user_input = gets.chomp
 
     end_in_draw if draw?
     resign_game if resignation_words.include?(user_input)
+    save_game if user_input == 'save'
 
     user_input
   end
