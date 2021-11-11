@@ -43,3 +43,6 @@ class Main
     end
   end
 end
+
+new_game = Main.new
+new_game.introduction
