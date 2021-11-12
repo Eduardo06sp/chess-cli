@@ -24,6 +24,61 @@ class Chess
     @turn = first_turn
   end
 
+  def save_game
+    save = YAML.dump(self)
+    Dir.mkdir('saves') unless File.exist?('saves')
+    # THIS WILL MAKE DUPLICATE SAVES FOLDER
+    # depending on where you run: ruby lib/main.rb
+    #
+    # figure out how to make directory RELATIVE TO chess.rb file
+    # we want saves file in the same folder as chess.rb!!!
+    current_saves = Dir.children('saves').sort
+    current_save_number = if current_saves.count < 5
+                            current_saves.count + 1
+                          else
+                            1
+                          end
+
+    if current_saves.count == 5
+      overwrite_hint = 'Please select the save file number you would like to overwrite.'
+      puts overwrite_hint
+      puts current_saves
+      overwrite_number = gets.chomp
+      overwrite_number = validate_input(overwrite_number, %w[1 2 3 4 5], overwrite_hint)
+
+      puts 'Enter the name for your new save.'
+      overwrite_name = gets.chomp
+      puts 'Saving...'
+      File.open("saves/#{current_saves[overwrite_number.to_i - 1]}", 'w') do |file|
+        file.write(save)
+      end
+      File.rename("saves/#{current_saves[overwrite_number.to_i - 1]}", "saves/#{overwrite_number}. #{overwrite_name}")
+      puts 'Successfully saved.'
+    else
+      puts 'Enter the name for your new save. Or type "overwrite" to select a slot to overwrite.'
+      save_choice = gets.chomp
+
+      if save_choice == 'overwrite'
+        overwrite_hint = 'Please select the save file number you would like to overwrite.'
+        puts overwrite_hint
+        overwrite_number = gets.chomp
+        overwrite_number = validate_input(overwrite_number, %w[1 2 3 4 5], overwrite_hint)
+
+        puts 'Saving...'
+        File.open(current_save[overwrite_number.to_i], 'w') do |file|
+          file.write(save)
+        end
+        puts 'Successfully saved.'
+      else
+        puts 'Saving...'
+        File.open("saves/#{current_save_number}. #{save_choice}.txt", 'w') do |file|
+          file.write(save)
+        end
+        puts 'Successfully saved.'
+      end
+    end
+  end
+
   def first_turn
     return player_one if player_one.color == 'white'
 
