@@ -41,6 +41,23 @@ class Main
     end
   end
 
+  def create_player(order, color = 'white')
+    number = order == 'one' ? '1' : '2'
+
+    puts "Please enter a name for player #{order}, or press enter to use the default."
+    input = gets.chomp
+    player_name = input == '' ? "Player #{number}" : input
+
+    if order == 'one'
+      puts 'Please enter a color for player one, or press enter to use the default (white).'
+      input = gets.chomp
+      input = validate_input(input, ['', 'white', 'black'], 'Please enter a color or press enter without typing.')
+      color = input == '' ? color : input
+    end
+
+    Player.new(player_name, color)
+  end
+
   def load_prompt
     if !Dir.exist?('saves') || Dir.empty?('saves')
       puts 'No saves present!'
