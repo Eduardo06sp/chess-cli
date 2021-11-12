@@ -41,11 +41,11 @@ class Main
       new_game.add_initial_pieces
       new_game.play
     else
-      load_game
+      load_prompt
     end
   end
 
-  def load_game
+  def load_prompt
     if !Dir.exist?('saves') || Dir.empty?('saves')
       puts 'No saves present!'
     else
