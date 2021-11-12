@@ -40,35 +40,13 @@ class Chess
                           end
 
     if current_saves.count == 5
-      overwrite_hint = 'Please select the save file number you would like to overwrite.'
-      puts overwrite_hint
-      puts current_saves
-      overwrite_number = gets.chomp
-      overwrite_number = validate_input(overwrite_number, %w[1 2 3 4 5], overwrite_hint)
-
-      puts 'Enter the name for your new save.'
-      overwrite_name = gets.chomp
-      puts 'Saving...'
-      File.open("saves/#{current_saves[overwrite_number.to_i - 1]}", 'w') do |file|
-        file.write(save)
-      end
-      File.rename("saves/#{current_saves[overwrite_number.to_i - 1]}", "saves/#{overwrite_number}. #{overwrite_name}")
-      puts 'Successfully saved.'
+      save_overwrite(current_saves, save)
     else
       puts 'Enter the name for your new save. Or type "overwrite" to select a slot to overwrite.'
       save_choice = gets.chomp
 
       if save_choice == 'overwrite'
-        overwrite_hint = 'Please select the save file number you would like to overwrite.'
-        puts overwrite_hint
-        overwrite_number = gets.chomp
-        overwrite_number = validate_input(overwrite_number, %w[1 2 3 4 5], overwrite_hint)
-
-        puts 'Saving...'
-        File.open(current_save[overwrite_number.to_i], 'w') do |file|
-          file.write(save)
-        end
-        puts 'Successfully saved.'
+        save_overwrite(current_saves, save)
       else
         puts 'Saving...'
         File.open("saves/#{current_save_number}. #{save_choice}.txt", 'w') do |file|
@@ -77,6 +55,24 @@ class Chess
         puts 'Successfully saved.'
       end
     end
+  end
+
+  def save_overwrite(current_saves, save)
+    overwrite_hint = 'Please select the save file number you would like to overwrite.'
+    puts overwrite_hint
+    puts current_saves
+    overwrite_number = gets.chomp
+    overwrite_number = validate_input(overwrite_number, %w[1 2 3 4 5], overwrite_hint)
+
+    puts 'Enter the name for your new save.'
+    overwrite_name = gets.chomp
+
+    puts 'Saving...'
+    File.open("saves/#{current_saves[overwrite_number.to_i - 1]}", 'w') do |file|
+      file.write(save)
+    end
+    File.rename("saves/#{current_saves[overwrite_number.to_i - 1]}", "saves/#{overwrite_number}. #{overwrite_name}")
+    puts 'Successfully saved.'
   end
 
   def first_turn
