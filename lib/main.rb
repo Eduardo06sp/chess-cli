@@ -56,12 +56,16 @@ class Main
       load_selection = gets.chomp
       load_selection = validate_input(load_selection.to_i, (1..saves.count).to_a, load_prompt)
 
-      puts 'Loading...'
-      save = File.open("saves/#{saves[load_selection.to_i - 1]}", 'r') do |file|
-        YAML.load(file)
-      end
-      save.play
+      load_game(saves, load_selection)
     end
+  end
+
+  def load_game(saves, selection)
+    puts 'Loading...'
+    save = File.open("saves/#{saves[selection.to_i - 1]}", 'r') do |file|
+      YAML.load(file)
+    end
+    save.play
   end
 
   def validate_input(input, valid_entries, hint)
