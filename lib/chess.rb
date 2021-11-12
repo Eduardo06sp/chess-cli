@@ -94,6 +94,9 @@ class Chess
   def play_round
     refresh_legal_moves
     user_input = initial_round_prompt
+    while user_input == 'save'
+      user_input = initial_round_prompt
+    end
 
     selected_piece_location = request_piece_selection(user_input)
     piece = game_board.board[selected_piece_location].value
