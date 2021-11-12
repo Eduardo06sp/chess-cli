@@ -9,11 +9,7 @@ class Main
     puts 'Please type in "load" or "new" to load or begin a new game, respectively.'
 
     input = gets.chomp
-
-    until %w[load new].include?(input)
-      puts 'Invalid input!'
-      input = gets.chomp
-    end
+    input = validate_input(input, %w[load new], 'Please type "load" or "new".')
 
     if input == 'new'
       puts 'Please enter a name for player one, or press enter to use the default.'
