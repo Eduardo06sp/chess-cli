@@ -54,11 +54,7 @@ class Main
       puts load_prompt
       puts saves
       load_selection = gets.chomp
-
-      unless (1..saves.count).to_a.include?(load_selection.to_i)
-        puts load_prompt
-        load_selection = gets.chomp
-      end
+      load_selection = validate_input(load_selection.to_i, (1..saves.count).to_a, load_prompt)
 
       puts 'Loading...'
       save = File.open("saves/#{saves[load_selection.to_i - 1]}", 'r') do |file|
