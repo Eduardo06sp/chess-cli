@@ -67,6 +67,15 @@ class Main
       save.play
     end
   end
+
+  def validate_input(input, valid_entries, hint)
+    until valid_entries.include?(input)
+      display_interface("Invalid input! #{hint}")
+      input = gets.chomp
+    end
+
+    input
+  end
 end
 
 new_game = Main.new
