@@ -12,15 +12,20 @@ class Main
     input = validate_input(input, %w[load new], 'Please type "load" or "new".')
 
     if input == 'new'
-      p1 = create_player('one')
-      p2_color = p1.color == 'white' ? 'black' : 'white'
-      p2 = create_player('two', p2_color)
-      new_game = Chess.new(p1, p2)
-      new_game.add_initial_pieces
-      new_game.play
+      create_new_game
     else
       load_prompt
     end
+  end
+
+  def create_new_game
+    p1 = create_player('one')
+    p2_color = p1.color == 'white' ? 'black' : 'white'
+    p2 = create_player('two', p2_color)
+
+    new_game = Chess.new(p1, p2)
+    new_game.add_initial_pieces
+    new_game.play
   end
 
   def create_player(order, color = 'white')
