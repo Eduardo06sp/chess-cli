@@ -66,7 +66,7 @@ class Main
 
   def validate_input(input, valid_entries, hint)
     until valid_entries.include?(input)
-      display_interface("Invalid input! #{hint}")
+      puts "Invalid input! #{hint}"
       input = gets.chomp
     end
 
