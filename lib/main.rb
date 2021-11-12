@@ -40,6 +40,8 @@ class Main
       new_game = Chess.new(p1, p2)
       new_game.add_initial_pieces
       new_game.play
+    else
+      load_game
     end
   end
 
