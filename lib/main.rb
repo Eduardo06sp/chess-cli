@@ -42,6 +42,29 @@ class Main
       new_game.play
     end
   end
+
+  def load_game
+    if !Dir.exist?('saves') || Dir.empty?('saves')
+      puts 'No saves present!'
+    else
+      saves = Dir.children('saves').sort
+      load_prompt = 'Please enter a slot number to load.'
+      puts load_prompt
+      puts saves
+      load_selection = gets.chomp
+
+      unless (1..saves.count).to_a.include?(load_selection.to_i)
+        puts load_prompt
+        load_selection = gets.chomp
+      end
+
+      puts 'Loading...'
+      save = File.open("saves/#{saves[load_selection.to_i - 1]}", 'r') do |file|
+        YAML.load(file)
+      end
+      save.play
+    end
+  end
 end
 
 new_game = Main.new
