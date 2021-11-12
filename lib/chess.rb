@@ -186,7 +186,9 @@ class Chess
   end
 
   def request_destination(piece)
-    hint = 'Please make a move.'
+    hint = 'Please make a move.
+
+            '
     display_interface(hint)
     input = gets.chomp
     available_moves = available_moves(piece)
