@@ -182,7 +182,7 @@ class Chess
     next_move = check_promotion(piece, origin, destination)
     return next_move unless next_move.nil?
 
-    game_board.move_piece(piece, origin, destination)
+    -> { game_board.move_piece(piece, origin, destination) }
   end
 
   def check_queenside_castling(piece, destination)
