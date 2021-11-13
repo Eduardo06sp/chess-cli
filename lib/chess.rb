@@ -173,16 +173,10 @@ class Chess
     next_move = check_queenside_castling(piece, destination)
     return next_move unless next_move.nil?
 
-    if piece.type == 'King' &&
-          kingside_castling_possible? &&
-          %w[g1 g8].include?(destination)
-      kingside_castle
-    elsif piece.type == 'Rook' &&
-          piece.id == 2 &&
-          kingside_castling_possible? &&
-          %w[f1 f8].include?(destination)
-      kingside_castle
-    elsif piece.type == 'Pawn' &&
+    next_move = check_kingside_castling(piece, destination)
+    return next_move unless next_move.nil?
+
+    if piece.type == 'Pawn' &&
           piece.en_passant_move.any?
       if destination == piece.en_passant_move[0]
         en_passant(piece, origin, destination)
@@ -213,6 +207,19 @@ class Chess
           queenside_castling_possible? &&
           %w[c1 c8].include?(destination)
       -> { queenside_castle }
+    end
+  end
+
+  def check_kingside_castling(piece, destination)
+    if piece.type == 'King' &&
+       kingside_castling_possible? &&
+       %w[g1 g8].include?(destination)
+      -> { kingside_castle }
+    elsif piece.type == 'Rook' &&
+          piece.id == 2 &&
+          kingside_castling_possible? &&
+          %w[f1 f8].include?(destination)
+      -> { kingside_castle }
     end
   end
 
