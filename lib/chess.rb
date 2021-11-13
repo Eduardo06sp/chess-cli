@@ -40,13 +40,13 @@ class Chess
                   end
 
     if current_saves.count == 5
-      save_overwrite(current_saves, save)
+      overwrite_prompt(current_saves, save)
     else
       puts 'Enter the name for your new save. Or type "overwrite" to select a slot to overwrite.'
       save_choice = gets.chomp
 
       if save_choice == 'overwrite'
-        save_overwrite(current_saves, save)
+        overwrite_prompt(current_saves, save)
       else
         save_game(save_number, save_choice, save)
       end
@@ -61,7 +61,7 @@ class Chess
     puts 'Successfully saved.'
   end
 
-  def save_overwrite(current_saves, save)
+  def overwrite_prompt(current_saves, save)
     overwrite_hint = 'Please select the save file number you would like to overwrite.'
     puts overwrite_hint
     puts current_saves
