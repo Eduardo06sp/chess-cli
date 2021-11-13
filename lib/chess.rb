@@ -24,7 +24,7 @@ class Chess
     @turn = first_turn
   end
 
-  def save_game
+  def save_prompt
     save = YAML.dump(self)
     Dir.mkdir('saves') unless File.exist?('saves')
     # THIS WILL MAKE DUPLICATE SAVES FOLDER
@@ -222,7 +222,7 @@ class Chess
 
     end_in_draw if draw?
     resign_game if resignation_words.include?(user_input)
-    save_game if user_input == 'save'
+    save_prompt if user_input == 'save'
 
     user_input
   end
