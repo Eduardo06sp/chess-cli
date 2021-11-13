@@ -71,11 +71,15 @@ class Chess
     puts 'Enter the name for your new save.'
     overwrite_name = gets.chomp
 
+    save_overwrite(current_saves, overwrite_number, overwrite_name, save)
+  end
+
+  def save_overwrite(current_saves, number, name, save)
     puts 'Saving...'
-    File.open("saves/#{current_saves[overwrite_number.to_i - 1]}", 'w') do |file|
+    File.open("saves/#{current_saves[number.to_i - 1]}", 'w') do |file|
       file.write(save)
     end
-    File.rename("saves/#{current_saves[overwrite_number.to_i - 1]}", "saves/#{overwrite_number}. #{overwrite_name}")
+    File.rename("saves/#{current_saves[number.to_i - 1]}", "saves/#{number}. #{name}")
     puts 'Successfully saved.'
   end
 
