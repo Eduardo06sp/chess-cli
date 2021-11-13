@@ -48,13 +48,17 @@ class Chess
       if save_choice == 'overwrite'
         save_overwrite(current_saves, save)
       else
-        puts 'Saving...'
-        File.open("saves/#{save_number}. #{save_choice}.txt", 'w') do |file|
-          file.write(save)
-        end
-        puts 'Successfully saved.'
+        save_game(save_number, save_choice, save)
       end
     end
+  end
+
+  def save_game(number, name, save)
+    puts 'Saving...'
+    File.open("saves/#{number}. #{name}.txt", 'w') do |file|
+      file.write(save)
+    end
+    puts 'Successfully saved.'
   end
 
   def save_overwrite(current_saves, save)
