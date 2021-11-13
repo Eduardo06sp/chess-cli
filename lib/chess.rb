@@ -168,6 +168,8 @@ class Chess
   end
 
   def complete_move(piece, origin, destination)
+    next_move = nil
+
     if piece.type == 'King' &&
        queenside_castling_possible? &&
        %w[b1 b8].include?(destination)
