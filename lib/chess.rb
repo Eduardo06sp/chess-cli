@@ -168,8 +168,6 @@ class Chess
   end
 
   def complete_move(piece, origin, destination)
-    next_move = nil
-
     next_move = check_queenside_castling(piece, destination)
     return next_move unless next_move.nil?
 
