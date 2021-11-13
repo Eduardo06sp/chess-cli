@@ -176,7 +176,7 @@ class Chess
     next_move = check_kingside_castling(piece, destination)
     return next_move unless next_move.nil?
 
-    update_en_passant(piece, origin, destination)
+    next_move = update_en_passant(piece, origin, destination)
     return next_move unless next_move.nil?
 
     if piece.type == 'Pawn' &&
