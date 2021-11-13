@@ -170,16 +170,10 @@ class Chess
   def complete_move(piece, origin, destination)
     next_move = nil
 
+    next_move = check_queenside_castling(piece, destination)
+    return next_move unless next_move.nil?
+
     if piece.type == 'King' &&
-       queenside_castling_possible? &&
-       %w[b1 b8].include?(destination)
-      queenside_castle
-    elsif piece.type == 'Rook' &&
-          piece.id == 1 &&
-          queenside_castling_possible? &&
-          %w[c1 c8].include?(destination)
-      queenside_castle
-    elsif piece.type == 'King' &&
           kingside_castling_possible? &&
           %w[g1 g8].include?(destination)
       kingside_castle
@@ -206,6 +200,19 @@ class Chess
       promotion_prompt(origin, destination)
     else
       game_board.move_piece(piece, origin, destination)
+    end
+  end
+
+  def check_queenside_castling(piece, destination)
+    if piece.type == 'King' &&
+       queenside_castling_possible? &&
+       %w[b1 b8].include?(destination)
+      -> { queenside_castle }
+    elsif piece.type == 'Rook' &&
+          piece.id == 1 &&
+          queenside_castling_possible? &&
+          %w[c1 c8].include?(destination)
+      -> { queenside_castle }
     end
   end
 
