@@ -27,11 +27,6 @@ class Chess
   def save_prompt
     save = YAML.dump(self)
     Dir.mkdir('saves') unless File.exist?('saves')
-    # THIS WILL MAKE DUPLICATE SAVES FOLDER
-    # depending on where you run: ruby lib/main.rb
-    #
-    # figure out how to make directory RELATIVE TO chess.rb file
-    # we want saves file in the same folder as chess.rb!!!
     current_saves = Dir.children('saves').sort
     save_number = if current_saves.count < 5
                     current_saves.count + 1
