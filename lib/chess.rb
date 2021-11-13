@@ -179,12 +179,10 @@ class Chess
     next_move = update_en_passant(piece, origin, destination)
     return next_move unless next_move.nil?
 
-    if piece.type == 'Pawn' &&
-          final_rank?(destination)
-      promotion_prompt(origin, destination)
-    else
-      game_board.move_piece(piece, origin, destination)
-    end
+    next_move = check_promotion(piece, origin, destination)
+    return next_move unless next_move.nil?
+
+    game_board.move_piece(piece, origin, destination)
   end
 
   def check_queenside_castling(piece, destination)
@@ -228,6 +226,13 @@ class Chess
           pawn_hop_used?(piece, origin, destination)
       add_en_passant(destination)
       -> { game_board.move_piece(piece, origin, destination) }
+    end
+  end
+
+  def check_promotion(piece, origin, destination)
+    if piece.type == 'Pawn' &&
+       final_rank?(destination)
+      -> { promotion_prompt(origin, destination) }
     end
   end
 
