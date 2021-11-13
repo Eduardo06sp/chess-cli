@@ -156,7 +156,7 @@ class Chess
     piece = game_board.board[selected_piece_location].value
     destination = request_destination(selected_piece_location)
 
-    complete_move(piece, selected_piece_location, destination)
+    complete_move(piece, selected_piece_location, destination).call
 
     piece.moves += 1 if piece.type == 'Pawn'
     piece.moved = true if piece.type == 'Pawn' ||
