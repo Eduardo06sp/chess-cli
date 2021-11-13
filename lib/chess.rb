@@ -33,11 +33,11 @@ class Chess
     # figure out how to make directory RELATIVE TO chess.rb file
     # we want saves file in the same folder as chess.rb!!!
     current_saves = Dir.children('saves').sort
-    current_save_number = if current_saves.count < 5
-                            current_saves.count + 1
-                          else
-                            1
-                          end
+    save_number = if current_saves.count < 5
+                    current_saves.count + 1
+                  else
+                    1
+                  end
 
     if current_saves.count == 5
       save_overwrite(current_saves, save)
@@ -49,7 +49,7 @@ class Chess
         save_overwrite(current_saves, save)
       else
         puts 'Saving...'
-        File.open("saves/#{current_save_number}. #{save_choice}.txt", 'w') do |file|
+        File.open("saves/#{save_number}. #{save_choice}.txt", 'w') do |file|
           file.write(save)
         end
         puts 'Successfully saved.'
