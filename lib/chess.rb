@@ -176,20 +176,10 @@ class Chess
     next_move = check_kingside_castling(piece, destination)
     return next_move unless next_move.nil?
 
-    if piece.type == 'Pawn' &&
-          piece.en_passant_move.any?
-      if destination == piece.en_passant_move[0]
-        en_passant(piece, origin, destination)
-      else
-        game_board.move_piece(piece, origin, destination)
-      end
+    update_en_passant(piece, origin, destination)
+    return next_move unless next_move.nil?
 
-      piece.en_passant_move = []
-    elsif piece.type == 'Pawn' &&
-          pawn_hop_used?(piece, origin, destination)
-      add_en_passant(destination)
-      game_board.move_piece(piece, origin, destination)
-    elsif piece.type == 'Pawn' &&
+    if piece.type == 'Pawn' &&
           final_rank?(destination)
       promotion_prompt(origin, destination)
     else
@@ -220,6 +210,24 @@ class Chess
           kingside_castling_possible? &&
           %w[f1 f8].include?(destination)
       -> { kingside_castle }
+    end
+  end
+
+  def update_en_passant(piece, origin, destination)
+    if piece.type == 'Pawn' &&
+       piece.en_passant_move.any?
+      next_move = if destination == piece.en_passant_move[0]
+                    -> { en_passant(piece, origin, destination) }
+                  else
+                    -> { game_board.move_piece(piece, origin, destination) }
+                  end
+
+      piece.en_passant_move = []
+      next_move
+    elsif piece.type == 'Pawn' &&
+          pawn_hop_used?(piece, origin, destination)
+      add_en_passant(destination)
+      -> { game_board.move_piece(piece, origin, destination) }
     end
   end
 
