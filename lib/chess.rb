@@ -66,7 +66,11 @@ class Chess
     puts overwrite_hint
     puts current_saves
     overwrite_number = gets.chomp
-    overwrite_number = validate_input(overwrite_number, current_saves.count.to_s, overwrite_hint)
+
+    until current_saves.count.to_s.include?(overwrite_number)
+      puts overwrite_hint
+      overwrite_number = gets.chomp
+    end
 
     puts 'Enter the name for your new save.'
     overwrite_name = gets.chomp
