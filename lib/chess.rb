@@ -67,7 +67,7 @@ class Chess
     puts current_saves
     overwrite_number = gets.chomp
 
-    until current_saves.count.to_s.include?(overwrite_number)
+    until ('1'..current_saves.count.to_s).to_a.include?(overwrite_number)
       puts overwrite_hint
       overwrite_number = gets.chomp
     end
