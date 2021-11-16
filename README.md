@@ -62,7 +62,7 @@ ruby lib/main.rb
 
 Type `new` to start a new game.
 Enter a name for player one, or simply press enter (without any input) to use the default (Player 1).
-Enter a color (`black` or `white`) or press just press enter to use "white".
+Enter a color (`black` or `white`) or just press enter to use "white".
 Enter a name for player two, or press enter to use the default (Player 2).
 
 ### Running RSpec tests
