@@ -41,7 +41,12 @@ class Chess
       save_choice = gets.chomp
 
       if save_choice == 'overwrite'
-        overwrite_prompt(current_saves, save)
+        if current_saves.empty?
+          puts 'No saves present!'
+          save_prompt
+        else
+          overwrite_prompt(current_saves, save)
+        end
       else
         save_game(save_number, save_choice, save)
       end
