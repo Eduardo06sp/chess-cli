@@ -53,6 +53,18 @@ They are as follows:
 Chess is a complex game with a special set of rules.
 [Here is an excellent guide to learn more about how to play Chess.](https://www.chess.com/learn-how-to-play-chess) Please note that the article mentions user-initiated draws (draw by agreement, 3-fold repitition & 50-move rule), features which are not implemented in this version of Chess.
 
+### Starting a new game
+Ensure you are inside the `chess-cli` folder.
+Then run `main.rb`.
+```console
+ruby lib/main.rb
+```
+
+Type `new` to start a new game.
+Enter a name for player one, or simply press enter (without any input) to use the default (Player 1).
+Enter a color (`black` or `white`) or press just press enter to use "white".
+Enter a name for player two, or press enter to use the default (Player 2).
+
 ### Running RSpec tests
 > Prerequisites:
 >
