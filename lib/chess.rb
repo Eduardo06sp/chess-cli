@@ -145,6 +145,7 @@ class Chess
       play_round
       refresh_legal_moves
     end
+
     display_interface(end_message('checkmate'))
   end
 
