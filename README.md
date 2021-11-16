@@ -52,3 +52,15 @@ They are as follows:
 ## Usage
 Chess is a complex game with a special set of rules.
 [Here is an excellent guide to learn more about how to play Chess.](https://www.chess.com/learn-how-to-play-chess) Please note that the article mentions user-initiated draws (draw by agreement, 3-fold repitition & 50-move rule), features which are not implemented in this version of Chess.
+
+### Running RSpec tests
+> Prerequisites:
+>
+> * Ruby >= 2.7.2 (may work on older versions)
+> * RSpec >= 3.10 (may work on older versions)
+
+From within `chess-cli` folder, run:
+```console
+rspec spec/game_board_spec.rb
+rspec spec/chess_spec.rb
+```
