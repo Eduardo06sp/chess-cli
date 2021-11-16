@@ -54,7 +54,7 @@ class Main
       puts load_prompt
       puts saves
       load_selection = gets.chomp
-      load_selection = validate_input(load_selection.to_i, (1..saves.count).to_a, load_prompt)
+      load_selection = validate_input(load_selection, ('1'..saves.count.to_s).to_a, load_prompt)
 
       load_game(saves, load_selection)
     end
