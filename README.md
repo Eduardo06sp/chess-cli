@@ -65,6 +65,20 @@ Enter a name for player one, or simply press enter (without any input) to use th
 Enter a color (`black` or `white`) or just press enter to use "white".
 Enter a name for player two, or press enter to use the default (Player 2).
 
+### Selecting & moving pieces
+Ranks (rows 1-8) and files (columns A-H) are used to specify locations on the board.
+To move a2 Pawn to a3, select the a2 Pawn upon being prompted:
+```console
+a2
+```
+
+Then, you will be asked to make a move:
+```console
+a3
+```
+
+Then it is the other player's turn. You will continue until someone wins or a draw occurs.
+
 ### Running RSpec tests
 > Prerequisites:
 >
