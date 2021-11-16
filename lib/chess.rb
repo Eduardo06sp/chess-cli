@@ -141,7 +141,10 @@ class Chess
   end
 
   def play
-    play_round until game_over?
+    until game_over?
+      play_round
+      refresh_legal_moves
+    end
     display_interface(end_message('checkmate'))
   end
 
@@ -162,8 +165,6 @@ class Chess
     piece.moved = true if piece.type == 'Pawn' ||
                           piece.type == 'Rook' ||
                           piece.type == 'King'
-
-    clear_legal_moves
     change_turn
   end
 
