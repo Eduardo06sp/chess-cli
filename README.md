@@ -48,3 +48,7 @@ They are as follows:
 * Automatic draws
   * 5-fold repitition
   * 75-move rule
+
+## Usage
+Chess is a complex game with a special set of rules.
+[Here is an excellent guide to learn more about how to play Chess.](https://www.chess.com/learn-how-to-play-chess) Please note that the article mentions user-initiated draws (draw by agreement, 3-fold repitition & 50-move rule), features which are not implemented in this version of Chess.
