@@ -93,6 +93,7 @@ Enter a name.
 You will get a confirmation once it successfully saves the game.
 
 You may continue to play afterwards.
+
 #### Loading
 You may load a game when first launching the game.
 In the initial game prompt, type:
