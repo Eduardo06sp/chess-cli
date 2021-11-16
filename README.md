@@ -132,3 +132,13 @@ From within `chess-cli` folder, run:
 rspec spec/game_board_spec.rb
 rspec spec/chess_spec.rb
 ```
+
+### Resigning / Exiting
+> If you are stuck for any reason, press `Ctrl + C` (depending on your system) to force close the app.
+
+You may resign/exit in-game by typing any of the following during the inital round prompt:
+```console
+resign
+exit
+quit
+```
