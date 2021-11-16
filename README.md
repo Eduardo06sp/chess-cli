@@ -107,6 +107,20 @@ To select the first save, simply type:
 1
 ```
 
+#### Overwriting
+You will have to overwrite your saves if you try to exceed 5 saves, or if you choose this option when saving.
+To overwrite, after selecting it or exceeding 5 saves, you will be prompted to select the save file number that will be overwritten.
+To overwite the first save, type:
+```console
+1
+```
+
+Then you will be prompted to enter a name.
+Enter a name.
+You will see a message once the game succesfully saves.
+
+You may continue to play.
+
 ### Running RSpec tests
 > Prerequisites:
 >
