@@ -79,6 +79,33 @@ a3
 
 Then it is the other player's turn. You will continue until someone wins or a draw occurs.
 
+### Saving/loading
+#### Saving
+To save the current state of the board, it must take place at the initial round prompt.
+There is a message indicating that you may save the game.
+To save:
+```console
+save
+```
+
+You will be prompted to enter a name or overwrite an existing save.
+Enter a name.
+You will get a confirmation once it successfully saves the game.
+
+You may continue to play afterwards.
+#### Loading
+You may load a game when first launching the game.
+In the initial game prompt, type:
+```console
+load
+```
+
+You will be prompted to select a slot number (1-5).
+To select the first save, simply type:
+```console
+1
+```
+
 ### Running RSpec tests
 > Prerequisites:
 >
