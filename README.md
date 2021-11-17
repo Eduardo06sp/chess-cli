@@ -4,7 +4,7 @@ A 2-player version of Chess played in the terminal and integrating special rules
 ## General Information
 Chess is a 2-player game in which two players take turns moving pieces. Each piece may move in a unique manner, and the objective is to place the opponent's King into checkmate (i.e. trap them in a spot so they have nowhere to move).
 
-This project was a massive undertaking as there are so many different components to the game. The goal was to keep methods and classes as modular as I could and take into account various edge-cases. Testing with RSpec was of vital importance, and minimizing bloated code was key to hunting down errors in the game.
+This project was a significant undertaking as there are so many different components to the game. The goal was to keep methods and classes as modular as I could and take into account various edge-cases. Testing with RSpec was of vital importance, and minimizing bloated code was key to hunting down errors in the game.
 
 To learn more about playing Chess, [click here for a guide.](https://www.chess.com/learn-how-to-play-chess)
 
