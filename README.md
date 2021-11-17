@@ -192,7 +192,7 @@ rspec spec/chess_spec.rb
 
 ## Acknowledgements
 * [The Odin Project](https://www.theodinproject.com/home), my favorite, highly-recommended resource for learning full-stack web development
-  * For providing this project idea ([see the instructions for this assignment here](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-programming/lessons/ruby-final-project)
+  * For providing this project idea ([see the instructions for this assignment here](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-programming/lessons/ruby-final-project))
   * For their kind, helpful Discord community
 * [TextKool](https://textkool.com/en), an ASCII text-art generator (plus more!)
   * Used to display draw & checkmate text art
