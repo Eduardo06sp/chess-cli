@@ -162,7 +162,7 @@ You will see a message once the game succesfully saves.
 You may continue to play.
 
 ### Resigning / Exiting
-> If you are stuck for any reason, press `Ctrl + C` (depending on your system) to force close the app. See [Reporting Issues/Feedback](#reporting-issues/feedback) to report it.
+> If you are stuck for any reason, press `Ctrl + C` (depending on your system) to force close the app. See [Reporting Issues/Feedback](#reporting-issues/feedback/contact) to report it.
 
 You may resign/exit in-game by typing any of the following during the inital round prompt:
 ```console
@@ -190,7 +190,7 @@ rspec spec/chess_spec.rb
 * [TextKool](https://textkool.com/en), an ASCII text-art generator (plus more!)
   * Used to display draw & checkmate text art
 
-## Reporting Issues/Feedback
+## Reporting Issues/Feedback/Contact
 Bug reports are greatly appreciated. You may create a new issue with a description of the problem, and the steps leading up to it.
 
 PRs are kindly appreciated. The project tries to adhere to Rubocop's default coding guidelines, but this is only a soft requirement.
