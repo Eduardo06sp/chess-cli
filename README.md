@@ -182,3 +182,10 @@ From within `chess-cli` folder, run:
 rspec spec/game_board_spec.rb
 rspec spec/chess_spec.rb
 ```
+
+## Reporting Issues/Feedback
+Bug reports are greatly appreciated. You may create a new issue with a description of the problem, and the steps leading up to it.
+
+PRs are kindly appreciated. The project tries to adhere to Rubocop's default coding guidelines, but this is only a soft requirement.
+
+You may also contact me at: eduardopelaez@pm.me
