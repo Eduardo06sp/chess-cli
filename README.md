@@ -79,6 +79,46 @@ a3
 
 Then it is the other player's turn. You will continue until someone wins or a draw occurs.
 
+### Special Rules
+In Chess, there are various special rules such as:
+* Pawn hop/double-move
+* Castling
+* En passant
+* Promotion
+
+For more information (and a simple explanation) of the special rules, refer to [the previously linked guide to Chess](https://www.chess.com/learn-how-to-play-chess#special-rules-chess).
+
+#### Pawn hop/double-move
+To Pawn hop (conditions permitting), simply type in the space located two spots away from the selected Pawn.
+
+E.g. Pawn hopping from a2 to a4:
+```console
+a2
+a4
+```
+
+#### Castling
+To castle (conditions permitting), you may either:
+1. Move the Rook to the space adjacent to the King
+2. Move the King two spaces towards the Rook
+
+The game will automatically move the Rook/King to their appropriate places.
+
+#### En passant
+To en passant (conditions permitting), simply type in the empty space the enemy Pawn hopped over.
+
+The game will automatically capture/remove the enemy Pawn.
+
+#### Promotion
+To promote a Pawn, you will be prompted to upgrade your Pawn once you reach the final rank.
+You may input any of the following, and your Pawn will be replaced with the selected piece type:
+* Rook
+* Knight
+* Bishop
+* Queen
+
+The game will replace the promoted Pawn with your selection.
+
 ### Saving/loading
 #### Saving
 To save the current state of the board, it must take place at the initial round prompt.
