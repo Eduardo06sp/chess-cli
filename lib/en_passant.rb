@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 
+# EnPassant contains methods necessary to check and execute en passant
+#
+# #update_en_passant returns a lambda containing a method call representing the next move in game
+#   Said lambda is used in Chess#complete_move to determine what the next move will be
+#   It implictly returns nil if none of the conditions are satisfied
+#
+# #add_en_passant checks the adjacent spaces on the board for en passant
+# #check_en_passant adds the move itself if all conditions are met
+# #en_passant performs the move itself
 module EnPassant
   def update_en_passant(piece, origin, destination)
     if piece.type == 'Pawn' &&
