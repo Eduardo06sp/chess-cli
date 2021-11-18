@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+# GenerateMoves contains all logic required to produce all pieces' legal moves in the game
+#
+# #generate_protecting_moves ensures that a piece shielding King can capture the attacking piece if possible
+#
+# The two major methods #generate_single_moves and #generate_repeated_moves
+# do most of the move generation, with the latter
+# traversing the board until hitting an enemy piece or boundary
 module GenerateMoves
   def generate_legal_moves(piece_location)
     piece = game_board.board[piece_location].value
