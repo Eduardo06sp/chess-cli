@@ -47,8 +47,6 @@ module GenerateMoves
   end
 
   def generate_knight_moves(piece, x_values, old_x, old_y)
-    location = "#{x_values[old_x]}#{old_y}"
-
     piece.legal_moves = generate_single_moves(piece, x_values, old_x, old_y)
   end
 
