@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Draw contains logic to end game in draw in the presence of
+# insufficient material or a stalemate
 module Draw
   def draw?
     insufficient_material?
