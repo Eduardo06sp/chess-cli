@@ -1,5 +1,15 @@
 # frozen_string_literal: true
 
+# Castling contains all logic necessary to enable castling in the game
+#
+# Two methods check if castling is even possible (with the use of some helper methods),
+# and return a lambda
+#   The lambda is stored in Chess#complete_move as a variable (next_move)
+#   and then returned in Chess#complete_move
+#
+# #modify_king_castling is used to give the King an extra move that allows castling
+#
+# Then two other methods manipulate the board to perform the castling moves
 module Castling
   def check_queenside_castling(piece, destination)
     if piece.type == 'King' &&
