@@ -17,25 +17,25 @@ module Save
       puts 'Enter the name for your new save. Or type "overwrite" to select a slot to overwrite.'
       save_choice = gets.chomp
 
-      if save_choice == 'overwrite'
-        if current_saves.empty?
-          puts 'No saves present!'
-          save_prompt
-        else
-          overwrite_prompt(current_saves, save)
-        end
-      else
-        save_game(save_number, save_choice, save)
-      end
+      save_game(save_number, save_choice, current_saves, save)
     end
   end
 
-  def save_game(number, name, save)
-    puts 'Saving...'
-    File.open("saves/#{number}. #{name}.txt", 'w') do |file|
-      file.write(save)
+  def save_game(number, name, current_saves, save)
+    if name == 'overwrite'
+      if current_saves.empty?
+        puts 'No saves present!'
+        save_prompt
+      else
+        overwrite_prompt(current_saves, save)
+      end
+    else
+      puts 'Saving...'
+      File.open("saves/#{number}. #{name}.txt", 'w') do |file|
+        file.write(save)
+      end
+      puts 'Successfully saved.'
     end
-    puts 'Successfully saved.'
   end
 
   def overwrite_prompt(current_saves, save)
