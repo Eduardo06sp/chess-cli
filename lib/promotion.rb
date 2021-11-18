@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# Promotion contains logic necessary to check and add promotion to the game
+#
+# #check_promotion returns a value used in Chess#complete_move representing the next move
+#   it implicitly returns nil if the conditions are not satisfied
+#   otherwise it returns a lambda
 module Promotion
   def check_promotion(piece, origin, destination)
     if piece.type == 'Pawn' &&
