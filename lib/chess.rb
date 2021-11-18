@@ -13,12 +13,14 @@ require_relative 'pieces/pawn'
 
 require_relative 'save'
 require_relative 'castling'
+require_relative 'en_passant'
 require_relative 'special_moves'
 
 class Chess
   include TerminalInterface
   include Save
   include Castling
+  include EnPassant
   include SpecialMoves
 
   attr_accessor :turn
