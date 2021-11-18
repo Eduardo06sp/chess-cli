@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SpecialMoves
+module Promotion
   def check_promotion(piece, origin, destination)
     if piece.type == 'Pawn' &&
        final_rank?(destination)
