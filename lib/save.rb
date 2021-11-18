@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# This module handles saving, loading and overwriting.
+#
+# Saves are limited to 5 files, so #save_prompt checks if saves are full.
+# All saves are numbered, to make loading easier (the user just has to input the number).
 module Save
   def save_prompt
     save = YAML.dump(self)
