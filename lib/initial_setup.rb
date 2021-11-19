@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# InitialSetup contains methods required to initialize a game of Chess
 module InitialSetup
   def first_turn
     return player_one if player_one.color == 'white'
