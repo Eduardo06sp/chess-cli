@@ -6,6 +6,8 @@ Chess is a 2-player game in which two players take turns moving pieces. Each pie
 
 This project was a significant undertaking as there are so many different components to the game. The goal was to keep methods and classes as modular as I could and take into account various edge-cases. Testing with RSpec was of vital importance, and minimizing bloated code was key to hunting down errors in the game.
 
+Another significant challenge was using a git topic branch workflow. Creating branches when trying new features out helped me learn a lot about rebasing and merging branches. There were a lot of unique errors encountered in git, which helped me explore git features such as amending commits and solving merge conflicts with my built-in text editor (VIM).
+
 To learn more about playing Chess, [click here for a guide.](https://www.chess.com/learn-how-to-play-chess)
 
 ## Installing / Getting Started
