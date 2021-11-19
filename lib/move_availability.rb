@@ -1,5 +1,18 @@
 # frozen_string_literal: true
 
+# MoveAvailability contains most methods regarding moves
+#
+# #available_moves determines whether pieces should have all their moves
+# or be forced to uncheck King
+#   if the latter applies, it is presumed that the given piece was available for selection
+#
+# Attack paths are calculated to determine which direction(s) King is being attacked from
+#
+# #captures_under_attack determines which capturing moves would move King into check
+#
+# #potentially_under_attack checks every direction in which King is being attacked
+# then checks the opposite direction (relative to King location) to see
+# if the space would maintain King in the enemy's line of sight
 module MoveAvailability
   def available_moves(piece_location)
     piece = game_board.board[piece_location].value
