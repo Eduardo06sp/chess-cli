@@ -15,7 +15,7 @@ module MoveManipulation
   def out_of_boundaries?(coordinates)
     coordinates[0] > 7 ||
       coordinates[1] > 8 ||
-      coordinates[0] < 0 ||
+      coordinates[0].negative? ||
       coordinates[1] < 1
   end
 
