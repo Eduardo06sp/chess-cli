@@ -71,7 +71,6 @@ module PieceAvailability
     king = game_board.board[king_location].value
     opponent_color = king.color == 'white' ? 'black' : 'white'
     opponent_pieces = locate_player_pieces(opponent_color)
-    player_pieces = locate_player_pieces(king.color)
     protecting_pieces = {}
 
     opponent_pieces.each do |opponent_location|
