@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# PieceManipulation contains methods used for piece manipulation
+# excluding special moves
 module PieceManipulation
   def locate_piece(color, type, id = 0)
     game_board.board.each do |space, cell|
