@@ -14,10 +14,12 @@ require_relative 'pieces/pawn'
 require_relative 'save'
 require_relative 'initial_setup'
 require_relative 'generate_moves'
+
 require_relative 'move_availability'
 require_relative 'piece_availability'
 require_relative 'move_manipulation'
 require_relative 'piece_manipulation'
+
 require_relative 'castling'
 require_relative 'en_passant'
 require_relative 'promotion'
@@ -28,10 +30,12 @@ class Chess
   include Save
   include InitialSetup
   include GenerateMoves
+
   include MoveAvailability
   include PieceAvailability
   include MoveManipulation
   include PieceManipulation
+
   include Castling
   include EnPassant
   include Promotion
