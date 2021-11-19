@@ -83,7 +83,7 @@ module PieceAvailability
       }
     end
 
-    protecting_pieces.delete_if { |k, _v| k == nil }
+    protecting_pieces.delete_if { |k, _v| k.nil? }
   end
 
   def find_protecting_pieces(location)
