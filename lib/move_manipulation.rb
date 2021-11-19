@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# MoveManipulation contains methods regarding move calculation
 module MoveManipulation
   def traverse(origin, direction)
     coordinates = space_to_coordinate(origin)
