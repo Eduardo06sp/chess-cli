@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
+# PieceAvailability contains most methods used to calculate which pieces are available
+#
+# #available_pieces will return all pieces (sometimes not including King) that
+# will get King out of check (if applicable)
+#
+# otherwise, pieces with available moves except ones that are protecting King from check
+#
+# #check_blocking_pieces returns pieces that can block an attack path
+# and consequently, put King out of check
+#
+# #protecting_pieces_locations returns pieces that are currently shielding the King from attacking enemies
 module PieceAvailability
   def available_pieces(player_pieces)
     king_location = locate_piece(turn.color, 'King')
