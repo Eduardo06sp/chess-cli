@@ -25,6 +25,8 @@ require_relative 'en_passant'
 require_relative 'promotion'
 require_relative 'draw'
 
+# Chess contains the methods required to play rounds
+# and end the game (except for draws)
 class Chess
   include TerminalInterface
   include Save
