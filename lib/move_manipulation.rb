@@ -140,7 +140,6 @@ module MoveManipulation
 
   def under_attack?(coordinate)
     opponent_color = turn.color == 'white' ? 'black' : 'white'
-    update_legal_moves(opponent_color)
 
     game_board.board.each do |_space, cell|
       next if cell.value == ' '
