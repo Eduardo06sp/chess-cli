@@ -14,12 +14,12 @@ module Castling
   def check_queenside_castling(piece, destination)
     if piece.type == 'King' &&
        queenside_castling_possible? &&
-       %w[b1 b8].include?(destination)
+       %w[c1 c8].include?(destination)
       -> { queenside_castle }
     elsif piece.type == 'Rook' &&
           piece.id == 1 &&
           queenside_castling_possible? &&
-          %w[c1 c8].include?(destination)
+          %w[d1 d8].include?(destination)
       -> { queenside_castle }
     end
   end
