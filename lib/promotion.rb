@@ -39,4 +39,11 @@ module Promotion
     game_board.clear_space(origin)
     game_board.add_piece(new_piece, destination)
   end
+
+  def final_rank?(space)
+    current_rank = space[1]
+    last_rank = turn.color == 'white' ? '8' : '1'
+
+    current_rank == last_rank
+  end
 end
