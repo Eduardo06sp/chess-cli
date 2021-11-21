@@ -1,4 +1,6 @@
 # Chess (CLI)
+![A short demo showing the start of a new game, then moving white a2 Pawn to a4](media/new_game_demo.mp4)
+
 A 2-player version of Chess played in the terminal and integrating special rules (e.g. en passant and castling).
 
 ## General Information
