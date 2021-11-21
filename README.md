@@ -2,6 +2,7 @@
 ![A screenshot showing the start of a new game](media/new_game_screenshot.png "New Chess Game")
 
 A 2-player version of Chess played in the terminal and integrating special rules (e.g. en passant and castling).
+
 [Click here to play a live version on Replit (click the big play button and wait for the script to execute).](https://replit.com/@Eduardo06sp/Chess-CLI?v=1)
 
 ## Table of Contents
