@@ -3,6 +3,17 @@
 
 A 2-player version of Chess played in the terminal and integrating special rules (e.g. en passant and castling).
 
+## Table of Contents
+* [General Information](#general-information)
+* [Installing / Getting Started](#installing--getting-started)
+* [Features](#features)
+* [Usage](#usage)
+  * [Special Rules](#special-rules)
+  * [Saving / Loading](#savingloading)
+  * [Running Tests](#running-rspec-tests)
+* [Acknowledgements](#acknowledgements)
+* [Reporting Issues / Feedback / Contact](#reporting-issuesfeedbackcontact)
+
 ## General Information
 Chess is a 2-player game in which two players take turns moving pieces. Each piece may move in a unique manner, and the objective is to place the opponent's King into checkmate (i.e. trap them in a spot so they have nowhere to move).
 
