@@ -1,5 +1,6 @@
 # Chess (CLI)
 ![A screenshot showing the start of a new game](media/new_game_screenshot.png "New Chess Game")
+> **Note:** If running the app locally, it is highly recommended that you increase your font size (this must be set by the user). If running the live version, it is not possible to increase font size at the time of writing.
 
 A 2-player version of Chess played in the terminal and integrating special rules (e.g. en passant and castling).
 
