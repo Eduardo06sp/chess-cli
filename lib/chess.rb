@@ -91,6 +91,8 @@ class Chess
   end
 
   def initial_round_prompt
+    end_in_draw if draw?
+
     resignation_words = %w[resign quit exit]
     hint = 'Please select a gamepiece.
           You may save at any moment by typing: save.
@@ -98,7 +100,6 @@ class Chess
     display_interface(hint)
     user_input = gets.chomp
 
-    end_in_draw if draw?
     resign_game if resignation_words.include?(user_input)
     save_prompt if user_input == 'save'
 
