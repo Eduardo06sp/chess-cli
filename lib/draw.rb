@@ -4,8 +4,7 @@
 # insufficient material or a stalemate
 module Draw
   def draw?
-    insufficient_material?
-    stalemate?
+    insufficient_material? || stalemate?
   end
 
   def insufficient_material?
